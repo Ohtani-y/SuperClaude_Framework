@@ -1,21 +1,21 @@
-# SuperClaude Integration Patterns Collection
+# SuperClaude 統合パターンコレクション
 
-**Status**: ✅ **Status: Current** - Context patterns for framework integration and tool coordination.
+**ステータス**: ✅ **ステータス: 最新** - フレームワーク統合とツール調整のためのコンテキストパターン。
 
-**Context Integration Guide**: Patterns for using SuperClaude commands effectively with different frameworks and tools. Remember: SuperClaude provides context to Claude Code - all actual work is done by Claude.
+**コンテキスト統合ガイド**: 異なるフレームワークやツールでSuperClaudeコマンドを効果的に使用するためのパターン。注意：SuperClaudeはClaude Codeにコンテキストを提供 - 実際の作業はすべてClaudeが行います。
 
-## Overview and Usage Guide
+## 概要と使用ガイド
 
-**Purpose**: Effective patterns for using SuperClaude context with various development frameworks and tools.
+**目的**: 様々な開発フレームワークやツールでSuperClaudeコンテキストを使用するための効果的パターン。
 
-**What This Is**: Command combinations and flag patterns that work well for specific technologies
-**What This Isn't**: Performance optimization or parallel execution (no code runs)
+**これは何か**: 特定技術でうまく機能するコマンド組み合わせとフラグパターン
+**これは何でないか**: パフォーマンス最適化や並列実行（コードは実行されない）
 
-**Key Principle**: SuperClaude tells Claude Code WHAT to do and HOW to think about it. Claude Code does the actual work.
+**重要原則**: SuperClaudeはClaude Codeに何をすべきか、どう考えるべきかを伝える。Claude Codeが実際の作業を行う。
 
-## Framework Context Patterns
+## フレームワークコンテキストパターン
 
-### React Development Patterns
+### React開発パターン
 
 ```bash
 # React development with appropriate context
@@ -37,7 +37,7 @@
 # Claude will suggest React Testing Library patterns
 ```
 
-### Node.js Backend Patterns
+### Node.jsバックエンドパターン
 
 ```bash
 # Node.js backend development patterns
@@ -58,7 +58,7 @@
 # Claude suggests API testing approaches
 ```
 
-### Python Development Patterns
+### Python開発パターン
 
 ```bash
 # Python web development
@@ -80,7 +80,7 @@
 # Claude suggests pytest patterns
 ```
 
-### Full-Stack Development Patterns
+### フルスタック開発パターン
 
 ```bash
 # Full-stack application pattern
@@ -99,9 +99,9 @@
 /sc:implement "connect frontend to backend API"
 ```
 
-## Tool Coordination Patterns
+## ツール調整パターン
 
-### Using MCP Servers Effectively
+### MCPサーバーの効果的使用
 
 ```bash
 # Context7 for documentation
@@ -121,7 +121,7 @@
 # Uses only Claude's built-in knowledge
 ```
 
-### Agent and Command Combinations
+### エージェントとコマンドの組み合わせ
 
 ```bash
 # Security-focused development
@@ -140,9 +140,9 @@
 /sc:implement "service communication"
 ```
 
-## Common Integration Patterns
+## 一般的統合パターン
 
-### API Development Pattern
+### API開発パターン
 
 ```bash
 # Step 1: Design
@@ -158,7 +158,7 @@
 /sc:test --focus api
 ```
 
-### Database Integration Pattern
+### データベース統合パターン
 
 ```bash
 # Schema design
@@ -175,7 +175,7 @@
 # Note: Claude suggests optimizations, doesn't actually optimize
 ```
 
-### Testing Strategy Pattern
+### テスト戦略パターン
 
 ```bash
 # Test planning
@@ -192,9 +192,9 @@
 # Claude provides test code, not execution
 ```
 
-## Technology-Specific Patterns
+## 技術固有パターン
 
-### React + TypeScript Pattern
+### React + TypeScriptパターン
 
 ```bash
 # Project setup guidance
@@ -211,7 +211,7 @@
 /sc:test --focus react --type unit
 ```
 
-### Python FastAPI Pattern
+### Python FastAPIパターン
 
 ```bash
 # API structure

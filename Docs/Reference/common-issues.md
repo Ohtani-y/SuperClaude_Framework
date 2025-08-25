@@ -1,17 +1,17 @@
-# SuperClaude Common Issues - Quick Reference 🚀
+# SuperClaude よくある問題 - クイックリファレンス 🚀
 
-**Problem Solving Guide**: Most frequent issues with practical solutions.
+**問題解決ガイド**: 実用的解決策付きの最も頻繁な問題。
 
-## Top 5 Quick Fixes (90% of Issues)
+## トップ5クイック修正（問題の90%）
 
-### 1. Commands Not Working in Claude Code ⚡
+### 1. Claude Codeでコマンドが動作しない ⚡
 ```
 Problem: /sc:brainstorm doesn't work
 Solution: Restart Claude Code completely
 Test: /sc:brainstorm "test" should ask questions
 ```
 
-### 2. Installation Verification
+### 2. インストール確認
 ```bash
 python3 -m SuperClaude --version    # Should show 4.0.8
 
@@ -26,7 +26,7 @@ pip install --upgrade SuperClaude
 python3 -m SuperClaude install
 ```
 
-### 3. Permission Issues
+### 3. 権限問題
 ```bash
 # Permission denied / PEP 668 errors:
 # Option 1: Use pipx (recommended)
@@ -39,18 +39,18 @@ pip install --user SuperClaude
 sudo chown -R $USER ~/.claude
 ```
 
-### 4. MCP Server Issues
+### 4. MCPサーバー問題
 ```bash
 /sc:analyze . --no-mcp              # Test without MCP servers
 node --version                      # Check Node.js 16+ if needed
 ```
 
-### 5. Component Missing
+### 5. コンポーネント不足
 ```bash
 python3 -m SuperClaude install --components core commands agents modes --force
 ```
 
-## Platform-Specific Issues
+## プラットフォーム固有の問題
 
 **Windows:**
 ```cmd
@@ -70,10 +70,10 @@ sudo apt install python3 python3-pip nodejs
 pip3 install SuperClaude
 ```
 
-## Verification Checklist
+## 確認チェックリスト
 - [ ] `python3 -m SuperClaude --version` returns 4.0.8
 - [ ] `/sc:brainstorm "test"` works in Claude Code
 - [ ] `SuperClaude install --list-components` shows components
 
-## When Quick Fixes Don't Work
-See [Troubleshooting Guide](troubleshooting.md) for advanced diagnostics.
+## クイック修正が効かない場合
+高度な診断については[トラブルシューティングガイド](troubleshooting.md)を参照してください。

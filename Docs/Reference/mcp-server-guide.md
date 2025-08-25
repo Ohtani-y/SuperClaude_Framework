@@ -1,47 +1,47 @@
-# MCP Server Troubleshooting Guide
+# MCPサーバートラブルシューティングガイド
 
-**MCP Server Focus**: Model Context Protocol (MCP) servers provide enhanced capabilities like documentation lookup (Context7), UI generation (Magic), and advanced reasoning (Sequential). This guide covers installation, configuration, and operational troubleshooting for all MCP servers.
+**MCPサーバーフォーカス**: Model Context Protocol (MCP) サーバーは、ドキュメント検索（Context7）、UI生成（Magic）、高度推論（Sequential）などの強化機能を提供します。このガイドでは、すべてのMCPサーバーのインストール、設定、運用トラブルシューティングを扱います。
 
-**Server-Specific Solutions**: Each MCP server has unique requirements and common failure patterns. This guide provides targeted solutions for each server type and general MCP troubleshooting strategies.
+**サーバー固有ソリューション**: 各MCPサーバーには独自の要件と一般的な障害パターンがあります。このガイドでは、各サーバータイプの対象ソリューションと一般的なMCPトラブルシューティング戦略を提供します。
 
-## MCP Server Overview
+## MCPサーバー概要
 
-### Available MCP Servers
+### 利用可能なMCPサーバー
 
-**Core MCP Servers:**
-- **Context7**: Official documentation lookup and framework patterns
-- **Sequential**: Multi-step reasoning and complex analysis
-- **Magic**: Modern UI component generation from 21st.dev patterns
-- **Playwright**: Browser automation and E2E testing
-- **Morphllm**: Pattern-based code editing with token optimization
-- **Serena**: Semantic code understanding and project memory
+**コアMCPサーバー:**
+- **Context7**: 公式ドキュメント検索とフレームワークパターン
+- **Sequential**: マルチステップ推論と複雑分析
+- **Magic**: 21st.devパターンからのモダンUIコンポーネント生成
+- **Playwright**: ブラウザ自動化とE2Eテスト
+- **Morphllm**: トークン最適化によるパターンベースコード編集
+- **Serena**: セマンティックコード理解とプロジェクトメモリ
 
-**Server Requirements:**
-- Node.js 16.0.0 or higher
-- npm or yarn package manager
-- Stable network connection for some servers
-- Sufficient system memory (2GB+ recommended)
+**サーバー要件:**
+- Node.js 16.0.0以上
+- npmまたはyarnパッケージマネージャー
+- 一部サーバーでは安定したネットワーク接続
+- 十分なシステムメモリ（2GB以上推奨）
 
-## Installation and Configuration Issues
+## インストールと設定の問題
 
-### Node.js and npm Problems
+### Node.jsとnpmの問題
 
-#### Issue: Node.js Version Incompatibility
-**Error Message**: `ERROR: MCP servers require Node.js 16+ but found Node.js 14.x`
+#### 問題: Node.jsバージョン非互換性
+**エラーメッセージ**: `ERROR: MCP servers require Node.js 16+ but found Node.js 14.x`
 
-**Diagnosis**:
+**診断**:
 ```bash
 node --version
 npm --version
 ```
 
-**Solution 1**: Update Node.js (Linux/Ubuntu)
+**解決策1**: Node.jsの更新（Linux/Ubuntu）
 ```bash
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
-**Solution 2**: Use Node Version Manager (nvm)
+**解決策2**: Node Version Manager（nvm）の使用
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 source ~/.bashrc
@@ -49,17 +49,17 @@ nvm install node
 nvm use node
 ```
 
-**Solution 3**: Manual Node.js installation
-- Download from https://nodejs.org/
-- Follow platform-specific installation instructions
+**解決策3**: 手動Node.jsインストール
+- https://nodejs.org/ からダウンロード
+- プラットフォーム固有のインストール手順に従う
 
-**Verification**:
+**検証**:
 ```bash
 node --version  # Should be 16.0.0+
 npm --version   # Should be 8.0.0+
 ```
 
-**Issue: npm Permission Problems**
+**問題: npm権限問題**
 ```bash
 # Error message
 ERROR: EACCES: permission denied, access '/usr/local/lib/node_modules'

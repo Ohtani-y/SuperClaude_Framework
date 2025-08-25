@@ -1,21 +1,21 @@
-# Session Management Guide
+# セッション管理ガイド
 
-SuperClaude provides persistent session management through the Serena MCP server, enabling true context preservation across Claude Code conversations and long-term project continuity.
+SuperClaudeはSerena MCPサーバーを通じて永続的なセッション管理を提供し、Claude Codeの会話間での真のコンテキスト保持と長期プロジェクト継続性を実現します。
 
-## Core Session Commands with Persistent Memory
+## 永続メモリ付きコアセッションコマンド
 
-### `/sc:load` - Context Loading with Persistent Memory
-**Purpose**: Initialize session with project context and persistent memory from previous sessions  
-**MCP Integration**: Triggers Serena MCP to read stored project memories  
-**Syntax**: `/sc:load [project_path]`
+### `/sc:load` - 永続メモリ付きコンテキスト読み込み
+**目的**: 以前のセッションからのプロジェクトコンテキストと永続メモリでセッションを初期化  
+**MCP統合**: Serena MCPをトリガーして保存されたプロジェクトメモリを読み取り  
+**構文**: `/sc:load [project_path]`
 
-**What Happens**:
-- Serena MCP reads persistent memory files from previous sessions
-- Project context is restored from stored memories
-- Previous decisions, patterns, and progress are loaded
-- Session state is initialized with historical context
+**実行内容**:
+- Serena MCPが以前のセッションからの永続メモリファイルを読み取り
+- 保存されたメモリからプロジェクトコンテキストを復元
+- 以前の決定、パターン、進捗が読み込まれる
+- 履歴コンテキストでセッション状態を初期化
 
-**Use Cases**:
+**使用例**:
 ```bash
 # Load existing project context from persistent memory
 /sc:load src/
@@ -27,18 +27,18 @@ SuperClaude provides persistent session management through the Serena MCP server
 /sc:load . --analyze
 ```
 
-### `/sc:save` - Session Persistence to Memory
-**Purpose**: Save current session state and decisions to persistent memory  
-**MCP Integration**: Triggers Serena MCP to write memory files  
-**Syntax**: `/sc:save "session_description"`
+### `/sc:save` - メモリへのセッション永続化
+**目的**: 現在のセッション状態と決定を永続メモリに保存  
+**MCP統合**: Serena MCPをトリガーしてメモリファイルを書き込み  
+**構文**: `/sc:save "session_description"`
 
-**What Happens**:
-- Current context and decisions are written to Serena memory
-- Project state and progress are persisted across conversations
-- Key insights and patterns are stored for future sessions
-- Session summary is created with timestamp for retrieval
+**実行内容**:
+- 現在のコンテキストと決定がSerenaメモリに書き込まれる
+- プロジェクト状態と進捗が会話間で永続化される
+- 重要な洞察とパターンが将来のセッション用に保存される
+- 取得用のタイムスタンプ付きセッション要約が作成される
 
-**Use Cases**:
+**使用例**:
 ```bash
 # Save completed feature work for future reference
 /sc:save "user authentication implemented with JWT"
@@ -50,18 +50,18 @@ SuperClaude provides persistent session management through the Serena MCP server
 /sc:save "microservices architecture decided, service boundaries defined"
 ```
 
-### `/sc:reflect` - Progress Assessment with Memory Context
-**Purpose**: Analyze current progress against stored memories and validate session completeness  
-**MCP Integration**: Uses Serena MCP to compare current state against stored memories  
-**Syntax**: `/sc:reflect [--scope project|session]`
+### `/sc:reflect` - メモリコンテキスト付き進捗評価
+**目的**: 保存されたメモリに対する現在の進捗を分析し、セッション完全性を検証  
+**MCP統合**: Serena MCPを使用して現在の状態を保存されたメモリと比較  
+**構文**: `/sc:reflect [--scope project|session]`
 
-**What Happens**:
-- Serena MCP reads previous memories and current context
-- Progress is assessed against stored goals and milestones  
-- Gaps and next steps are identified using historical context
-- Session completeness is validated against project memory
+**実行内容**:
+- Serena MCPが以前のメモリと現在のコンテキストを読み取り
+- 保存された目標とマイルストーンに対して進捗が評価される
+- 履歴コンテキストを使用してギャップと次のステップが特定される
+- プロジェクトメモリに対してセッション完全性が検証される
 
-**Use Cases**:
+**使用例**:
 ```bash
 # Assess project progress against stored milestones
 /sc:reflect --scope project

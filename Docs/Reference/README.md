@@ -1,19 +1,19 @@
-# SuperClaude Framework Reference Documentation
+# SuperClaude フレームワークリファレンスドキュメント
 
-**Navigation Hub**: Structured learning paths and technical references for all skill levels.
+**ナビゲーションハブ**: すべてのスキルレベル向けの構造化学習パスと技術リファレンス。
 
-**Documentation Status**: ✅ **Status: Current** - All content verified for accuracy and completeness.
+**ドキュメントステータス**: ✅ **ステータス: 最新** - すべてのコンテンツの正確性と完全性を検証済み。
 
-## How to Use This Reference Library
+## このリファレンスライブラリの使用方法
 
-This documentation is organized for **progressive learning** with multiple entry points:
+このドキュメントは複数のエントリーポイントを持つ**段階的学習**用に組織化されています：
 
-- **📱 Quick Reference**: Jump to specific solutions for immediate needs
-- **📚 Learning Paths**: Structured progression from beginner to expert
-- **🔍 Problem-Solving**: Targeted troubleshooting and diagnostic guidance
-- **⚡ Performance**: Optimization patterns and advanced techniques
+- **📱 クイックリファレンス**: 即座のニーズに対する特定ソリューションへのジャンプ
+- **📚 学習パス**: 初心者からエキスパートへの構造化された進歩
+- **🔍 問題解決**: ターゲット化されたトラブルシューティングと診断ガイダンス
+- **⚡ パフォーマンス**: 最適化パターンと高度技術
 
-**Verification Standards**: All examples tested, commands validated, patterns proven in real-world usage.
+**検証基準**: すべての例がテスト済み、コマンドが検証済み、パターンが実世界使用で証明済み。
 
 ---
 

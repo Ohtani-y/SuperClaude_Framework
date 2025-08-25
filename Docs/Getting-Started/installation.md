@@ -22,11 +22,11 @@
 
 ---
 
-## ⚡ **Quick Installation**
+## ⚡ **クイックインストール**
 
 <div align="center">
 
-### **Choose Your Preferred Method**
+### **お好みの方法を選択**
 
 | Method | Command | Platform | Best For |
 |:------:|---------|:--------:|----------|
@@ -39,7 +39,7 @@
 
 ---
 
-## 📋 **Requirements**
+## 📋 **要件**
 
 <div align="center">
 
@@ -47,7 +47,7 @@
 <tr>
 <td align="center" width="50%">
 
-### ✅ **Required**
+### ✅ **必須**
 
 | Component | Version | Check Command |
 |-----------|---------|---------------|
@@ -59,7 +59,7 @@
 </td>
 <td align="center" width="50%">
 
-### 💡 **Optional**
+### 💡 **オプション**
 
 | Component | Purpose | Check Command |
 |-----------|---------|---------------|
@@ -78,7 +78,7 @@
 <summary><b>🔍 Quick System Check</b></summary>
 
 ```bash
-# Run this to check all requirements at once
+# すべての要件を一度にチェックするには以下を実行
 python3 --version && echo "✅ Python OK" || echo "❌ Python missing"
 claude --version && echo "✅ Claude Code OK" || echo "❌ Claude Code missing"
 node --version 2>/dev/null && echo "✅ Node.js OK (optional)" || echo "⚠️ Node.js missing (optional)"
@@ -89,11 +89,11 @@ git --version 2>/dev/null && echo "✅ Git OK (optional)" || echo "⚠️ Git mi
 
 ---
 
-## 🚀 **Installation Methods**
+## 🚀 **インストール方法**
 
 <div align="center">
 
-### **Detailed Installation Instructions**
+### **詳細インストール手順**
 
 </div>
 
@@ -104,11 +104,11 @@ git --version 2>/dev/null && echo "✅ Git OK (optional)" || echo "⚠️ Git mi
 <td width="60%">
 
 ```bash
-# Install pipx if not present
+# pipxがない場合はインストール
 python3 -m pip install --user pipx
 python3 -m pipx ensurepath
 
-# Install SuperClaude
+# SuperClaudeをインストール
 pipx install SuperClaude
 
 # Run the installer
@@ -140,10 +140,10 @@ SuperClaude install
 <td width="60%">
 
 ```bash
-# Standard installation
+# 標準インストール
 pip install SuperClaude
 
-# Or user installation
+# またはユーザーインストール
 pip install --user SuperClaude
 
 # Run the installer
@@ -174,7 +174,7 @@ SuperClaude install
 <td width="60%">
 
 ```bash
-# Global installation
+# グローバルインストール
 npm install -g @bifrost_inc/superclaude
 
 # Run the installer
@@ -205,14 +205,14 @@ superclaude install
 <td width="60%">
 
 ```bash
-# Clone repository
+# リポジトリをクローン
 git clone https://github.com/SuperClaude-Org/SuperClaude_Framework.git
 cd SuperClaude_Framework
 
-# Install in development mode
+# 開発モードでインストール
 pip install -e ".[dev]"
 
-# Test installation
+# インストールをテスト
 SuperClaude install --dry-run
 ```
 
@@ -235,11 +235,11 @@ SuperClaude install --dry-run
 
 ---
 
-## 🎛️ **Installation Options**
+## 🎛️ **インストールオプション**
 
 <div align="center">
 
-### **Customize Your Installation**
+### **インストールをカスタマイズ**
 
 | Option | Command | Description |
 |--------|---------|-------------|
@@ -257,7 +257,7 @@ SuperClaude install --dry-run
 
 <div align="center">
 
-### **Confirm Successful Installation**
+### **インストール成功を確認**
 
 </div>
 
@@ -297,7 +297,7 @@ SuperClaude install --list-components
 
 ---
 
-## 🛠️ **Management**
+## 🛠️ **管理**
 
 <div align="center">
 
@@ -311,7 +311,7 @@ SuperClaude install --list-components
 <td>
 
 ```bash
-# Update to latest
+# 最新版に更新
 pip install --upgrade SuperClaude
 SuperClaude update
 ```
@@ -320,10 +320,10 @@ SuperClaude update
 <td>
 
 ```bash
-# Create backup
+# バックアップを作成
 SuperClaude backup --create
 
-# Restore backup
+# バックアップを復元
 SuperClaude backup --restore [file]
 ```
 
@@ -331,10 +331,10 @@ SuperClaude backup --restore [file]
 <td>
 
 ```bash
-# Remove framework
+# フレームワークを削除
 SuperClaude uninstall
 
-# Uninstall package
+# パッケージをアンインストール
 pip uninstall SuperClaude
 ```
 
@@ -346,30 +346,30 @@ pip uninstall SuperClaude
 
 ---
 
-## 🔧 **Troubleshooting**
+## 🔧 **トラブルシューティング**
 
 <details>
 <summary><b>❌ PEP 668 Error (Python Package Management)</b></summary>
 
 This error occurs on systems with externally managed Python environments.
 
-**Solutions (in order of preference):**
+**解決策（優先順）:**
 
 ```bash
-# Option 1: Use pipx (Recommended)
+# オプション1: pipxを使用（推奨）
 pipx install SuperClaude
 
-# Option 2: User installation
+# オプション2: ユーザーインストール
 pip install --user SuperClaude
 
-# Option 3: Virtual environment
+# オプション3: 仮想環境
 python3 -m venv superclaude-env
 source superclaude-env/bin/activate  # Linux/macOS
 # or
 superclaude-env\Scripts\activate  # Windows
 pip install SuperClaude
 
-# Option 4: Force (use with caution)
+# オプション4: 強制実行（注意して使用）
 pip install --break-system-packages SuperClaude
 ```
 
@@ -398,7 +398,7 @@ echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc   # macOS
 <details>
 <summary><b>❌ Claude Code Not Found</b></summary>
 
-If Claude Code is not installed or not in PATH:
+Claude CodeがインストールされていないかPATHにない場合:
 
 1. Download from [https://claude.ai/code](https://claude.ai/code)
 2. Install following platform instructions
@@ -410,16 +410,16 @@ If Claude Code is not installed or not in PATH:
 <details>
 <summary><b>❌ Permission Denied</b></summary>
 
-For permission errors during installation:
+インストール中の権限エラーの場合:
 
 ```bash
-# Use user installation
+# ユーザーインストールを使用
 pip install --user SuperClaude
 
-# Or use sudo (not recommended)
+# またはsudoを使用（非推奨）
 sudo pip install SuperClaude
 
-# Better: use pipx
+# より良い方法: pipxを使用
 pipx install SuperClaude
 ```
 

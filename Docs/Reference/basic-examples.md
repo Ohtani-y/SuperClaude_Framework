@@ -1,63 +1,63 @@
-# SuperClaude Basic Examples Collection
+# SuperClaude 基本例集
 
-**Status**: ✅ **Status: Current** - Essential commands, single-agent workflows, and common development tasks.
+**ステータス**: ✅ **ステータス: 最新** - 必須コマンド、単一エージェントワークフロー、一般的な開発タスク。
 
-**Quick Reference Guide**: Copy-paste ready examples for beginners, focused on essential SuperClaude usage patterns and fundamental development workflows.
+**クイックリファレンスガイド**: 初心者向けのコピー&ペースト対応例、必須SuperClaude使用パターンと基本開発ワークフローに焦点。
 
-> **📝 Context Note**: These examples show `/sc:` commands and `@agent-` invocations that trigger Claude Code to read specific context files and adopt the behaviors defined there. The sophistication comes from the behavioral instructions, not from executable software.
+> **📝 コンテキスト注記**: これらの例は、Claude Codeが特定のコンテキストファイルを読み取り、そこで定義された動作を採用するトリガーとなる `/sc:` コマンドと `@agent-` 呼び出しを示しています。洗練性は実行可能ソフトウェアからではなく、動作指示から来ています。
 
-## Overview and Usage Guide
+## 概要と使用ガイド
 
-**Purpose**: Essential SuperClaude commands and patterns for everyday development tasks. Start here for your first SuperClaude experience.
+**目的**: 日常的な開発タスクのための必須SuperClaudeコマンドとパターン。最初のSuperClaude体験はここから始めてください。
 
-**Target Audience**: New users, developers learning SuperClaude fundamentals, immediate task application
+**対象読者**: 新規ユーザー、SuperClaude基礎を学ぶ開発者、即座のタスク適用
 
-**Usage Pattern**: Copy → Adapt → Execute → Learn from results
+**使用パターン**: コピー → 適応 → 実行 → 結果から学習
 
-**Key Features**:
+**主要機能**:
 - Examples demonstrate core SuperClaude functionality
 - Clear patterns for immediate application  
 - Single-focus examples for clear learning
 - Progressive complexity within basic scope
 
-## Essential One-Liner Commands
+## 必須ワンライナーコマンド
 
-### Core Development Commands
+### 中核開発コマンド
 
-#### Command: /sc:brainstorm
-**Purpose**: Interactive project discovery and requirements gathering
-**Syntax**: `/sc:brainstorm "project description"`
-**Example**:
+#### コマンド: /sc:brainstorm
+**目的**: インタラクティブプロジェクト発見と要件収集
+**構文**: `/sc:brainstorm "プロジェクト説明"`
+**例**:
 ```bash
 /sc:brainstorm "mobile app for fitness tracking"
 # Expected: Socratic dialogue, requirement elicitation, feasibility analysis
 ```
-**Behavior**: Triggers interactive discovery dialogue and requirements analysis
+**動作**: インタラクティブ発見対話と要件分析をトリガー
 
-#### Command: /sc:analyze
-**Purpose**: Analyze existing codebase for issues and improvements
-**Syntax**: `/sc:analyze [target] --focus [domain]`
-**Example**:
+#### コマンド: /sc:analyze
+**目的**: 問題と改善のための既存コードベース分析
+**構文**: `/sc:analyze [ターゲット] --focus [ドメイン]`
+**例**:
 ```bash
 /sc:analyze src/ --focus security
 # Expected: Comprehensive security audit, vulnerability report, improvement suggestions
 ```
-**Behavior**: Provides comprehensive security analysis and improvement recommendations
+**動作**: 包括的セキュリティ分析と改善推奨事項を提供
 
-#### Command: /sc:implement
-**Purpose**: Implement a complete feature with best practices
-**Syntax**: `/sc:implement "feature description with requirements"`
-**Example**:
+#### コマンド: /sc:implement
+**目的**: ベストプラクティスで完全な機能を実装
+**構文**: `/sc:implement "要件付き機能説明"`
+**例**:
 ```bash
 /sc:implement "user authentication with JWT and rate limiting"
 # Expected: Complete auth implementation, security validation, tests included
 ```
-**Behavior**: Delivers complete implementation following security and quality standards
+**動作**: セキュリティと品質基準に従った完全な実装を提供
 
-#### Command: /sc:troubleshoot
-**Purpose**: Troubleshoot and fix a problem systematically
-**Syntax**: `/sc:troubleshoot "problem description"`
-**Example**:
+#### コマンド: /sc:troubleshoot
+**目的**: 問題を体系的にトラブルシュートして修正
+**構文**: `/sc:troubleshoot "問題説明"`
+**例**:
 ```bash
 /sc:troubleshoot "API returns 500 error on user login"
 # Expected: Step-by-step diagnosis, root cause identification, solution ranking

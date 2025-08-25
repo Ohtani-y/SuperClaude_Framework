@@ -1,8 +1,8 @@
 <div align="center">
 
-# 🚀 SuperClaude Quick Start Guide
+# 🚀 SuperClaude クイックスタートガイド
 
-### **Context Engineering Framework for Claude Code**
+### **Claude Code用コンテキストエンジニアリングフレームワーク**
 
 <p align="center">
   <img src="https://img.shields.io/badge/Framework-Context_Engineering-purple?style=for-the-badge" alt="Framework">
@@ -10,7 +10,7 @@
   <img src="https://img.shields.io/badge/Time_to_Start-5_Minutes-green?style=for-the-badge" alt="Quick Start">
 </p>
 
-> **💡 Key Insight**: SuperClaude doesn't replace Claude Code - it **configures and enhances** it through behavioral context injection
+> **💡 重要な洞察**: SuperClaudeはClaude Codeを置き換えるのではなく、動作コンテキスト注入を通じて**設定と強化**を行います
 
 <p align="center">
   <a href="#-how-it-works">How It Works</a> •
@@ -26,22 +26,22 @@
 
 <div align="center">
 
-## 📊 **Framework Capabilities**
+## 📊 **フレームワーク機能**
 
-| **Commands** | **AI Agents** | **Behavioral Modes** | **MCP Servers** |
+| **コマンド** | **AIエージェント** | **動作モード** | **MCPサーバー** |
 |:------------:|:-------------:|:-------------------:|:---------------:|
 | **21** | **14** | **6** | **6** |
-| `/sc:` triggers | Domain specialists | Context adaptation | Tool integration |
+| `/sc:` トリガー | ドメイン専門家 | コンテキスト適応 | ツール統合 |
 
 </div>
 
 ---
 
-## 🎯 **How It Works**
+## 🎯 **動作原理**
 
 <div align="center">
 
-### **Framework Architecture Flow**
+### **フレームワークアーキテクチャフロー**
 
 ```
 ┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
@@ -56,24 +56,24 @@
 └─────────────────┘      └──────────────────┘     └─────────────────┘
 ```
 
-**The Magic**: When you type `/sc:brainstorm`, Claude reads behavioral instructions from installed `.md` files and responds with enhanced capabilities
+**魔法**: `/sc:brainstorm`と入力すると、Claudeはインストールされた`.md`ファイルから動作指示を読み取り、強化された機能で応答します
 
 </div>
 
 ---
 
-## ⚡ **Instant Start**
+## ⚡ **即座開始**
 
 <div align="center">
 
-### **5-Minute Journey from Installation to First Command**
+### **インストールから最初のコマンドまで5分の旅**
 
 </div>
 
 <table>
 <tr>
-<th width="50%">📦 Step 1: Install (Terminal)</th>
-<th width="50%">💬 Step 2: Use (Claude Code)</th>
+<th width="50%">📦 ステップ1: インストール（ターミナル）</th>
+<th width="50%">💬 ステップ2: 使用（Claude Code）</th>
 </tr>
 <tr>
 <td valign="top">
@@ -111,13 +111,13 @@ npm install -g @bifrost_inc/superclaude && superclaude install
 </table>
 
 <details>
-<summary><b>🎥 What Happens Behind the Scenes</b></summary>
+<summary><b>🎥 舞台裏で起こること</b></summary>
 
-1. **Context Loading**: Claude Code imports behavioral `.md` files via `CLAUDE.md`
-2. **Pattern Recognition**: Recognizes `/sc:` and `@agent-` trigger patterns
-3. **Behavioral Activation**: Applies corresponding instructions from context files
-4. **MCP Integration**: Uses configured external tools when available
-5. **Response Enhancement**: Follows framework patterns for comprehensive responses
+1. **コンテキスト読み込み**: Claude Codeが`CLAUDE.md`経由で動作`.md`ファイルをインポート
+2. **パターン認識**: `/sc:`と`@agent-`トリガーパターンを認識
+3. **動作活性化**: コンテキストファイルから対応する指示を適用
+4. **MCP統合**: 利用可能な場合は設定された外部ツールを使用
+5. **応答強化**: 包括的応答のためフレームワークパターンに従う
 
 </details>
 

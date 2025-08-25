@@ -1,16 +1,16 @@
-# SuperClaude Commands Guide
+# SuperClaude コマンドガイド
 
-SuperClaude provides 21 commands for Claude Code: `/sc:*` commands for workflows and `@agent-*` for specialists.
+SuperClaudeはClaude Code用に21のコマンドを提供：ワークフロー用の`/sc:*`コマンドと専門家用の`@agent-*`。
 
-## Command Types
+## コマンドタイプ
 
-| Type | Where Used | Format | Example |
+| タイプ | 使用場所 | 形式 | 例 |
 |------|------------|--------|---------|
-| **Slash Commands** | Claude Code | `/sc:[command]` | `/sc:implement "feature"` |
-| **Agents** | Claude Code | `@agent-[name]` | `@agent-security "review"` |
-| **Installation** | Terminal | `SuperClaude [command]` | `SuperClaude install` |
+| **スラッシュコマンド** | Claude Code | `/sc:[command]` | `/sc:implement "feature"` |
+| **エージェント** | Claude Code | `@agent-[name]` | `@agent-security "review"` |
+| **インストール** | ターミナル | `SuperClaude [command]` | `SuperClaude install` |
 
-## Quick Test
+## クイックテスト
 ```bash
 # Terminal: Verify installation
 python3 -m SuperClaude --version
@@ -21,28 +21,28 @@ python3 -m SuperClaude --version
 /sc:analyze README.md           # Should provide analysis
 ```
 
-**Workflow**: `/sc:brainstorm "idea"` → `/sc:implement "feature"` → `/sc:test`
+**ワークフロー**: `/sc:brainstorm "idea"` → `/sc:implement "feature"` → `/sc:test`
 
-## 🎯 Understanding SuperClaude Commands
+## 🎯 SuperClaudeコマンドの理解
 
-## How SuperClaude Works
+## SuperClaudeの動作原理
 
-SuperClaude provides behavioral context files that Claude Code reads to adopt specialized behaviors. When you type `/sc:implement`, Claude Code reads the `implement.md` context file and follows its behavioral instructions.
+SuperClaudeは、Claude Codeが専門的な動作を採用するために読み取る動作コンテキストファイルを提供します。`/sc:implement`と入力すると、Claude Codeは`implement.md`コンテキストファイルを読み取り、その動作指示に従います。
 
-**SuperClaude commands are NOT executed by software** - they are context triggers that modify Claude Code's behavior through reading specialized instruction files from the framework.
+**SuperClaudeコマンドはソフトウェアによって実行されません** - これらはフレームワークから専門的な指示ファイルを読み取ることでClaude Codeの動作を変更するコンテキストトリガーです。
 
-### Command Types:
-- **Slash Commands** (`/sc:*`): Trigger workflow patterns and behavioral modes
-- **Agent Invocations** (`@agent-*`): Manually activate specific domain specialists
-- **Flags** (`--think`, `--safe-mode`): Modify command behavior and depth
+### コマンドタイプ:
+- **スラッシュコマンド** (`/sc:*`): ワークフローパターンと動作モードをトリガー
+- **エージェント呼び出し** (`@agent-*`): 特定のドメイン専門家を手動で活性化
+- **フラグ** (`--think`, `--safe-mode`): コマンドの動作と深度を変更
 
-### The Context Mechanism:
-1. **User Input**: You type `/sc:implement "auth system"`
-2. **Context Loading**: Claude Code reads `~/.claude/SuperClaude/Commands/implement.md`
-3. **Behavior Adoption**: Claude applies domain expertise, tool selection, and validation patterns
-4. **Enhanced Output**: Structured implementation with security considerations and best practices
+### コンテキストメカニズム:
+1. **ユーザー入力**: `/sc:implement "auth system"`と入力
+2. **コンテキスト読み込み**: Claude Codeが`~/.claude/SuperClaude/Commands/implement.md`を読み取り
+3. **動作採用**: Claudeがドメイン専門知識、ツール選択、検証パターンを適用
+4. **強化された出力**: セキュリティ考慮事項とベストプラクティスを含む構造化実装
 
-**Key Point**: This creates sophisticated development workflows through context management rather than traditional software execution.
+**重要ポイント**: これは従来のソフトウェア実行ではなく、コンテキスト管理を通じて洗練された開発ワークフローを作成します。
 
 ### Installation vs Usage Commands
 

@@ -1,16 +1,16 @@
-# SuperClaude Troubleshooting Guide 🔧
+# SuperClaude トラブルシューティングガイド 🔧
 
-Quick fixes to advanced diagnostics for SuperClaude Framework issues.
+SuperClaude Frameworkの問題に対するクイック修正から高度な診断まで。
 
-## Quick Fixes (90% of problems)
+## クイック修正（問題の90%）
 
-**Installation Verification:**
+**インストール確認:**
 ```bash
 python3 -m SuperClaude --version    # Should show 4.0.8
 SuperClaude install --list-components
 ```
 
-**Command Issues:**
+**コマンド問題:**
 ```bash
 # Test in Claude Code:
 /sc:brainstorm "test project"        # Should ask discovery questions
@@ -18,16 +18,16 @@ SuperClaude install --list-components
 # If no response: Restart Claude Code session
 ```
 
-**Resolution Checklist:**
+**解決チェックリスト:**
 - [ ] Version commands work and show 4.0.8
 - [ ] `/sc:` commands respond in Claude Code  
 - [ ] MCP servers listed: `SuperClaude install --list-components | grep mcp`
 
-## Common Issues
+## 一般的な問題
 
-### Installation Problems
+### インストール問題
 
-**Package Installation Fails:**
+**パッケージインストール失敗:**
 ```bash
 # For pipx users
 pipx uninstall SuperClaude
@@ -39,7 +39,7 @@ pip install --upgrade pip
 pip install SuperClaude
 ```
 
-**Permission Denied / PEP 668 Error:**
+**権限拒否 / PEP 668エラー:**
 ```bash
 # Option 1: Use pipx (recommended)
 pipx install SuperClaude
@@ -54,59 +54,59 @@ sudo chown -R $USER ~/.claude
 pip install --break-system-packages SuperClaude
 ```
 
-**Component Missing:**
+**コンポーネント不足:**
 ```bash
 python3 -m SuperClaude install --components core commands agents modes --force
 ```
 
-### Command Issues
+### コマンド問題
 
-**Commands Not Recognized:**
+**コマンドが認識されない:**
 1. Restart Claude Code completely
 2. Verify: `python3 -m SuperClaude --version`
 3. Test: `/sc:brainstorm "test"`
 
-**Agents Not Activating:**
+**エージェントが活性化しない:**
 - Use specific keywords: `/sc:implement "secure JWT authentication"`
 - Manual activation: `@agent-security "review auth code"`
 
-**Slow Performance:**
+**パフォーマンス低下:**
 ```bash
 /sc:analyze . --no-mcp               # Test without MCP servers
 /sc:analyze src/ --scope file        # Limit scope
 ```
 
-### MCP Server Issues
+### MCPサーバー問題
 
-**Server Connection Fails:**
+**サーバー接続失敗:**
 ```bash
 ls ~/.claude/.claude.json            # Check config exists
 node --version                       # Verify Node.js 16+
 SuperClaude install --components mcp --force
 ```
 
-**API Key Required (Magic/Morphllm):**
+**APIキー必須（Magic/Morphllm）:**
 ```bash
 export TWENTYFIRST_API_KEY="your_key"
 export MORPH_API_KEY="your_key"
 # Or use: /sc:command --no-mcp
 ```
 
-## Advanced Diagnostics
+## 高度な診断
 
-**System Analysis:**
+**システム分析:**
 ```bash
 SuperClaude install --diagnose
 cat ~/.claude/logs/superclaude.log | tail -50
 ```
 
-**Component Analysis:**
+**コンポーネント分析:**
 ```bash
 ls -la ~/.claude/                    # Check installed files
 grep -r "@" ~/.claude/CLAUDE.md      # Verify imports
 ```
 
-**Reset Installation:**
+**インストールリセット:**
 ```bash
 SuperClaude backup --create          # Backup first
 SuperClaude uninstall

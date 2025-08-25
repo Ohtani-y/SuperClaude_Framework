@@ -1,37 +1,37 @@
-# SuperClaude Examples Cookbook
+# SuperClaude 実例集クックブック
 
-**Status**: ✅ **Status: Current** - Comprehensive collection of practical SuperClaude usage examples organized by complexity and domain.
+**ステータス**: ✅ **ステータス: 最新** - 複雑性とドメインで整理されたSuperClaudeの実用的使用例の包括的コレクション。
 
-**Focused Recipe Collections**: The SuperClaude Examples Cookbook has been restructured into three focused collections for better usability and progressive learning.
+**焦点を絞ったレシピコレクション**: SuperClaude実例集クックブックは、より良い使いやすさと段階的学習のために3つの焦点を絞ったコレクションに再構築されました。
 
-## Recipe Collections Overview
+## レシピコレクション概要
 
-### [Basic Examples Collection](./basic-examples.md)
-**Essential commands and single-agent workflows**
-- Copy-paste ready commands for immediate use
-- Essential SuperClaude patterns and fundamentals
-- Common development tasks and troubleshooting
-- Perfect starting point for new users
+### [基本例コレクション](./basic-examples.md)
+**必須コマンドと単一エージェントワークフロー**
+- 即座に使用できるコピー&ペースト対応コマンド
+- 必須SuperClaudeパターンと基礎
+- 一般的な開発タスクとトラブルシューティング
+- 新規ユーザーに最適な開始点
 
-**Best for**: New users, quick task execution, learning fundamentals
+**最適対象**: 新規ユーザー、クイックタスク実行、基礎学習
 
-### [Advanced Workflows Collection](./advanced-workflows.md)
-**Multi-agent coordination and complex orchestration**
-- Multi-agent collaboration patterns
-- Enterprise-scale project workflows
-- Session management and persistence
-- Complex system development patterns
+### [高度ワークフローコレクション](./advanced-workflows.md)
+**マルチエージェント調整と複雑オーケストレーション**
+- マルチエージェント協力パターン
+- エンタープライズ規模プロジェクトワークフロー
+- セッション管理と永続化
+- 複雑システム開発パターン
 
-**Best for**: Experienced users, enterprise projects, complex coordination
+**最適対象**: 経験豊富ユーザー、エンタープライズプロジェクト、複雑調整
 
-### [Integration Patterns Collection](./integration-patterns.md)
-**Framework integration and cross-tool coordination**
-- Framework-specific integration patterns
-- Performance optimization recipes
-- Cross-tool coordination strategies
-- Monitoring and observability patterns
+### [統合パターンコレクション](./integration-patterns.md)
+**フレームワーク統合とクロスツール調整**
+- フレームワーク固有統合パターン
+- パフォーマンス最適化レシピ
+- クロスツール調整戦略
+- 監視と可観測性パターン
 
-**Best for**: Expert users, system architects, performance optimization
+**最適対象**: エキスパートユーザー、システムアーキテクト、パフォーマンス最適化
 
 ## Quick Navigation Guide
 

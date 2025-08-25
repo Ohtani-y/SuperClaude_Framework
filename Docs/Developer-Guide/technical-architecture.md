@@ -1,25 +1,25 @@
-# SuperClaude Context Architecture Guide
+# SuperClaude コンテキストアーキテクチャガイド
 
-## Overview
+## 概要
 
-This guide documents how SuperClaude's Context-Oriented Configuration Framework is structured and how Claude Code interprets these context files to modify its behavior.
+このガイドは、SuperClaudeのコンテキスト指向設定フレームワークがどのように構造化され、Claude Codeがこれらのコンテキストファイルをどのように解釈して動作を変更するかを文書化します。
 
-**Important**: SuperClaude is NOT standalone software with running processes, execution layers, or performance systems. It is a collection of `.md` instruction files that Claude Code reads to adopt specialized behaviors.
+**重要**: SuperClaudeは実行プロセス、実行レイヤー、またはパフォーマンスシステムを持つスタンドアロンソフトウェアではありません。Claude Codeが読み取って専門的な動作を採用する`.md`命令ファイルのコレクションです。
 
-## Table of Contents
+## 目次
 
-1. [Context File Architecture](#context-file-architecture)
-2. [The Import System](#the-import-system)
-3. [Agent Context Structure](#agent-context-structure)
-4. [Command Context Structure](#command-context-structure)
-5. [Mode Context Structure](#mode-context-structure)
-6. [MCP Server Configuration](#mcp-server-configuration)
-7. [How Claude Code Reads Context](#how-claude-code-reads-context)
-8. [Extending the Framework](#extending-the-framework)
+1. [コンテキストファイルアーキテクチャ](#context-file-architecture)
+2. [インポートシステム](#the-import-system)
+3. [エージェントコンテキスト構造](#agent-context-structure)
+4. [コマンドコンテキスト構造](#command-context-structure)
+5. [モードコンテキスト構造](#mode-context-structure)
+6. [MCPサーバー設定](#mcp-server-configuration)
+7. [Claude Codeがコンテキストを読み取る方法](#how-claude-code-reads-context)
+8. [フレームワークの拡張](#extending-the-framework)
 
-## Context File Architecture
+## コンテキストファイルアーキテクチャ
 
-### Directory Structure
+### ディレクトリ構造
 
 ```
 ~/.claude/ (SuperClaude Framework Files Only)
@@ -79,24 +79,24 @@ This guide documents how SuperClaude's Context-Oriented Configuration Framework 
         ├── troubleshoot.md         # Troubleshooting patterns
         └── workflow.md             # Workflow planning patterns
 
-Note: Other directories (backups/, logs/, projects/, serena/, etc.) are Claude Code 
-operational directories, not part of SuperClaude framework content.
+注意: その他のディレクトリ（backups/、logs/、projects/、serena/など）はClaude Code
+運用ディレクトリであり、SuperClaudeフレームワークコンテンツの一部ではありません。
 ```
 
-### Context File Types
+### コンテキストファイルタイプ
 
-| File Type | Purpose | Activation | Example |
+| ファイルタイプ | 目的 | 活性化 | 例 |
 |-----------|---------|------------|---------|
-| **Commands** | Define workflow patterns | `/sc:[command]` (context trigger) | User types `/sc:implement` → reads `implement.md` |
-| **Agents** | Provide domain expertise | `@agent-[name]` or auto | `@agent-security` → reads `security-engineer.md` |
-| **Modes** | Modify interaction style | Flags or triggers | `--brainstorm` → activates brainstorming mode |
-| **Core** | Set fundamental rules | Always active | `RULES.md` always loaded |
+| **コマンド** | ワークフローパターンを定義 | `/sc:[command]` (コンテキストトリガー) | ユーザーが `/sc:implement` と入力 → `implement.md` を読み取り |
+| **エージェント** | ドメイン専門知識を提供 | `@agent-[name]` または自動 | `@agent-security` → `security-engineer.md` を読み取り |
+| **モード** | インタラクションスタイルを変更 | フラグまたはトリガー | `--brainstorm` → ブレインストーミングモードを活性化 |
+| **コア** | 基本ルールを設定 | 常に活性 | `RULES.md` 常に読み込み |
 
-## The Import System
+## インポートシステム
 
-### How CLAUDE.md Works
+### CLAUDE.mdの動作方法
 
-The main `CLAUDE.md` file uses an import system to load multiple context files:
+メイン`CLAUDE.md`ファイルは複数のコンテキストファイルを読み込むためのインポートシステムを使用します：
 
 ```markdown
 # CLAUDE

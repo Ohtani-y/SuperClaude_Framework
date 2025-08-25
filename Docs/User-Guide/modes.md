@@ -1,26 +1,26 @@
-# SuperClaude Behavioral Modes Guide 🧠
+# SuperClaude 動作モードガイド 🧠
 
-## ✅ Quick Verification
-Test modes by using `/sc:` commands - they activate automatically based on task complexity. For full command reference, see [Commands Guide](commands.md).
+## ✅ クイック検証
+`/sc:` コマンドを使用してモードをテストします - タスクの複雑さに基づいて自動的に活性化されます。完全なコマンドリファレンスについては、[コマンドガイド](commands.md)を参照してください。
 
-## Quick Reference Table
+## クイックリファレンステーブル
 
-| Mode | Purpose | Auto-Triggers | Key Behaviors | Best Used For |
+| モード | 目的 | 自動トリガー | 主要動作 | 最適用途 |
 |------|---------|---------------|---------------|---------------|
-| **🧠 Brainstorming** | Interactive discovery | "brainstorm", "maybe", vague requests | Socratic questions, requirement elicitation | New project planning, unclear requirements |
-| **🔍 Introspection** | Meta-cognitive analysis | Error recovery, "analyze reasoning" | Transparent thinking markers (🤔, 🎯, 💡) | Debugging, learning, optimization |
-| **📋 Task Management** | Complex coordination | >3 steps, >2 directories | Phase breakdown, memory persistence | Multi-step operations, project management |
-| **🎯 Orchestration** | Intelligent tool selection | Multi-tool ops, high resource usage | Optimal tool routing, parallel execution | Complex analysis, performance optimization |
-| **⚡ Token Efficiency** | Compressed communication | High context usage, `--uc` flag | Symbol systems, estimated 30-50% token reduction | Resource constraints, large operations |
+| **🧠 ブレインストーミング** | インタラクティブ発見 | "brainstorm", "maybe", 曖昧な要求 | ソクラテス式質問、要件引き出し | 新プロジェクト計画、不明確な要件 |
+| **🔍 内省** | メタ認知分析 | エラー回復、"推論分析" | 透明思考マーカー (🤔, 🎯, 💡) | デバッグ、学習、最適化 |
+| **📋 タスク管理** | 複雑調整 | 3ステップ以上、2ディレクトリ以上 | フェーズ分解、メモリ永続化 | マルチステップ操作、プロジェクト管理 |
+| **🎯 オーケストレーション** | インテリジェントツール選択 | マルチツール操作、高リソース使用 | 最適ツールルーティング、並列実行 | 複雑分析、パフォーマンス最適化 |
+| **⚡ トークン効率** | 圧縮コミュニケーション | 高コンテキスト使用、`--uc`フラグ | シンボルシステム、推定30-50%トークン削減 | リソース制約、大規模操作 |
 
 
 ---
 
-## Getting Started (2-Minute Overview)
+## はじめに（2分概要）
 
-**Modes activate through behavioral instructions** - Claude Code reads context files to determine which mode behaviors to adopt based on your task patterns and complexity.
+**モードは動作指示により活性化** - Claude Codeはコンテキストファイルを読み取り、タスクパターンと複雑さに基づいてどのモード動作を採用するかを決定します。
 
-**Quick Examples:**
+**クイック例:**
 ```bash
 # Automatic activation examples
 /sc:brainstorm "mobile app"        # → Socratic discovery questions
@@ -28,10 +28,10 @@ Test modes by using `/sc:` commands - they activate automatically based on task 
 "--uc analyze large-codebase/"     # → Compressed symbol output
 ```
 
-**When to use manual flags:**
-- Need specific behavior: `--brainstorm`, `--introspect`, `--uc`
-- Override automatic detection for learning/debugging
-- Optimize for specific constraints (memory, time, clarity)
+**手動フラグを使用する場合:**
+- 特定動作が必要: `--brainstorm`, `--introspect`, `--uc`
+- 学習/デバッグのための自動検出上書き
+- 特定制約の最適化（メモリ、時間、明確性）
 
 ---
 
