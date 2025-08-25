@@ -1,29 +1,29 @@
-# SuperClaude Documentation
+# SuperClaude ドキュメント
 
-## 🎯 Essential Understanding
+## 🎯 基本的な理解
 
-**SuperClaude is a Context Framework for Claude Code** - it installs behavioral instruction files that Claude Code reads to enhance its capabilities.
+**SuperClaudeはClaude Code用のコンテキストフレームワーク**です。Claude Codeが読み取って機能を強化する動作指示ファイルをインストールします。
 
-### How It Works
-1. **Installation**: Python CLI installs context files to `~/.claude/`
-2. **Commands**: Type `/sc:analyze` → Claude Code reads `analyze.md` instruction file
-3. **Behavior**: Claude adopts behaviors defined in context files
-4. **Result**: Enhanced development workflows through context switching
+### 動作原理
+1. **インストール**: Python CLIがコンテキストファイルを`~/.claude/`にインストール
+2. **コマンド**: `/sc:analyze`と入力 → Claude Codeが`analyze.md`指示ファイルを読み取り
+3. **動作**: Claudeがコンテキストファイルで定義された動作を採用
+4. **結果**: コンテキスト切り替えによる強化された開発ワークフロー
 
-## 🚀 Quick Start (5 Minutes)
+## 🚀 クイックスタート（5分）
 
-**New Users**: [Quick Start Guide →](Getting-Started/quick-start.md)
+**新規ユーザー**: [クイックスタートガイド →](Getting-Started/quick-start.md)
 ```bash
-# Recommended for Linux/macOS
+# Linux/macOS推奨
 pipx install SuperClaude && SuperClaude install
 
-# Traditional method
+# 従来の方法
 pip install SuperClaude && SuperClaude install
 
-# Then try: /sc:brainstorm "web app idea" in Claude Code
+# その後Claude Codeで試してください: /sc:brainstorm "ウェブアプリのアイデア"
 ```
 
-**Having Issues**: [Quick Fixes →](Reference/common-issues.md) | [Troubleshooting →](Reference/troubleshooting.md)
+**問題がある場合**: [クイック修正 →](Reference/common-issues.md) | [トラブルシューティング →](Reference/troubleshooting.md)
 
 ## 📚 Documentation Structure
 
@@ -55,41 +55,41 @@ pip install SuperClaude && SuperClaude install
 | **[Technical Architecture](Developer-Guide/technical-architecture.md)** | System design | Contributors |
 | **[Contributing](Developer-Guide/contributing-code.md)** | Development workflow | Developers |
 
-## 🔑 Key Concepts
+## 🔑 主要概念
 
-### What Gets Installed
-- **Python CLI Tool** - Manages framework installation
-- **Context Files** - `.md` behavioral instructions in `~/.claude/`
-- **MCP Configurations** - Optional external tool settings
+### インストールされるもの
+- **Python CLIツール** - フレームワークインストールの管理
+- **コンテキストファイル** - `~/.claude/`内の`.md`動作指示
+- **MCP設定** - オプションの外部ツール設定
 
-### Framework Components
-- **21 Commands** (`/sc:*`) - Workflow automation patterns
-- **14 Agents** (`@agent-*`) - Domain specialists
-- **5 Modes** - Behavioral modification patterns
-- **6 MCP Servers** - Optional external tools
+### フレームワークコンポーネント
+- **21のコマンド**（`/sc:*`） - ワークフロー自動化パターン
+- **14のエージェント**（`@agent-*`） - ドメイン専門家
+- **5つのモード** - 動作変更パターン
+- **6つのMCPサーバー** - オプションの外部ツール
 
-## 🚀 Quick Command Reference
+## 🚀 クイックコマンドリファレンス
 
-### In Your Terminal (Installation)
+### ターミナルで（インストール）
 ```bash
-# Install framework (choose one)
-pipx install SuperClaude       # Recommended for Linux/macOS
-pip install SuperClaude        # Traditional method
-npm install -g @bifrost_inc/superclaude  # Cross-platform
+# フレームワークをインストール（いずれかを選択）
+pipx install SuperClaude       # Linux/macOS推奨
+pip install SuperClaude        # 従来の方法
+npm install -g @bifrost_inc/superclaude  # クロスプラットフォーム
 
-# Configure and maintain
-SuperClaude install            # Configure Claude Code
-SuperClaude update             # Update framework
-python3 -m SuperClaude --version  # Check installation
+# 設定と維持
+SuperClaude install            # Claude Codeを設定
+SuperClaude update             # フレームワークを更新
+python3 -m SuperClaude --version  # インストール確認
 ```
 
-### In Claude Code (Usage)
+### Claude Codeで（使用）
 ```bash
-/sc:brainstorm "project idea"              # Start new project
-/sc:implement "feature"                    # Build features
-/sc:analyze src/                           # Analyze code
-@agent-python-expert "optimize this"      # Manual specialist
-@agent-security "review authentication"   # Security review
+/sc:brainstorm "プロジェクトアイデア"              # 新しいプロジェクトを開始
+/sc:implement "機能"                    # 機能を構築
+/sc:analyze src/                           # コードを分析
+@agent-python-expert "これを最適化"      # 手動専門家
+@agent-security "認証をレビュー"   # セキュリティレビュー
 ```
 
 ## 📊 Framework vs Software Comparison
