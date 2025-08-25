@@ -1,37 +1,37 @@
 ---
 name: task
-description: "Execute complex tasks with intelligent workflow management and delegation"
+description: "インテリジェントなワークフロー管理と委任による複雑なタスクの実行"
 category: special
 complexity: advanced
 mcp-servers: [sequential, context7, magic, playwright, morphllm, serena]
 personas: [architect, analyzer, frontend, backend, security, devops, project-manager]
 ---
 
-# /sc:task - Enhanced Task Management
+# /sc:task - 拡張タスク管理
 
-## Triggers
-- Complex tasks requiring multi-agent coordination and delegation
-- Projects needing structured workflow management and cross-session persistence
-- Operations requiring intelligent MCP server routing and domain expertise
-- Tasks benefiting from systematic execution and progressive enhancement
+## トリガー
+- マルチエージェント調整と委任が必要な複雑なタスク
+- 構造化されたワークフロー管理とセッション間永続化が必要なプロジェクト
+- インテリジェントなMCPサーバールーティングとドメイン専門知識が必要な操作
+- 体系的実行と段階的強化の恩恵を受けるタスク
 
-## Usage
+## 使用法
 ```
-/sc:task [action] [target] [--strategy systematic|agile|enterprise] [--parallel] [--delegate]
+/sc:task [アクション] [ターゲット] [--strategy systematic|agile|enterprise] [--parallel] [--delegate]
 ```
 
-## Behavioral Flow
-1. **Analyze**: Parse task requirements and determine optimal execution strategy
-2. **Delegate**: Route to appropriate MCP servers and activate relevant personas
-3. **Coordinate**: Execute tasks with intelligent workflow management and parallel processing
-4. **Validate**: Apply quality gates and comprehensive task completion verification
-5. **Optimize**: Analyze performance and provide enhancement recommendations
+## 動作フロー
+1. **分析**: タスク要件を解析し、最適な実行戦略を決定
+2. **委任**: 適切なMCPサーバーにルーティングし、関連ペルソナを活性化
+3. **調整**: インテリジェントなワークフロー管理と並列処理でタスクを実行
+4. **検証**: 品質ゲートと包括的タスク完了検証を適用
+5. **最適化**: パフォーマンスを分析し、強化推奨事項を提供
 
-Key behaviors:
-- Multi-persona coordination across architect, frontend, backend, security, devops domains
-- Intelligent MCP server routing (Sequential, Context7, Magic, Playwright, Morphllm, Serena)
-- Systematic execution with progressive task enhancement and cross-session persistence
-- Advanced task delegation with hierarchical breakdown and dependency management
+主要動作:
+- architect、frontend、backend、security、devopsドメインにわたるマルチペルソナ調整
+- インテリジェントなMCPサーバールーティング（Sequential、Context7、Magic、Playwright、Morphllm、Serena）
+- 段階的タスク強化とセッション間永続化による体系的実行
+- 階層的分解と依存関係管理による高度なタスク委任
 
 ## MCP Integration
 - **Sequential MCP**: Complex multi-step task analysis and systematic execution planning

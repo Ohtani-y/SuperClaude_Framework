@@ -1,37 +1,37 @@
 ---
 name: cleanup
-description: "Systematically clean up code, remove dead code, and optimize project structure"
+description: "コードの体系的なクリーンアップ、デッドコードの削除、プロジェクト構造の最適化"
 category: workflow
 complexity: standard
 mcp-servers: [sequential, context7]
 personas: [architect, quality, security]
 ---
 
-# /sc:cleanup - Code and Project Cleanup
+# /sc:cleanup - コードとプロジェクトのクリーンアップ
 
-## Triggers
-- Code maintenance and technical debt reduction requests
-- Dead code removal and import optimization needs
-- Project structure improvement and organization requirements
-- Codebase hygiene and quality improvement initiatives
+## トリガー
+- コードメンテナンスと技術的負債削減の要求
+- デッドコード削除とインポート最適化のニーズ
+- プロジェクト構造改善と整理要件
+- コードベースの衛生と品質改善イニシアチブ
 
-## Usage
+## 使用法
 ```
-/sc:cleanup [target] [--type code|imports|files|all] [--safe|--aggressive] [--interactive]
+/sc:cleanup [対象] [--type code|imports|files|all] [--safe|--aggressive] [--interactive]
 ```
 
-## Behavioral Flow
-1. **Analyze**: Assess cleanup opportunities and safety considerations across target scope
-2. **Plan**: Choose cleanup approach and activate relevant personas for domain expertise
-3. **Execute**: Apply systematic cleanup with intelligent dead code detection and removal
-4. **Validate**: Ensure no functionality loss through testing and safety verification
-5. **Report**: Generate cleanup summary with recommendations for ongoing maintenance
+## 動作フロー
+1. **分析**: 対象範囲でのクリーンアップ機会と安全性考慮事項を評価
+2. **計画**: クリーンアップアプローチを選択し、ドメイン専門知識のために関連ペルソナを活性化
+3. **実行**: インテリジェントなデッドコード検出と削除による体系的クリーンアップを適用
+4. **検証**: テストと安全性検証により機能損失がないことを確認
+5. **報告**: 継続的メンテナンスの推奨事項を含むクリーンアップサマリーを生成
 
-Key behaviors:
-- Multi-persona coordination (architect, quality, security) based on cleanup type
-- Framework-specific cleanup patterns via Context7 MCP integration
-- Systematic analysis via Sequential MCP for complex cleanup operations
-- Safety-first approach with backup and rollback capabilities
+主要動作:
+- クリーンアップタイプに基づくマルチペルソナ調整（architect、quality、security）
+- Context7 MCP統合によるフレームワーク固有のクリーンアップパターン
+- 複雑なクリーンアップ操作のためのSequential MCPによる体系的分析
+- バックアップとロールバック機能を備えた安全第一のアプローチ
 
 ## MCP Integration
 - **Sequential MCP**: Auto-activated for complex multi-step cleanup analysis and planning

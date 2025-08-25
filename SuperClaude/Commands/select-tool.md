@@ -1,37 +1,37 @@
 ---
 name: select-tool
-description: "Intelligent MCP tool selection based on complexity scoring and operation analysis"
+description: "複雑性スコアリングと操作分析に基づくインテリジェントMCPツール選択"
 category: special
 complexity: high
 mcp-servers: [serena, morphllm]
 personas: []
 ---
 
-# /sc:select-tool - Intelligent MCP Tool Selection
+# /sc:select-tool - インテリジェントMCPツール選択
 
-## Triggers
-- Operations requiring optimal MCP tool selection between Serena and Morphllm
-- Meta-system decisions needing complexity analysis and capability matching
-- Tool routing decisions requiring performance vs accuracy trade-offs
-- Operations benefiting from intelligent tool capability assessment
+## トリガー
+- SerenaとMorphllm間の最適なMCPツール選択が必要な操作
+- 複雑性分析と機能マッチングが必要なメタシステム決定
+- パフォーマンス対精度のトレードオフが必要なツールルーティング決定
+- インテリジェントツール機能評価の恩恵を受ける操作
 
-## Usage
+## 使用法
 ```
-/sc:select-tool [operation] [--analyze] [--explain]
+/sc:select-tool [操作] [--analyze] [--explain]
 ```
 
-## Behavioral Flow
-1. **Parse**: Analyze operation type, scope, file count, and complexity indicators
-2. **Score**: Apply multi-dimensional complexity scoring across various operation factors
-3. **Match**: Compare operation requirements against Serena and Morphllm capabilities
-4. **Select**: Choose optimal tool based on scoring matrix and performance requirements
-5. **Validate**: Verify selection accuracy and provide confidence metrics
+## 動作フロー
+1. **解析**: 操作タイプ、スコープ、ファイル数、複雑性指標を分析
+2. **スコア**: 様々な操作要因にわたって多次元複雑性スコアリングを適用
+3. **マッチング**: SerenaとMorphllm機能に対する操作要件を比較
+4. **選択**: スコアリングマトリックスとパフォーマンス要件に基づいて最適ツールを選択
+5. **検証**: 選択精度を確認し、信頼度メトリクスを提供
 
-Key behaviors:
-- Complexity scoring based on file count, operation type, language, and framework requirements
-- Performance assessment evaluating speed vs accuracy trade-offs for optimal selection
-- Decision logic matrix with direct mappings and threshold-based routing rules
-- Tool capability matching for Serena (semantic operations) vs Morphllm (pattern operations)
+主要動作:
+- ファイル数、操作タイプ、言語、フレームワーク要件に基づく複雑性スコアリング
+- 最適選択のための速度対精度トレードオフを評価するパフォーマンス評価
+- 直接マッピングと閾値ベースルーティングルールを持つ決定ロジックマトリックス
+- Serena（セマンティック操作）対Morphllm（パターン操作）のツール機能マッチング
 
 ## MCP Integration
 - **Serena MCP**: Optimal for semantic operations, LSP functionality, symbol navigation, and project context

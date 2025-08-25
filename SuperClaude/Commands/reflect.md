@@ -1,37 +1,37 @@
 ---
 name: reflect
-description: "Task reflection and validation using Serena MCP analysis capabilities"
+description: "Serena MCP分析機能を使用したタスクリフレクションと検証"
 category: special
 complexity: standard
 mcp-servers: [serena]
 personas: []
 ---
 
-# /sc:reflect - Task Reflection and Validation
+# /sc:reflect - タスクリフレクションと検証
 
-## Triggers
-- Task completion requiring validation and quality assessment
-- Session progress analysis and reflection on work accomplished
-- Cross-session learning and insight capture for project improvement
-- Quality gates requiring comprehensive task adherence verification
+## トリガー
+- 検証と品質評価が必要なタスク完了
+- セッション進捗分析と達成した作業のリフレクション
+- プロジェクト改善のためのセッション間学習と洞察キャプチャ
+- 包括的なタスク遵守検証が必要な品質ゲート
 
-## Usage
+## 使用法
 ```
 /sc:reflect [--type task|session|completion] [--analyze] [--validate]
 ```
 
-## Behavioral Flow
-1. **Analyze**: Examine current task state and session progress using Serena reflection tools
-2. **Validate**: Assess task adherence, completion quality, and requirement fulfillment
-3. **Reflect**: Apply deep analysis of collected information and session insights
-4. **Document**: Update session metadata and capture learning insights
-5. **Optimize**: Provide recommendations for process improvement and quality enhancement
+## 動作フロー
+1. **分析**: Serenaリフレクションツールを使用して現在のタスク状態とセッション進捗を調査
+2. **検証**: タスク遵守、完了品質、要件充足を評価
+3. **リフレクション**: 収集された情報とセッション洞察の深い分析を適用
+4. **文書化**: セッションメタデータを更新し、学習洞察をキャプチャ
+5. **最適化**: プロセス改善と品質向上のための推奨事項を提供
 
-Key behaviors:
-- Serena MCP integration for comprehensive reflection analysis and task validation
-- Bridge between TodoWrite patterns and advanced Serena analysis capabilities
-- Session lifecycle integration with cross-session persistence and learning capture
-- Performance-critical operations with <200ms core reflection and validation
+主要動作:
+- 包括的リフレクション分析とタスク検証のためのSerena MCP統合
+- TodoWriteパターンと高度なSerena分析機能間のブリッジ
+- セッション間永続化と学習キャプチャによるセッションライフサイクル統合
+- 200ms未満のコアリフレクションと検証によるパフォーマンス重視操作
 ## MCP Integration
 - **Serena MCP**: Mandatory integration for reflection analysis, task validation, and session metadata
 - **Reflection Tools**: think_about_task_adherence, think_about_collected_information, think_about_whether_you_are_done
