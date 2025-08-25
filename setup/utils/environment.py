@@ -124,7 +124,7 @@ def setup_environment_variables(api_keys: Dict[str, str]) -> bool:
     if not api_keys:
         return True
     
-    print(f"\n{Colors.BLUE}[INFO] Setting up environment variables...{Colors.RESET}")
+    print(f"\n{Colors.BLUE}[INFO] 環境変数を設定中...{Colors.RESET}")
     
     for env_var, value in api_keys.items():
         try:
@@ -180,14 +180,14 @@ def setup_environment_variables(api_keys: Dict[str, str]) -> bool:
         # Add to tracking
         _add_env_tracking(api_keys)
         
-        display_success("Environment variables configured successfully")
+        display_success("環境変数が正常に設定されました")
         if os.name != 'nt':
-            display_info("Restart your terminal or run 'source ~/.bashrc' to apply changes")
+            display_info("ターミナルを再起動するか、'source ~/.bashrc'を実行して変更を適用してください")
         else:
-            display_info("New environment variables will be available in new terminal sessions")
+            display_info("新しい環境変数は新しいターミナルセッションで利用可能になります")
     else:
-        display_warning("Some environment variables could not be set persistently")
-        display_info("You can set them manually or check the logs for details")
+        display_warning("一部の環境変数を永続的に設定できませんでした")
+        display_info("手動で設定するか、詳細についてはログを確認してください")
     
     return success
 
@@ -287,11 +287,11 @@ def cleanup_environment_variables(env_vars_to_remove: Dict[str, str], create_res
     if create_restore_script:
         restore_script_path = _create_restore_script(env_vars_to_remove)
         if restore_script_path:
-            display_info(f"Created restore script: {restore_script_path}")
+            display_info(f"復元スクリプトを作成しました: {restore_script_path}")
         else:
-            display_warning("Could not create restore script")
+            display_warning("復元スクリプトを作成できませんでした")
     
-    print(f"\n{Colors.BLUE}[INFO] Removing environment variables...{Colors.RESET}")
+    print(f"\n{Colors.BLUE}[INFO] 環境変数を削除中...{Colors.RESET}")
     
     for env_var, value in env_vars_to_remove.items():
         try:
@@ -326,13 +326,13 @@ def cleanup_environment_variables(env_vars_to_remove: Dict[str, str], create_res
         # Remove from tracking
         _remove_env_tracking(list(env_vars_to_remove.keys()))
         
-        display_success("Environment variables removed successfully")
+        display_success("環境変数が正常に削除されました")
         if os.name != 'nt':
-            display_info("Restart your terminal or source your shell config to apply changes")
+            display_info("ターミナルを再起動するか、シェル設定をソースして変更を適用してください")
         else:
-            display_info("Changes will take effect in new terminal sessions")
+            display_info("変更は新しいターミナルセッションで有効になります")
     else:
-        display_warning("Some environment variables could not be removed")
+        display_warning("一部の環境変数を削除できませんでした")
     
     return success
 
@@ -349,7 +349,7 @@ def _create_restore_script(env_vars: Dict[str, str]) -> Optional[Path]:
                 f.write("REM Generated during uninstall\n\n")
                 for env_var, value in env_vars.items():
                     f.write(f'setx {env_var} "{value}"\n')
-                f.write("\necho Environment variables restored\n")
+                f.write("\necho 環境変数が復元されました\n")
                 f.write("pause\n")
         else:  # Unix-like
             script_path = home / "restore_superclaude_env.sh"
@@ -362,7 +362,7 @@ def _create_restore_script(env_vars: Dict[str, str]) -> Optional[Path]:
                     f.write(f'export {env_var}="{value}"\n')
                     if shell_config:
                         f.write(f'echo \'export {env_var}="{value}"\' >> {shell_config}\n')
-                f.write("\necho 'Environment variables restored'\n")
+                f.write("\necho '環境変数が復元されました'\n")
             
             # Make script executable
             script_path.chmod(0o755)
@@ -457,12 +457,12 @@ def create_env_file(api_keys: Dict[str, str], env_file_path: Optional[Path] = No
             # Set file permissions (readable only by owner)
             env_file_path.chmod(0o600)
             
-            display_success(f"Created .env file at {env_file_path}")
+            display_success(f".envファイルを{env_file_path}に作成しました")
             logger.info(f"Created .env file with {len(new_lines)} new variables")
         
         return True
         
     except Exception as e:
         logger.error(f"Failed to create .env file: {e}")
-        display_warning(f"Could not create .env file: {e}")
+        display_warning(f".envファイルを作成できませんでした: {e}")
         return False

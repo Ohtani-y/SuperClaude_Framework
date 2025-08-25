@@ -11,28 +11,28 @@ from ..services.claude_md import CLAUDEMdService
 from setup import __version__
 
 class CoreComponent(Component):
-    """Core SuperClaude framework files component"""
+    """SuperClaudeフレームワークファイルのコアコンポーネント"""
     
     def __init__(self, install_dir: Optional[Path] = None):
-        """Initialize core component"""
+        """コアコンポーネントを初期化"""
         super().__init__(install_dir)
     
     def get_metadata(self) -> Dict[str, str]:
-        """Get component metadata"""
+        """コンポーネントメタデータを取得"""
         return {
             "name": "core",
             "version": __version__,
-            "description": "SuperClaude framework documentation and core files",
+            "description": "SuperClaudeフレームワークドキュメントとコアファイル",
             "category": "core"
         }
     
     def get_metadata_modifications(self) -> Dict[str, Any]:
-        """Get metadata modifications for SuperClaude"""
+        """SuperClaudeのメタデータ変更を取得"""
         return {
             "framework": {
                 "version": __version__,
                 "name": "SuperClaude",
-                "description": "AI-enhanced development framework for Claude Code",
+                "description": "Claude Code用のAI強化開発フレームワーク",
                 "installation_type": "global",
                 "components": ["core"]
             },
@@ -45,8 +45,8 @@ class CoreComponent(Component):
         }
     
     def _install(self, config: Dict[str, Any]) -> bool:
-        """Install core component"""
-        self.logger.info("Installing SuperClaude core framework files...")
+        """コアコンポーネントをインストール"""
+        self.logger.info("SuperClaudeコアフレームワークファイルをインストール中...")
 
         return super()._install(config);
 
@@ -55,7 +55,7 @@ class CoreComponent(Component):
         try:
             metadata_mods = self.get_metadata_modifications()
             self.settings_manager.update_metadata(metadata_mods)
-            self.logger.info("Updated metadata with framework configuration")
+            self.logger.info("フレームワーク設定でメタデータを更新しました")
             
             # Add component registration to metadata
             self.settings_manager.add_component_registration("core", {
@@ -64,11 +64,11 @@ class CoreComponent(Component):
                 "files_count": len(self.component_files)
             })
 
-            self.logger.info("Updated metadata with core component registration")
+            self.logger.info("コアコンポーネント登録でメタデータを更新しました")
             
             # Migrate any existing SuperClaude data from settings.json
             if self.settings_manager.migrate_superclaude_data():
-                self.logger.info("Migrated existing SuperClaude data from settings.json")
+                self.logger.info("settings.jsonから既存のSuperClaudeデータを移行しました")
         except Exception as e:
             self.logger.error(f"Failed to update metadata: {e}")
             return False
@@ -84,7 +84,7 @@ class CoreComponent(Component):
         try:
             manager = CLAUDEMdService(self.install_dir)
             manager.add_imports(self.component_files, category="Core Framework")
-            self.logger.info("Updated CLAUDE.md with core framework imports")
+            self.logger.info("コアフレームワークインポートでCLAUDE.mdを更新しました")
         except Exception as e:
             self.logger.warning(f"Failed to update CLAUDE.md with core framework imports: {e}")
             # Don't fail the whole installation for this
@@ -93,9 +93,9 @@ class CoreComponent(Component):
 
     
     def uninstall(self) -> bool:
-        """Uninstall core component"""
+        """コアコンポーネントをアンインストール"""
         try:
-            self.logger.info("Uninstalling SuperClaude core component...")
+            self.logger.info("SuperClaudeコアコンポーネントをアンインストール中...")
             
             # Remove framework files
             removed_count = 0
@@ -118,7 +118,7 @@ class CoreComponent(Component):
                             del metadata[key]
 
                     self.settings_manager.save_metadata(metadata)
-                    self.logger.info("Removed core component from metadata")
+                    self.logger.info("メタデータからコアコンポーネントを削除しました")
             except Exception as e:
                 self.logger.warning(f"Could not update metadata: {e}")
             
@@ -130,7 +130,7 @@ class CoreComponent(Component):
             return False
     
     def get_dependencies(self) -> List[str]:
-        """Get component dependencies (core has none)"""
+        """コンポーネント依存関係を取得（コアには依存関係なし）"""
         return []
     
     def update(self, config: Dict[str, Any]) -> bool:

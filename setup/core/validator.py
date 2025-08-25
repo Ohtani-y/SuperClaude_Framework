@@ -51,10 +51,10 @@ except ImportError:
 
 
 class Validator:
-    """System requirements validator"""
+    """システム要件バリデーター"""
     
     def __init__(self):
-        """Initialize validator"""
+        """バリデーターを初期化"""
         self.validation_cache: Dict[str, Any] = {}
     
     def check_python(self, min_version: str = "3.8", max_version: Optional[str] = None) -> Tuple[bool, str]:
@@ -154,7 +154,7 @@ class Validator:
             return result_tuple
             
         except subprocess.TimeoutExpired:
-            result_tuple = (False, "Node.js version check timed out")
+            result_tuple = (False, "Node.jsバージョンチェックがタイムアウトしました")
             self.validation_cache[cache_key] = result_tuple
             return result_tuple
         except FileNotFoundError:
@@ -219,7 +219,7 @@ class Validator:
             return result_tuple
             
         except subprocess.TimeoutExpired:
-            result_tuple = (False, "Claude CLI version check timed out")
+            result_tuple = (False, "Claude CLIバージョンチェックがタイムアウトしました")
             self.validation_cache[cache_key] = result_tuple
             return result_tuple
         except FileNotFoundError:
@@ -512,7 +512,7 @@ class Validator:
                 "used_gb": (stat_result.total - stat_result.free) / (1024**3)
             }
         except Exception:
-            info["disk_space"] = {"error": "Could not determine disk space"}
+            info["disk_space"] = {"error": "ディスク容量を確認できませんでした"}
         
         return info
     
@@ -596,7 +596,7 @@ class Validator:
             "message": python_msg
         }
         if not python_success:
-            diagnostics["issues"].append("Python version issue")
+            diagnostics["issues"].append("Pythonバージョンの問題")
             diagnostics["recommendations"].append(self.get_installation_help("python"))
         
         # Check Node.js
@@ -606,7 +606,7 @@ class Validator:
             "message": node_msg
         }
         if not node_success:
-            diagnostics["issues"].append("Node.js not found or version issue")
+            diagnostics["issues"].append("Node.jsが見つからないかバージョンの問題")
             diagnostics["recommendations"].append(self.get_installation_help("node"))
         
         # Check Claude CLI
@@ -616,7 +616,7 @@ class Validator:
             "message": claude_msg
         }
         if not claude_success:
-            diagnostics["issues"].append("Claude CLI not found")
+            diagnostics["issues"].append("Claude CLIが見つかりません")
             diagnostics["recommendations"].append(self.get_installation_help("claude_cli"))
         
         # Check disk space
@@ -626,7 +626,7 @@ class Validator:
             "message": disk_msg
         }
         if not disk_success:
-            diagnostics["issues"].append("Insufficient disk space")
+            diagnostics["issues"].append("ディスク容量不足")
         
         # Check common PATH issues
         self._diagnose_path_issues(diagnostics)
@@ -634,7 +634,7 @@ class Validator:
         return diagnostics
     
     def _diagnose_path_issues(self, diagnostics: Dict[str, Any]) -> None:
-        """Add PATH-related diagnostics"""
+        """PATH関連の診断を追加"""
         path_issues = []
         
         # Check if tools are in PATH, with alternatives for some tools
@@ -673,9 +673,9 @@ class Validator:
         if path_issues:
             diagnostics["issues"].extend(path_issues)
             diagnostics["recommendations"].append(
-                "\n💡 PATH Issue Help:\n"
-                "   Some tools may not be in your PATH. Try:\n"
-                "   - Restart your terminal after installation\n"
+                "\n💡 PATHの問題ヘルプ:\n"
+                "   一部のツールがPATHにない可能性があります。以下を試してください:\n"
+                "   - インストール後にターミナルを再起動\n"
                 "   - Check your shell configuration (.bashrc, .zshrc)\n"
                 "   - Use full paths to tools if needed\n"
             )

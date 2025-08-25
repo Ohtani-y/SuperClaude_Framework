@@ -118,20 +118,20 @@ def verify_directory_safety(directory: Path, component: str) -> bool:
 
 
 class UninstallOperation(OperationBase):
-    """Uninstall operation implementation"""
+    """アンインストール操作実装"""
     
     def __init__(self):
         super().__init__("uninstall")
 
 
 def register_parser(subparsers, global_parser=None) -> argparse.ArgumentParser:
-    """Register uninstall CLI arguments"""
+    """アンインストールCLI引数を登録"""
     parents = [global_parser] if global_parser else []
     
     parser = subparsers.add_parser(
         "uninstall",
-        help="Remove SuperClaude framework installation",
-        description="Uninstall SuperClaude Framework components",
+        help="SuperClaudeフレームワークインストールを削除",
+        description="SuperClaudeフレームワークコンポーネントをアンインストール",
         epilog="""
 Examples:
   SuperClaude uninstall                    # Interactive uninstall
@@ -148,7 +148,7 @@ Examples:
         "--components",
         type=str,
         nargs="+",
-        help="Specific components to uninstall"
+        help="アンインストールする特定のコンポーネント"
     )
     
     parser.add_argument(
@@ -161,19 +161,19 @@ Examples:
     parser.add_argument(
         "--keep-backups",
         action="store_true",
-        help="Keep backup files during uninstall"
+        help="アンインストール中にバックアップファイルを保持"
     )
     
     parser.add_argument(
         "--keep-logs",
         action="store_true",
-        help="Keep log files during uninstall"
+        help="アンインストール中にログファイルを保持"
     )
     
     parser.add_argument(
         "--keep-settings",
         action="store_true",
-        help="Keep user settings during uninstall"
+        help="アンインストール中にユーザー設定を保持"
     )
     
     # Safety options
@@ -187,19 +187,19 @@ Examples:
     parser.add_argument(
         "--cleanup-env",
         action="store_true",
-        help="Remove SuperClaude environment variables"
+        help="SuperClaude環境変数を削除"
     )
     
     parser.add_argument(
         "--no-restore-script",
         action="store_true",
-        help="Skip creating environment variable restore script"
+        help="環境変数復元スクリプトの作成をスキップ"
     )
     
     return parser
 
 def get_installed_components(install_dir: Path) -> Dict[str, Dict[str, Any]]:
-    """Get currently installed components and their versions"""
+    """現在インストールされているコンポーネントとそのバージョンを取得"""
     try:
         settings_manager = SettingsService(install_dir)
         return settings_manager.get_installed_components()
@@ -208,7 +208,7 @@ def get_installed_components(install_dir: Path) -> Dict[str, Dict[str, Any]]:
 
 
 def get_installation_info(install_dir: Path) -> Dict[str, Any]:
-    """Get detailed installation information"""
+    """詳細なインストール情報を取得"""
     info = {
         "install_dir": install_dir,
         "exists": False,
@@ -239,7 +239,7 @@ def get_installation_info(install_dir: Path) -> Dict[str, Any]:
 
 
 def display_environment_info() -> Dict[str, str]:
-    """Display SuperClaude environment variables and return them"""
+    """SuperClaude環境変数を表示して返す"""
     env_vars = get_superclaude_environment_variables()
     
     if env_vars:
@@ -259,7 +259,7 @@ def display_environment_info() -> Dict[str, str]:
 
 
 def display_uninstall_info(info: Dict[str, Any]) -> None:
-    """Display installation information before uninstall"""
+    """アンインストール前にインストール情報を表示"""
     print(f"\n{Colors.CYAN}{Colors.BRIGHT}Current Installation{Colors.RESET}")
     print("=" * 50)
     
@@ -285,7 +285,7 @@ def display_uninstall_info(info: Dict[str, Any]) -> None:
 
 
 def get_components_to_uninstall(args: argparse.Namespace, installed_components: Dict[str, str]) -> Optional[List[str]]:
-    """Determine which components to uninstall"""
+    """アンインストールするコンポーネントを決定"""
     logger = get_logger()
     
     # Complete uninstall

@@ -12,7 +12,7 @@ from ..utils.logger import get_logger
 
 
 class Installer:
-    """Main installer orchestrator"""
+    """メインインストーラーオーケストレーター"""
 
     def __init__(self,
                  install_dir: Optional[Path] = None,
@@ -261,14 +261,14 @@ class Installer:
         # Validate system requirements
         success, errors = self.validate_system_requirements()
         if not success:
-            self.logger.error("System requirements not met:")
+            self.logger.error("システム要件が満たされていません:")
             for error in errors:
                 self.logger.error(f"  - {error}")
             return False
 
         # Create backup if updating
         if self.install_dir.exists() and not self.dry_run:
-            self.logger.info("Creating backup of existing installation...")
+            self.logger.info("既存インストールのバックアップを作成中...")
             try:
                 self.create_backup()
             except Exception as e:
@@ -289,8 +289,8 @@ class Installer:
         return all_success
 
     def _run_post_install_validation(self) -> None:
-        """Run post-installation validation for all installed components"""
-        self.logger.info("Running post-installation validation...")
+        """インストールされたすべてのコンポーネントのインストール後検証を実行"""
+        self.logger.info("インストール後検証を実行中...")
 
         all_valid = True
         for name in self.installed_components:
@@ -306,9 +306,9 @@ class Installer:
                 all_valid = False
 
         if all_valid:
-            self.logger.info("All components validated successfully!")
+            self.logger.info("すべてのコンポーネントが正常に検証されました！")
         else:
-            self.logger.error("Some components failed validation. Check errors above.")
+            self.logger.error("一部のコンポーネントの検証に失敗しました。上記のエラーを確認してください。")
     def update_components(self, component_names: List[str], config: Dict[str, Any]) -> bool:
         """Alias for update operation (uses install logic)"""
         return self.install_components(component_names, config)

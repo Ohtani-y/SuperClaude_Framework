@@ -1,4 +1,4 @@
-"""Component implementations for SuperClaude installation system"""
+"""SuperClaudeインストールシステムのコンポーネント実装"""
 
 from .core import CoreComponent
 from .commands import CommandsComponent

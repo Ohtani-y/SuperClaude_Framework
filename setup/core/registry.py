@@ -11,7 +11,7 @@ from ..utils.logger import get_logger
 
 
 class ComponentRegistry:
-    """Auto-discovery and management of installable components"""
+    """インストール可能コンポーネントの自動発見と管理"""
     
     def __init__(self, components_dir: Path):
         """
@@ -104,7 +104,7 @@ class ComponentRegistry:
             self.logger.warning(f"Could not load component module {module_name}: {e}")
     
     def _build_dependency_graph(self) -> None:
-        """Build dependency graph for all discovered components"""
+        """発見されたすべてのコンポーネントの依存関係グラフを構築"""
         for name, instance in self.component_instances.items():
             try:
                 dependencies = instance.get_dependencies()
@@ -336,7 +336,7 @@ class ComponentRegistry:
             
             if not current_level:
                 # This shouldn't happen if dependency graph is valid
-                raise ValueError("Circular dependency detected in installation order calculation")
+                raise ValueError("インストール順序計算で循環依存が検出されました")
             
             levels.append(current_level)
             remaining -= set(current_level)

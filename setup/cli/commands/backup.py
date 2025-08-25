@@ -23,20 +23,20 @@ from . import OperationBase
 
 
 class BackupOperation(OperationBase):
-    """Backup operation implementation"""
+    """バックアップ操作実装"""
     
     def __init__(self):
         super().__init__("backup")
 
 
 def register_parser(subparsers, global_parser=None) -> argparse.ArgumentParser:
-    """Register backup CLI arguments"""
+    """バックアップCLI引数を登録"""
     parents = [global_parser] if global_parser else []
     
     parser = subparsers.add_parser(
         "backup",
-        help="Backup and restore SuperClaude installations",
-        description="Create, list, restore, and manage SuperClaude installation backups",
+        help="SuperClaudeインストールのバックアップと復元",
+        description="SuperClaudeインストールバックアップの作成、一覧表示、復元、管理",
         epilog="""
 Examples:
   SuperClaude backup --create               # Create new backup
@@ -56,32 +56,32 @@ Examples:
     operation_group.add_argument(
         "--create",
         action="store_true",
-        help="Create a new backup"
+        help="新しいバックアップを作成"
     )
     
     operation_group.add_argument(
         "--list",
         action="store_true",
-        help="List available backups"
+        help="利用可能なバックアップを一覧表示"
     )
     
     operation_group.add_argument(
         "--restore",
         nargs="?",
         const="interactive",
-        help="Restore from backup (optionally specify backup file)"
+        help="バックアップから復元（オプションでバックアップファイルを指定）"
     )
     
     operation_group.add_argument(
         "--info",
         type=str,
-        help="Show information about a specific backup file"
+        help="特定のバックアップファイルの情報を表示"
     )
     
     operation_group.add_argument(
         "--cleanup",
         action="store_true",
-        help="Clean up old backup files"
+        help="古いバックアップファイルをクリーンアップ"
     )
     
     # Backup options
@@ -108,7 +108,7 @@ Examples:
     parser.add_argument(
         "--overwrite",
         action="store_true",
-        help="Overwrite existing files during restore"
+        help="復元時に既存ファイルを上書き"
     )
     
     # Cleanup options
@@ -122,14 +122,14 @@ Examples:
     parser.add_argument(
         "--older-than",
         type=int,
-        help="Remove backups older than N days"
+        help="N日より古いバックアップを削除"
     )
     
     return parser
 
 
 def get_backup_directory(args: argparse.Namespace) -> Path:
-    """Get the backup directory path"""
+    """バックアップディレクトリパスを取得"""
     if args.backup_dir:
         return args.backup_dir
     else:
@@ -144,7 +144,7 @@ def check_installation_exists(install_dir: Path) -> bool:
 
 
 def get_backup_info(backup_path: Path) -> Dict[str, Any]:
-    """Get information about a backup file"""
+    """バックアップファイルの情報を取得"""
     info = {
         "path": backup_path,
         "exists": backup_path.exists(),
@@ -190,7 +190,7 @@ def get_backup_info(backup_path: Path) -> Dict[str, Any]:
 
 
 def list_backups(backup_dir: Path) -> List[Dict[str, Any]]:
-    """List all available backups"""
+    """利用可能なすべてのバックアップを一覧表示"""
     backups = []
     
     if not backup_dir.exists():
@@ -209,12 +209,12 @@ def list_backups(backup_dir: Path) -> List[Dict[str, Any]]:
 
 
 def display_backup_list(backups: List[Dict[str, Any]]) -> None:
-    """Display list of available backups"""
-    print(f"\n{Colors.CYAN}{Colors.BRIGHT}Available Backups{Colors.RESET}")
+    """利用可能なバックアップのリストを表示"""
+    print(f"\n{Colors.CYAN}{Colors.BRIGHT}利用可能なバックアップ{Colors.RESET}")
     print("=" * 70)
     
     if not backups:
-        print(f"{Colors.YELLOW}No backups found{Colors.RESET}")
+        print(f"{Colors.YELLOW}バックアップが見つかりません{Colors.RESET}")
         return
     
     print(f"{'Name':<30} {'Size':<10} {'Created':<20} {'Files':<8}")

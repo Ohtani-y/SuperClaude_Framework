@@ -18,22 +18,22 @@ def get_command_info():
     return {
         "install": {
             "name": "install",
-            "description": "Install SuperClaude framework components",
+            "description": "SuperClaudeフレームワークコンポーネントをインストール",
             "module": "setup.cli.commands.install"
         },
         "update": {
             "name": "update", 
-            "description": "Update existing SuperClaude installation",
+            "description": "既存のSuperClaudeインストールを更新",
             "module": "setup.cli.commands.update"
         },
         "uninstall": {
             "name": "uninstall",
-            "description": "Remove SuperClaude framework installation", 
+            "description": "SuperClaudeフレームワークインストールを削除", 
             "module": "setup.cli.commands.uninstall"
         },
         "backup": {
             "name": "backup",
-            "description": "Backup and restore SuperClaude installations",
+            "description": "SuperClaudeインストールのバックアップと復元",
             "module": "setup.cli.commands.backup"
         }
     }
@@ -66,7 +66,7 @@ class OperationBase:
         # Check for conflicting flags
         if hasattr(args, 'verbose') and hasattr(args, 'quiet'):
             if args.verbose and args.quiet:
-                errors.append("Cannot specify both --verbose and --quiet")
+                errors.append("--verboseと--quietの両方を指定することはできません")
         
         return len(errors) == 0, errors
     

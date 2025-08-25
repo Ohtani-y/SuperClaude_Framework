@@ -24,20 +24,20 @@ from . import OperationBase
 
 
 class InstallOperation(OperationBase):
-    """Installation operation implementation"""
+    """インストール操作実装"""
     
     def __init__(self):
         super().__init__("install")
 
 
 def register_parser(subparsers, global_parser=None) -> argparse.ArgumentParser:
-    """Register installation CLI arguments"""
+    """インストールCLI引数を登録"""
     parents = [global_parser] if global_parser else []
     
     parser = subparsers.add_parser(
         "install",
-        help="Install SuperClaude framework components",
-        description="Install SuperClaude Framework with various options and profiles",
+        help="SuperClaudeフレームワークコンポーネントをインストール",
+        description="様々なオプションとプロファイルでSuperClaudeフレームワークをインストール",
         epilog="""
 Examples:
   SuperClaude install                          # Interactive installation
@@ -55,36 +55,36 @@ Examples:
         "--components",
         type=str,
         nargs="+",
-        help="Specific components to install"
+        help="インストールする特定のコンポーネント"
     )
     
     # Installation options
     parser.add_argument(
         "--no-backup",
         action="store_true",
-        help="Skip backup creation"
+        help="バックアップ作成をスキップ"
     )
     
     parser.add_argument(
         "--list-components",
         action="store_true",
-        help="List available components and exit"
+        help="利用可能なコンポーネントを一覧表示して終了"
     )
     
     parser.add_argument(
         "--diagnose",
         action="store_true",
-        help="Run system diagnostics and show installation help"
+        help="システム診断を実行してインストールヘルプを表示"
     )
     
     return parser
 
 
 def validate_system_requirements(validator: Validator, component_names: List[str]) -> bool:
-    """Validate system requirements"""
+    """システム要件を検証"""
     logger = get_logger()
     
-    logger.info("Validating system requirements...")
+    logger.info("システム要件を検証中...")
     
     try:
         # Load requirements configuration
@@ -95,27 +95,27 @@ def validate_system_requirements(validator: Validator, component_names: List[str
         success, errors = validator.validate_component_requirements(component_names, requirements)
         
         if success:
-            logger.success("All system requirements met")
+            logger.success("すべてのシステム要件が満たされています")
             return True
         else:
-            logger.error("System requirements not met:")
+            logger.error("システム要件が満たされていません:")
             for error in errors:
                 logger.error(f"  - {error}")
             
             # Provide additional guidance
-            print(f"\n{Colors.CYAN}💡 Installation Help:{Colors.RESET}")
-            print("  Run 'SuperClaude install --diagnose' for detailed system diagnostics")
-            print("  and step-by-step installation instructions.")
+            print(f"\n{Colors.CYAN}💡 インストールヘルプ:{Colors.RESET}")
+            print("  詳細なシステム診断には 'SuperClaude install --diagnose' を実行してください")
+            print("  ステップバイステップのインストール手順が表示されます。")
             
             return False
             
     except Exception as e:
-        logger.error(f"Could not validate system requirements: {e}")
+        logger.error(f"システム要件を検証できませんでした: {e}")
         return False
 
 
 def get_components_to_install(args: argparse.Namespace, registry: ComponentRegistry, config_manager: ConfigService) -> Optional[List[str]]:
-    """Determine which components to install"""
+    """インストールするコンポーネントを決定"""
     logger = get_logger()
     
     # Explicit components specified
@@ -175,7 +175,7 @@ def select_mcp_servers(registry: ComponentRegistry) -> List[str]:
         # Get MCP component to access server list
         mcp_instance = registry.get_component_instance("mcp", Path.home() / ".claude")
         if not mcp_instance or not hasattr(mcp_instance, 'mcp_servers'):
-            logger.error("Could not access MCP server information")
+            logger.error("MCPサーバー情報にアクセスできませんでした")
             return []
         
         # Create MCP server menu

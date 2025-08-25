@@ -10,23 +10,23 @@ from setup import __version__
 
 
 class AgentsComponent(Component):
-    """SuperClaude specialized AI agents component"""
+    """SuperClaude専門AIエージェントコンポーネント"""
     
     def __init__(self, install_dir: Optional[Path] = None):
-        """Initialize agents component"""
+        """エージェントコンポーネントを初期化"""
         super().__init__(install_dir, Path("agents"))
     
     def get_metadata(self) -> Dict[str, str]:
-        """Get component metadata"""
+        """コンポーネントメタデータを取得"""
         return {
             "name": "agents",
             "version": __version__,
-            "description": "14 specialized AI agents with domain expertise and intelligent routing",
+            "description": "ドメイン専門知識とインテリジェントルーティングを持つ14の専門AIエージェント",
             "category": "agents"
         }
     
     def get_metadata_modifications(self) -> Dict[str, Any]:
-        """Get metadata modifications for agents"""
+        """エージェント用メタデータ変更を取得"""
         return {
             "components": {
                 "agents": {
@@ -39,8 +39,8 @@ class AgentsComponent(Component):
         }
     
     def _install(self, config: Dict[str, Any]) -> bool:
-        """Install agents component"""
-        self.logger.info("Installing SuperClaude specialized agents...")
+        """エージェントコンポーネントをインストール"""
+        self.logger.info("SuperClaude専門エージェントをインストール中...")
         
         # Call parent install method
         success = super()._install(config)
@@ -50,17 +50,17 @@ class AgentsComponent(Component):
             success = self._post_install()
         
         if success:
-            self.logger.success(f"Successfully installed {len(self.component_files)} specialized agents")
+            self.logger.success(f"{len(self.component_files)}個の専門エージェントを正常にインストールしました")
         
         return success
     
     def _post_install(self) -> bool:
-        """Post-install setup for agents"""
+        """エージェント用ポストインストールセットアップ"""
         try:
             # Update metadata with agents registration
             metadata_mods = self.get_metadata_modifications()
             self.settings_manager.update_metadata(metadata_mods)
-            self.logger.info("Updated metadata with agents configuration")
+            self.logger.info("エージェント設定でメタデータを更新しました")
             
             # Add component registration
             self.settings_manager.add_component_registration("agents", {
@@ -70,17 +70,17 @@ class AgentsComponent(Component):
                 "agents_list": self.component_files
             })
             
-            self.logger.info("Registered agents component in metadata")
+            self.logger.info("メタデータにエージェントコンポーネントを登録しました")
             return True
             
         except Exception as e:
-            self.logger.error(f"Failed to complete agents post-install: {e}")
+            self.logger.error(f"エージェントポストインストールの完了に失敗: {e}")
             return False
     
     def uninstall(self) -> bool:
-        """Uninstall agents component"""
+        """エージェントコンポーネントをアンインストール"""
         try:
-            self.logger.info("Uninstalling SuperClaude agents component...")
+            self.logger.info("SuperClaudeエージェントコンポーネントをアンインストール中...")
             
             # Remove agent files
             removed_count = 0
@@ -88,9 +88,9 @@ class AgentsComponent(Component):
                 file_path = self.install_component_subdir / filename
                 if self.file_manager.remove_file(file_path):
                     removed_count += 1
-                    self.logger.debug(f"Removed agent: {filename}")
+                    self.logger.debug(f"エージェントを削除: {filename}")
                 else:
-                    self.logger.warning(f"Could not remove agent: {filename}")
+                    self.logger.warning(f"エージェントを削除できませんでした: {filename}")
             
             # Remove agents directory if empty
             try:

@@ -1,4 +1,4 @@
-"""Core modules for SuperClaude installation system"""
+"""SuperClaudeインストールシステムのコアモジュール"""
 
 from .validator import Validator
 from .registry import ComponentRegistry

@@ -9,23 +9,23 @@ from ..core.base import Component
 from setup import __version__
 
 class CommandsComponent(Component):
-    """SuperClaude slash commands component"""
+    """SuperClaude スラッシュコマンドコンポーネント"""
     
     def __init__(self, install_dir: Optional[Path] = None):
-        """Initialize commands component"""
+        """コマンドコンポーネントを初期化"""
         super().__init__(install_dir, Path("commands/sc"))
     
     def get_metadata(self) -> Dict[str, str]:
-        """Get component metadata"""
+        """コンポーネントメタデータを取得"""
         return {
             "name": "commands",
             "version": __version__,
-            "description": "SuperClaude slash command definitions",
+            "description": "SuperClaude スラッシュコマンド定義",
             "category": "commands"
         }
     
     def get_metadata_modifications(self) -> Dict[str, Any]:
-        """Get metadata modifications for commands component"""
+        """コマンドコンポーネントのメタデータ変更を取得"""
         return {
             "components": {
                 "commands": {
@@ -42,8 +42,8 @@ class CommandsComponent(Component):
         }
     
     def _install(self, config: Dict[str, Any]) -> bool:
-        """Install commands component"""
-        self.logger.info("Installing SuperClaude command definitions...")
+        """コマンドコンポーネントをインストール"""
+        self.logger.info("SuperClaudeコマンド定義をインストール中...")
 
         # Check for and migrate existing commands from old location
         self._migrate_existing_commands()
@@ -55,7 +55,7 @@ class CommandsComponent(Component):
         try:
             metadata_mods = self.get_metadata_modifications()
             self.settings_manager.update_metadata(metadata_mods)
-            self.logger.info("Updated metadata with commands configuration")
+            self.logger.info("コマンド設定でメタデータを更新しました")
 
             # Add component registration to metadata
             self.settings_manager.add_component_registration("commands", {
@@ -63,17 +63,17 @@ class CommandsComponent(Component):
                 "category": "commands",
                 "files_count": len(self.component_files)
             })
-            self.logger.info("Updated metadata with commands component registration")
+            self.logger.info("コマンドコンポーネント登録でメタデータを更新しました")
         except Exception as e:
-            self.logger.error(f"Failed to update metadata: {e}")
+            self.logger.error(f"メタデータの更新に失敗: {e}")
             return False
 
         return True
     
     def uninstall(self) -> bool:
-        """Uninstall commands component"""
+        """コマンドコンポーネントをアンインストール"""
         try:
-            self.logger.info("Uninstalling SuperClaude commands component...")
+            self.logger.info("SuperClaudeコマンドコンポーネントをアンインストール中...")
             
             # Remove command files from sc subdirectory
             commands_dir = self.install_dir / "commands" / "sc"
@@ -101,7 +101,7 @@ class CommandsComponent(Component):
                         self.logger.warning(f"Could not remove old {filename}")
             
             if old_removed_count > 0:
-                self.logger.info(f"Also removed {old_removed_count} commands from old location")
+                self.logger.info(f"古い場所から{old_removed_count}個のコマンドも削除しました")
             
             removed_count += old_removed_count
             
@@ -111,7 +111,7 @@ class CommandsComponent(Component):
                     remaining_files = list(commands_dir.iterdir())
                     if not remaining_files:
                         commands_dir.rmdir()
-                        self.logger.debug("Removed empty sc commands directory")
+                        self.logger.debug("空のscコマンドディレクトリを削除しました")
                         
                         # Also remove parent commands directory if empty
                         parent_commands_dir = self.install_dir / "commands"
@@ -119,9 +119,9 @@ class CommandsComponent(Component):
                             remaining_files = list(parent_commands_dir.iterdir())
                             if not remaining_files:
                                 parent_commands_dir.rmdir()
-                                self.logger.debug("Removed empty parent commands directory")
+                                self.logger.debug("空の親コマンドディレクトリを削除しました")
             except Exception as e:
-                self.logger.warning(f"Could not remove commands directory: {e}")
+                self.logger.warning(f"コマンドディレクトリを削除できませんでした: {e}")
             
             # Update metadata to remove commands component
             try:

@@ -37,7 +37,7 @@ except ImportError:
 
 
 class Colors:
-    """Color constants for console output"""
+    """コンソール出力用カラー定数"""
     RED = Fore.RED
     GREEN = Fore.GREEN
     YELLOW = Fore.YELLOW
@@ -50,7 +50,7 @@ class Colors:
 
 
 class ProgressBar:
-    """Cross-platform progress bar with customizable display"""
+    """カスタマイズ可能な表示を持つクロスプラットフォームプログレスバー"""
     
     def __init__(self, total: int, width: int = 50, prefix: str = '', suffix: str = ''):
         """
@@ -140,7 +140,7 @@ class ProgressBar:
         print()  # New line after completion
     
     def _format_time(self, seconds: float) -> str:
-        """Format time duration as human-readable string"""
+        """時間の長さを人間が読みやすい文字列として書式設定"""
         if seconds < 60:
             return f"{seconds:.0f}s"
         elif seconds < 3600:
@@ -152,7 +152,7 @@ class ProgressBar:
 
 
 class Menu:
-    """Interactive menu system with keyboard navigation"""
+    """キーボードナビゲーション付きインタラクティブメニューシステム"""
     
     def __init__(self, title: str, options: List[str], multi_select: bool = False):
         """
@@ -279,27 +279,27 @@ def display_header(title: str, subtitle: str = '') -> None:
 
 
 def display_info(message: str) -> None:
-    """Display info message"""
+    """情報メッセージを表示"""
     print(f"{Colors.BLUE}[INFO] {message}{Colors.RESET}")
 
 
 def display_success(message: str) -> None:
-    """Display success message"""
+    """成功メッセージを表示"""
     print(f"{Colors.GREEN}[✓] {message}{Colors.RESET}")
 
 
 def display_warning(message: str) -> None:
-    """Display warning message"""
+    """警告メッセージを表示"""
     print(f"{Colors.YELLOW}[!] {message}{Colors.RESET}")
 
 
 def display_error(message: str) -> None:
-    """Display error message"""
+    """エラーメッセージを表示"""
     print(f"{Colors.RED}[✗] {message}{Colors.RESET}")
 
 
 def display_step(step: int, total: int, message: str) -> None:
-    """Display step progress"""
+    """ステップ進行状況を表示"""
     print(f"{Colors.CYAN}[{step}/{total}] {message}{Colors.RESET}")
 
 
@@ -377,8 +377,8 @@ def prompt_api_key(service_name: str, env_var_name: str) -> Optional[str]:
         return None
 
 
-def wait_for_key(message: str = "Press Enter to continue...") -> None:
-    """Wait for user to press a key"""
+def wait_for_key(message: str = "続行するにはEnterキーを押してください...") -> None:
+    """ユーザーがキーを押すまで待機"""
     try:
         input(f"{Colors.BLUE}{message}{Colors.RESET}")
     except KeyboardInterrupt:
@@ -386,20 +386,20 @@ def wait_for_key(message: str = "Press Enter to continue...") -> None:
 
 
 def clear_screen() -> None:
-    """Clear terminal screen"""
+    """ターミナル画面をクリア"""
     import os
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
 class StatusSpinner:
-    """Simple status spinner for long operations"""
+    """長時間操作用のシンプルステータススピナー"""
     
-    def __init__(self, message: str = "Working..."):
+    def __init__(self, message: str = "作業中..."):
         """
-        Initialize spinner
+        スピナーを初期化
         
         Args:
-            message: Message to display with spinner
+            message: スピナーと一緒に表示するメッセージ
         """
         self.message = message
         self.spinning = False
@@ -407,7 +407,7 @@ class StatusSpinner:
         self.current = 0
     
     def start(self) -> None:
-        """Start spinner in background thread"""
+        """バックグラウンドスレッドでスピナーを開始"""
         import threading
         
         def spin():
@@ -440,7 +440,7 @@ class StatusSpinner:
 
 
 def format_size(size_bytes: int) -> str:
-    """Format file size in human-readable format"""
+    """ファイルサイズを人間が読みやすい形式で書式設定"""
     for unit in ['B', 'KB', 'MB', 'GB', 'TB']:
         if size_bytes < 1024.0:
             return f"{size_bytes:.1f} {unit}"
@@ -449,7 +449,7 @@ def format_size(size_bytes: int) -> str:
 
 
 def format_duration(seconds: float) -> str:
-    """Format duration in human-readable format"""
+    """期間を人間が読みやすい形式で書式設定"""
     if seconds < 1:
         return f"{seconds*1000:.0f}ms"
     elif seconds < 60:

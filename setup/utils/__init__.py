@@ -1,4 +1,4 @@
-"""Utility modules for SuperClaude installation system"""
+"""SuperClaudeインストールシステム用ユーティリティモジュール"""
 
 from .ui import ProgressBar, Menu, confirm, Colors
 from .logger import Logger

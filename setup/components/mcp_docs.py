@@ -11,10 +11,10 @@ from ..services.claude_md import CLAUDEMdService
 
 
 class MCPDocsComponent(Component):
-    """MCP documentation component - installs docs for selected MCP servers"""
+    """MCPドキュメントコンポーネント - 選択されたMCPサーバーのドキュメントをインストール"""
     
     def __init__(self, install_dir: Optional[Path] = None):
-        """Initialize MCP docs component"""
+        """MCPドキュメントコンポーネントを初期化"""
         # Initialize attributes before calling parent constructor
         # because parent calls _discover_component_files() which needs these
         self.selected_servers: List[str] = []
@@ -32,16 +32,16 @@ class MCPDocsComponent(Component):
         super().__init__(install_dir, Path(""))
     
     def get_metadata(self) -> Dict[str, str]:
-        """Get component metadata"""
+        """コンポーネントメタデータを取得"""
         return {
             "name": "mcp_docs",
             "version": __version__,
-            "description": "MCP server documentation and usage guides",
+            "description": "MCPサーバードキュメントと使用ガイド",
             "category": "documentation"
         }
     
     def set_selected_servers(self, selected_servers: List[str]) -> None:
-        """Set which MCP servers were selected for documentation installation"""
+        """ドキュメントインストール用に選択されたMCPサーバーを設定"""
         self.selected_servers = selected_servers
         self.logger.debug(f"MCP docs will be installed for: {selected_servers}")
     
@@ -82,13 +82,13 @@ class MCPDocsComponent(Component):
         return files
     
     def _install(self, config: Dict[str, Any]) -> bool:
-        """Install MCP documentation component"""
-        self.logger.info("Installing MCP server documentation...")
+        """MCPドキュメントコンポーネントをインストール"""
+        self.logger.info("MCPサーバードキュメントをインストール中...")
         
         # Get selected servers from config
         selected_servers = config.get("selected_mcp_servers", [])
         if not selected_servers:
-            self.logger.info("No MCP servers selected - skipping documentation installation")
+            self.logger.info("MCPサーバーが選択されていません - ドキュメントインストールをスキップ")
             return True
         
         self.set_selected_servers(selected_servers)
@@ -107,7 +107,7 @@ class MCPDocsComponent(Component):
         files_to_install = self.get_files_to_install()
 
         if not files_to_install:
-            self.logger.warning("No MCP documentation files found to install")
+            self.logger.warning("インストールするMCPドキュメントファイルが見つかりません")
             return True  # Not an error - just no docs to install
 
         # Copy documentation files
@@ -130,7 +130,7 @@ class MCPDocsComponent(Component):
         return self._post_install()
 
     def _post_install(self) -> bool:
-        """Post-installation tasks"""
+        """インストール後タスク"""
         try:
             # Update metadata
             metadata_mods = {
@@ -144,13 +144,13 @@ class MCPDocsComponent(Component):
                 }
             }
             self.settings_manager.update_metadata(metadata_mods)
-            self.logger.info("Updated metadata with MCP docs component registration")
+            self.logger.info("MCPドキュメントコンポーネント登録でメタデータを更新")
             
             # Update CLAUDE.md with MCP documentation imports
             try:
                 manager = CLAUDEMdService(self.install_dir)
                 manager.add_imports(self.component_files, category="MCP Documentation")
-                self.logger.info("Updated CLAUDE.md with MCP documentation imports")
+                self.logger.info("MCPドキュメントインポートでCLAUDE.mdを更新")
             except Exception as e:
                 self.logger.warning(f"Failed to update CLAUDE.md with MCP documentation imports: {e}")
                 # Don't fail the whole installation for this
@@ -161,9 +161,9 @@ class MCPDocsComponent(Component):
             return False
     
     def uninstall(self) -> bool:
-        """Uninstall MCP documentation component"""
+        """MCPドキュメントコンポーネントをアンインストール"""
         try:
-            self.logger.info("Uninstalling MCP documentation component...")
+            self.logger.info("MCPドキュメントコンポーネントをアンインストール中...")
             
             # Remove all MCP documentation files
             removed_count = 0
@@ -183,7 +183,7 @@ class MCPDocsComponent(Component):
                     remaining_files = list(self.install_component_subdir.iterdir())
                     if not remaining_files:
                         self.install_component_subdir.rmdir()
-                        self.logger.debug("Removed empty mcp directory")
+                        self.logger.debug("空のmcpディレクトリを削除")
             except Exception as e:
                 self.logger.warning(f"Could not remove mcp directory: {e}")
             
