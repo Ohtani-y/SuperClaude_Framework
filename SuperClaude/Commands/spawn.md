@@ -1,53 +1,53 @@
 ---
 name: spawn
-description: "Meta-system task orchestration with intelligent breakdown and delegation"
+description: "インテリジェントな分解と委任によるメタシステムタスクオーケストレーション"
 category: special
 complexity: high
 mcp-servers: []
 personas: []
 ---
 
-# /sc:spawn - Meta-System Task Orchestration
+# /sc:spawn - メタシステムタスクオーケストレーション
 
-## Triggers
-- Complex multi-domain operations requiring intelligent task breakdown
-- Large-scale system operations spanning multiple technical areas
-- Operations requiring parallel coordination and dependency management
-- Meta-level orchestration beyond standard command capabilities
+## トリガー
+- インテリジェントなタスク分解が必要な複雑なマルチドメイン操作
+- 複数の技術分野にまたがる大規模システム操作
+- 並列調整と依存関係管理が必要な操作
+- 標準コマンド機能を超えたメタレベルオーケストレーション
 
-## Usage
+## 使用法
 ```
-/sc:spawn [complex-task] [--strategy sequential|parallel|adaptive] [--depth normal|deep]
+/sc:spawn [複雑なタスク] [--strategy sequential|parallel|adaptive] [--depth normal|deep]
 ```
 
-## Behavioral Flow
-1. **Analyze**: Parse complex operation requirements and assess scope across domains
-2. **Decompose**: Break down operation into coordinated subtask hierarchies
-3. **Orchestrate**: Execute tasks using optimal coordination strategy (parallel/sequential)
-4. **Monitor**: Track progress across task hierarchies with dependency management
-5. **Integrate**: Aggregate results and provide comprehensive orchestration summary
+## 動作フロー
+1. **分析**: 複雑な操作要件を解析し、ドメイン間のスコープを評価
+2. **分解**: 操作を調整されたサブタスク階層に分解
+3. **オーケストレート**: 最適な調整戦略（並列/順次）を使用してタスクを実行
+4. **監視**: 依存関係管理でタスク階層全体の進捗を追跡
+5. **統合**: 結果を集約し、包括的なオーケストレーション要約を提供
 
-Key behaviors:
-- Meta-system task decomposition with Epic → Story → Task → Subtask breakdown
-- Intelligent coordination strategy selection based on operation characteristics
-- Cross-domain operation management with parallel and sequential execution patterns
-- Advanced dependency analysis and resource optimization across task hierarchies
-## MCP Integration
-- **Native Orchestration**: Meta-system command uses native coordination without MCP dependencies
-- **Progressive Integration**: Coordination with systematic execution for progressive enhancement
-- **Framework Integration**: Advanced integration with SuperClaude orchestration layers
+主要動作:
+- Epic → Story → Task → Subtaskの分解によるメタシステムタスク分解
+- 操作特性に基づくインテリジェントな調整戦略選択
+- 並列および順次実行パターンによるクロスドメイン操作管理
+- タスク階層全体での高度な依存関係分析とリソース最適化
+## MCP統合
+- **ネイティブオーケストレーション**: メタシステムコマンドはMCP依存関係なしでネイティブ調整を使用
+- **段階的統合**: 段階的強化のための体系的実行との調整
+- **フレームワーク統合**: SuperClaudeオーケストレーション層との高度な統合
 
-## Tool Coordination
-- **TodoWrite**: Hierarchical task breakdown and progress tracking across Epic → Story → Task levels
-- **Read/Grep/Glob**: System analysis and dependency mapping for complex operations
-- **Edit/MultiEdit/Write**: Coordinated file operations with parallel and sequential execution
-- **Bash**: System-level operations coordination with intelligent resource management
+## ツール調整
+- **TodoWrite**: Epic → Story → Taskレベルでの階層的タスク分解と進捗追跡
+- **Read/Grep/Glob**: 複雑な操作のためのシステム分析と依存関係マッピング
+- **Edit/MultiEdit/Write**: 並列および順次実行による調整されたファイル操作
+- **Bash**: インテリジェントなリソース管理によるシステムレベル操作調整
 
-## Key Patterns
-- **Hierarchical Breakdown**: Epic-level operations → Story coordination → Task execution → Subtask granularity
-- **Strategy Selection**: Sequential (dependency-ordered) → Parallel (independent) → Adaptive (dynamic)
-- **Meta-System Coordination**: Cross-domain operations → resource optimization → result integration
-- **Progressive Enhancement**: Systematic execution → quality gates → comprehensive validation
+## 主要パターン
+- **階層分解**: Epicレベル操作 → Story調整 → Task実行 → Subtask粒度
+- **戦略選択**: 順次（依存関係順） → 並列（独立） → 適応（動的）
+- **メタシステム調整**: クロスドメイン操作 → リソース最適化 → 結果統合
+- **段階的強化**: 体系的実行 → 品質ゲート → 包括的検証
 
 ## Examples
 

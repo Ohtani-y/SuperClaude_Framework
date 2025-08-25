@@ -1,37 +1,37 @@
 ---
 name: build
-description: "Build, compile, and package projects with intelligent error handling and optimization"
+description: "インテリジェントなエラーハンドリングと最適化によるプロジェクトのビルド、コンパイル、パッケージング"
 category: utility
 complexity: enhanced
 mcp-servers: [playwright]
 personas: [devops-engineer]
 ---
 
-# /sc:build - Project Building and Packaging
+# /sc:build - プロジェクトビルドとパッケージング
 
-## Triggers
-- Project compilation and packaging requests for different environments
-- Build optimization and artifact generation needs
-- Error debugging during build processes
-- Deployment preparation and artifact packaging requirements
+## トリガー
+- 異なる環境でのプロジェクトコンパイルとパッケージング要求
+- ビルド最適化とアーティファクト生成のニーズ
+- ビルドプロセス中のエラーデバッグ
+- デプロイメント準備とアーティファクトパッケージング要件
 
-## Usage
+## 使用法
 ```
 /sc:build [target] [--type dev|prod|test] [--clean] [--optimize] [--verbose]
 ```
 
-## Behavioral Flow
-1. **Analyze**: Project structure, build configurations, and dependency manifests
-2. **Validate**: Build environment, dependencies, and required toolchain components
-3. **Execute**: Build process with real-time monitoring and error detection
-4. **Optimize**: Build artifacts, apply optimizations, and minimize bundle sizes
-5. **Package**: Generate deployment artifacts and comprehensive build reports
+## 動作フロー
+1. **分析**: プロジェクト構造、ビルド設定、依存関係マニフェスト
+2. **検証**: ビルド環境、依存関係、必要なツールチェーンコンポーネント
+3. **実行**: リアルタイム監視とエラー検出を伴うビルドプロセス
+4. **最適化**: ビルドアーティファクト、最適化の適用、バンドルサイズの最小化
+5. **パッケージング**: デプロイメントアーティファクトと包括的ビルドレポートの生成
 
-Key behaviors:
-- Configuration-driven build orchestration with dependency validation
-- Intelligent error analysis with actionable resolution guidance
-- Environment-specific optimization (dev/prod/test configurations)
-- Comprehensive build reporting with timing metrics and artifact analysis
+主要動作:
+- 依存関係検証を伴う設定駆動ビルドオーケストレーション
+- 実行可能な解決ガイダンスを伴うインテリジェントエラー分析
+- 環境固有の最適化（dev/prod/test設定）
+- タイミングメトリクスとアーティファクト分析を伴う包括的ビルドレポート
 
 ## MCP Integration
 - **Playwright MCP**: Auto-activated for build validation and UI testing during builds

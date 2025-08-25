@@ -1,37 +1,37 @@
 ---
 name: estimate
-description: "Provide development estimates for tasks, features, or projects with intelligent analysis"
+description: "インテリジェント分析によるタスク、機能、プロジェクトの開発見積もりを提供"
 category: special
 complexity: standard
 mcp-servers: [sequential, context7]
 personas: [architect, performance, project-manager]
 ---
 
-# /sc:estimate - Development Estimation
+# /sc:estimate - 開発見積もり
 
-## Triggers
-- Development planning requiring time, effort, or complexity estimates
-- Project scoping and resource allocation decisions
-- Feature breakdown needing systematic estimation methodology
-- Risk assessment and confidence interval analysis requirements
+## トリガー
+- 時間、工数、複雑さの見積もりが必要な開発計画
+- プロジェクトスコープとリソース配分の決定
+- 体系的な見積もり手法が必要な機能分解
+- リスク評価と信頼区間分析の要件
 
-## Usage
+## 使用法
 ```
-/sc:estimate [target] [--type time|effort|complexity] [--unit hours|days|weeks] [--breakdown]
+/sc:estimate [対象] [--type time|effort|complexity] [--unit hours|days|weeks] [--breakdown]
 ```
 
-## Behavioral Flow
-1. **Analyze**: Examine scope, complexity factors, dependencies, and framework patterns
-2. **Calculate**: Apply estimation methodology with historical benchmarks and complexity scoring
-3. **Validate**: Cross-reference estimates with project patterns and domain expertise
-4. **Present**: Provide detailed breakdown with confidence intervals and risk assessment
-5. **Track**: Document estimation accuracy for continuous methodology improvement
+## 動作フロー
+1. **分析**: スコープ、複雑さ要因、依存関係、フレームワークパターンを調査
+2. **計算**: 履歴ベンチマークと複雑さスコアリングによる見積もり手法を適用
+3. **検証**: プロジェクトパターンとドメイン専門知識で見積もりを相互参照
+4. **提示**: 信頼区間とリスク評価を含む詳細な内訳を提供
+5. **追跡**: 継続的な手法改善のための見積もり精度を文書化
 
-Key behaviors:
-- Multi-persona coordination (architect, performance, project-manager) based on estimation scope
-- Sequential MCP integration for systematic analysis and complexity assessment
-- Context7 MCP integration for framework-specific patterns and historical benchmarks
-- Intelligent breakdown analysis with confidence intervals and risk factors
+主要動作:
+- 見積もりスコープに基づくマルチペルソナ調整（architect、performance、project-manager）
+- 体系的分析と複雑さ評価のためのSequential MCP統合
+- フレームワーク固有パターンと履歴ベンチマークのためのContext7 MCP統合
+- 信頼区間とリスク要因を含むインテリジェント内訳分析
 
 ## MCP Integration
 - **Sequential MCP**: Complex multi-step estimation analysis and systematic complexity assessment

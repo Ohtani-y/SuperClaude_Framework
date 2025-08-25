@@ -27,7 +27,7 @@ setup_dir = project_root / "setup"
 if setup_dir.exists():
     sys.path.insert(0, str(setup_dir.parent))
 else:
-    print(f"Warning: Setup directory not found at {setup_dir}")
+    print(f"警告: セットアップディレクトリが見つかりません: {setup_dir}")
     sys.exit(1)
 
 
@@ -44,10 +44,10 @@ except ImportError:
     class Colors:
         RED = YELLOW = GREEN = CYAN = RESET = ""
 
-    def display_error(msg): print(f"[ERROR] {msg}")
-    def display_warning(msg): print(f"[WARN] {msg}")
-    def display_success(msg): print(f"[OK] {msg}")
-    def display_info(msg): print(f"[INFO] {msg}")
+    def display_error(msg): print(f"[エラー] {msg}")
+    def display_warning(msg): print(f"[警告] {msg}")
+    def display_success(msg): print(f"[成功] {msg}")
+    def display_info(msg): print(f"[情報] {msg}")
     def display_header(title, subtitle): print(f"{title} - {subtitle}")
     def get_logger(): return None
     def setup_logging(*args, **kwargs): pass
@@ -58,31 +58,31 @@ except ImportError:
 
 
 def create_global_parser() -> argparse.ArgumentParser:
-    """Create shared parser for global flags used by all commands"""
+    """すべてのコマンドで使用されるグローバルフラグの共有パーサーを作成"""
     global_parser = argparse.ArgumentParser(add_help=False)
 
     global_parser.add_argument("--verbose", "-v", action="store_true",
-                               help="Enable verbose logging")
+                               help="詳細ログを有効化")
     global_parser.add_argument("--quiet", "-q", action="store_true",
-                               help="Suppress all output except errors")
+                               help="エラー以外のすべての出力を抑制")
     global_parser.add_argument("--install-dir", type=Path, default=DEFAULT_INSTALL_DIR,
-                               help=f"Target installation directory (default: {DEFAULT_INSTALL_DIR})")
+                               help=f"対象インストールディレクトリ（デフォルト: {DEFAULT_INSTALL_DIR}）")
     global_parser.add_argument("--dry-run", action="store_true",
-                               help="Simulate operation without making changes")
+                               help="変更を行わずに操作をシミュレート")
     global_parser.add_argument("--force", action="store_true",
-                               help="Force execution, skipping checks")
+                               help="チェックをスキップして強制実行")
     global_parser.add_argument("--yes", "-y", action="store_true",
-                               help="Automatically answer yes to all prompts")
+                               help="すべてのプロンプトに自動的にyesで回答")
     global_parser.add_argument("--no-update-check", action="store_true",
-                               help="Skip checking for updates")
+                               help="更新チェックをスキップ")
     global_parser.add_argument("--auto-update", action="store_true",
-                               help="Automatically install updates without prompting")
+                               help="プロンプトなしで自動的に更新をインストール")
 
     return global_parser
 
 
 def create_parser():
-    """Create the main CLI parser and attach subcommand parsers"""
+    """メインCLIパーサーを作成し、サブコマンドパーサーをアタッチ"""
     global_parser = create_global_parser()
 
     parser = argparse.ArgumentParser(
@@ -103,15 +103,15 @@ Examples:
 
     subparsers = parser.add_subparsers(
         dest="operation",
-        title="Operations",
-        description="Framework operations to perform"
+        title="操作",
+        description="実行するフレームワーク操作"
     )
 
     return parser, subparsers, global_parser
 
 
 def setup_global_environment(args: argparse.Namespace):
-    """Set up logging and shared runtime environment based on args"""
+    """引数に基づいてログと共有ランタイム環境をセットアップ"""
     # Determine log level
     if args.quiet:
         level = LogLevel.ERROR
@@ -132,28 +132,28 @@ def setup_global_environment(args: argparse.Namespace):
 
 
 def get_operation_modules() -> Dict[str, str]:
-    """Return supported operations and their descriptions"""
+    """サポートされている操作とその説明を返す"""
     return {
-        "install": "Install SuperClaude framework components",
-        "update": "Update existing SuperClaude installation",
-        "uninstall": "Remove SuperClaude installation",
-        "backup": "Backup and restore operations"
+        "install": "SuperClaudeフレームワークコンポーネントをインストール",
+        "update": "既存のSuperClaudeインストールを更新",
+        "uninstall": "SuperClaudeインストールを削除",
+        "backup": "バックアップと復元操作"
     }
 
 
 def load_operation_module(name: str):
-    """Try to dynamically import an operation module"""
+    """操作モジュールを動的にインポートを試行"""
     try:
         return __import__(f"setup.cli.commands.{name}", fromlist=[name])
     except ImportError as e:
         logger = get_logger()
         if logger:
-            logger.error(f"Module '{name}' failed to load: {e}")
+            logger.error(f"モジュール '{name}' の読み込みに失敗: {e}")
         return None
 
 
 def register_operation_parsers(subparsers, global_parser) -> Dict[str, Callable]:
-    """Register subcommand parsers and map operation names to their run functions"""
+    """サブコマンドパーサーを登録し、操作名を実行関数にマップ"""
     operations = {}
     for name, desc in get_operation_modules().items():
         module = load_operation_module(name)
@@ -162,21 +162,21 @@ def register_operation_parsers(subparsers, global_parser) -> Dict[str, Callable]
             operations[name] = module.run
         else:
             # If module doesn't exist, register a stub parser and fallback to legacy
-            parser = subparsers.add_parser(name, help=f"{desc} (legacy fallback)", parents=[global_parser])
-            parser.add_argument("--legacy", action="store_true", help="Use legacy script")
+            parser = subparsers.add_parser(name, help=f"{desc} (レガシーフォールバック)", parents=[global_parser])
+            parser.add_argument("--legacy", action="store_true", help="レガシースクリプトを使用")
             operations[name] = None
     return operations
 
 
 def handle_legacy_fallback(op: str, args: argparse.Namespace) -> int:
-    """Run a legacy operation script if module is unavailable"""
+    """モジュールが利用できない場合にレガシー操作スクリプトを実行"""
     script_path = Path(__file__).parent / f"{op}.py"
 
     if not script_path.exists():
-        display_error(f"No module or legacy script found for operation '{op}'")
+        display_error(f"操作 '{op}' のモジュールまたはレガシースクリプトが見つかりません")
         return 1
 
-    display_warning(f"Falling back to legacy script for '{op}'...")
+    display_warning(f"'{op}' のレガシースクリプトにフォールバック中...")
 
     cmd = [sys.executable, str(script_path)]
 
@@ -193,12 +193,12 @@ def handle_legacy_fallback(op: str, args: argparse.Namespace) -> int:
     try:
         return subprocess.call(cmd)
     except Exception as e:
-        display_error(f"Legacy execution failed: {e}")
+        display_error(f"レガシー実行が失敗: {e}")
         return 1
 
 
 def main() -> int:
-    """Main entry point"""
+    """メインエントリーポイント"""
     try:
         parser, subparsers, global_parser = create_parser()
         operations = register_operation_parsers(subparsers, global_parser)
@@ -216,7 +216,7 @@ def main() -> int:
                 )
                 # If updated, suggest restart
                 if updated:
-                    print("\n🔄 SuperClaude was updated. Please restart to use the new version.")
+                    print("\n🔄 SuperClaudeが更新されました。新しいバージョンを使用するには再起動してください。")
                     return 0
             except ImportError:
                 # Updater module not available, skip silently
@@ -229,8 +229,8 @@ def main() -> int:
         if not args.operation:
             if not args.quiet:
                 from SuperClaude import __version__
-                display_header(f"SuperClaude Framework v{__version__}", "Unified CLI for all operations")
-                print(f"{Colors.CYAN}Available operations:{Colors.RESET}")
+                display_header(f"SuperClaude Framework v{__version__}", "すべての操作のための統合CLI")
+                print(f"{Colors.CYAN}利用可能な操作:{Colors.RESET}")
                 for op, desc in get_operation_modules().items():
                     print(f"  {op:<12} {desc}")
             return 0

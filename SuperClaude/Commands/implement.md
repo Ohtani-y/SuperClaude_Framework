@@ -1,40 +1,40 @@
 ---
 name: implement
-description: "Feature and code implementation with intelligent persona activation and MCP integration"
+description: "インテリジェントペルソナ活性化とMCP統合による機能とコード実装"
 category: workflow
 complexity: standard
 mcp-servers: [context7, sequential, magic, playwright]
 personas: [architect, frontend, backend, security, qa-specialist]
 ---
 
-# /sc:implement - Feature Implementation
+# /sc:implement - 機能実装
 
-> **Context Framework Note**: This behavioral instruction activates when Claude Code users type `/sc:implement` patterns. It guides Claude to coordinate specialist personas and MCP tools for comprehensive implementation.
+> **コンテキストフレームワーク注記**: この動作指示は、Claude Codeユーザーが`/sc:implement`パターンを入力したときに活性化されます。包括的な実装のために専門ペルソナとMCPツールを調整するようClaudeを導きます。
 
-## Triggers
-- Feature development requests for components, APIs, or complete functionality
-- Code implementation needs with framework-specific requirements
-- Multi-domain development requiring coordinated expertise
-- Implementation projects requiring testing and validation integration
+## トリガー
+- コンポーネント、API、または完全な機能の機能開発要求
+- フレームワーク固有の要件を持つコード実装ニーズ
+- 調整された専門知識が必要なマルチドメイン開発
+- テストと検証統合が必要な実装プロジェクト
 
-## Context Trigger Pattern
+## コンテキストトリガーパターン
 ```
-/sc:implement [feature-description] [--type component|api|service|feature] [--framework react|vue|express] [--safe] [--with-tests]
+/sc:implement [機能説明] [--type component|api|service|feature] [--framework react|vue|express] [--safe] [--with-tests]
 ```
-**Usage**: Type this in Claude Code conversation to activate implementation behavioral mode with coordinated expertise and systematic development approach.
+**使用法**: Claude Code会話でこれを入力すると、調整された専門知識と体系的な開発アプローチによる実装動作モードが活性化されます。
 
-## Behavioral Flow
-1. **Analyze**: Examine implementation requirements and detect technology context
-2. **Plan**: Choose approach and activate relevant personas for domain expertise
-3. **Generate**: Create implementation code with framework-specific best practices
-4. **Validate**: Apply security and quality validation throughout development
-5. **Integrate**: Update documentation and provide testing recommendations
+## 動作フロー
+1. **分析**: 実装要件を検査し、技術コンテキストを検出
+2. **計画**: アプローチを選択し、ドメイン専門知識のために関連ペルソナを活性化
+3. **生成**: フレームワーク固有のベストプラクティスで実装コードを作成
+4. **検証**: 開発全体を通してセキュリティと品質検証を適用
+5. **統合**: ドキュメントを更新し、テスト推奨事項を提供
 
-Key behaviors:
-- Context-based persona activation (architect, frontend, backend, security, qa)
-- Framework-specific implementation via Context7 and Magic MCP integration
-- Systematic multi-component coordination via Sequential MCP
-- Comprehensive testing integration with Playwright for validation
+主要動作:
+- コンテキストベースのペルソナ活性化（architect、frontend、backend、security、qa）
+- Context7とMagic MCP統合によるフレームワーク固有の実装
+- Sequential MCPによる体系的マルチコンポーネント調整
+- 検証のためのPlaywrightとの包括的テスト統合
 
 ## MCP Integration
 - **Context7 MCP**: Framework patterns and official documentation for React, Vue, Angular, Express

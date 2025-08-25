@@ -2,7 +2,7 @@
 
 # 🚀 SuperClaude Framework
 
-### **Transform Claude Code into a Structured Development Platform**
+### **Claude Codeを構造化された開発プラットフォームに変換**
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-4.0.8-blue" alt="Version">
@@ -12,7 +12,7 @@
 
 <p align="center">
   <a href="https://superclaude.netlify.app/">
-    <img src="https://img.shields.io/badge/🌐_Visit_Website-blue" alt="Website">
+    <img src="https://img.shields.io/badge/🌐_ウェブサイト-blue" alt="Website">
   </a>
   <a href="https://pypi.org/project/SuperClaude/">
     <img src="https://img.shields.io/pypi/v/SuperClaude.svg?" alt="PyPI">
@@ -23,11 +23,11 @@
 </p>
 
 <p align="center">
-  <a href="#-quick-installation">Quick Start</a> •
-  <a href="#-support-the-project">Support</a> •
-  <a href="#-whats-new-in-v4">Features</a> •
-  <a href="#-documentation">Docs</a> •
-  <a href="#-contributing">Contributing</a>
+  <a href="#-クイックインストール">クイックスタート</a> •
+  <a href="#-プロジェクトをサポート">サポート</a> •
+  <a href="#-v4の新機能">機能</a> •
+  <a href="#-ドキュメント">ドキュメント</a> •
+  <a href="#-コントリビューション">コントリビューション</a>
 </p>
 
 </div>
@@ -66,40 +66,40 @@ SuperClaude is a **meta-programming configuration framework** that transforms Cl
 </div>
 
 <details>
-<summary><b>⚠️ IMPORTANT: Upgrading from SuperClaude V3</b></summary>
+<summary><b>⚠️ 重要：SuperClaude V3からのアップグレード</b></summary>
 
-**If you have SuperClaude V3 installed, you SHOULD uninstall it before installing V4:**
+**SuperClaude V3がインストールされている場合、V4をインストールする前にアンインストールしてください：**
 
 ```bash
-# Uninstall V3 first
-Remove all related files and directories :
-*.md *.json and commands/
+# 最初にV3をアンインストール
+関連するすべてのファイルとディレクトリを削除：
+*.md *.json および commands/
 
-# Then install V4
+# その後V4をインストール
 pipx install SuperClaude && pipx upgrade SuperClaude && SuperClaude install
 ```
 
-**✅ What gets preserved during upgrade:**
-- ✓ Your custom slash commands (outside `commands/sc/`)
-- ✓ Your custom content in `CLAUDE.md` 
-- ✓ Claude Code's `.claude.json`, `.credentials.json`, `settings.json` and `settings.local.json`
-- ✓ Any custom agents and files you've added
+**✅ アップグレード時に保持されるもの：**
+- ✓ カスタムスラッシュコマンド（`commands/sc/`外）
+- ✓ `CLAUDE.md`内のカスタムコンテンツ
+- ✓ Claude Codeの`.claude.json`、`.credentials.json`、`settings.json`、`settings.local.json`
+- ✓ 追加したカスタムエージェントとファイル
 
-**⚠️ Note:** Other SuperClaude-related `.json` files from V3 may cause conflicts and should be removed.
+**⚠️ 注意：** V3の他のSuperClaude関連`.json`ファイルは競合を引き起こす可能性があるため、削除してください。
 
 </details>
 
 <details>
-<summary><b>💡 Troubleshooting PEP 668 Errors</b></summary>
+<summary><b>💡 PEP 668エラーのトラブルシューティング</b></summary>
 
 ```bash
-# Option 1: Use pipx (Recommended)
+# オプション1：pipxを使用（推奨）
 pipx install SuperClaude
 
-# Option 2: User installation
+# オプション2：ユーザーインストール
 pip install --user SuperClaude
 
-# Option 3: Force installation (use with caution)
+# オプション3：強制インストール（注意して使用）
 pip install --break-system-packages SuperClaude
 ```
 </details>
@@ -166,77 +166,77 @@ pip install --break-system-packages SuperClaude
 
 <div align="center">
 
-## 🎉 **What's New in V4**
+## 🎉 **V4の新機能**
 
-> *Version 4 brings significant improvements based on community feedback and real-world usage patterns.*
+> *バージョン4では、コミュニティのフィードバックと実際の使用パターンに基づいて大幅な改善が行われました。*
 
 <table>
 <tr>
 <td width="50%">
 
-### 🤖 **Smarter Agent System**
-**14 specialized agents** with domain expertise:
-- Security engineer catches real vulnerabilities
-- Frontend architect understands UI patterns
-- Automatic coordination based on context
-- Domain-specific expertise on demand
+### 🤖 **よりスマートなエージェントシステム**
+**14の専門エージェント**とドメイン専門知識：
+- セキュリティエンジニアが実際の脆弱性を発見
+- フロントエンドアーキテクトがUIパターンを理解
+- コンテキストに基づく自動調整
+- オンデマンドのドメイン固有専門知識
 
 </td>
 <td width="50%">
 
-### 📝 **Improved Namespace**
-**`/sc:` prefix** for all commands:
-- No conflicts with custom commands
-- 21 commands covering full lifecycle
-- From brainstorming to deployment
-- Clean, organized command structure
-
-</td>
-</tr>
-<tr>
-<td width="50%">
-
-### 🔧 **MCP Server Integration**
-**6 powerful servers** working together:
-- **Context7** → Up-to-date documentation
-- **Sequential** → Complex analysis
-- **Magic** → UI component generation
-- **Playwright** → Browser testing
-- **Morphllm** → Bulk transformations
-- **Serena** → Session persistence
-
-</td>
-<td width="50%">
-
-### 🎯 **Behavioral Modes**
-**5 adaptive modes** for different contexts:
-- **Brainstorming** → Asks right questions
-- **Orchestration** → Efficient tool coordination
-- **Token-Efficiency** → 30-50% context savings
-- **Task Management** → Systematic organization
-- **Introspection** → Meta-cognitive analysis
+### 📝 **改善された名前空間**
+すべてのコマンドに**`/sc:`プレフィックス**：
+- カスタムコマンドとの競合なし
+- 全ライフサイクルをカバーする21のコマンド
+- ブレインストーミングからデプロイメントまで
+- 整理されたクリーンなコマンド構造
 
 </td>
 </tr>
 <tr>
 <td width="50%">
 
-### ⚡ **Optimized Performance**
-**Smaller framework, bigger projects:**
-- Reduced framework footprint
-- More context for your code
-- Longer conversations possible
-- Complex operations enabled
+### 🔧 **MCPサーバー統合**
+**6つの強力なサーバー**が連携：
+- **Context7** → 最新のドキュメント
+- **Sequential** → 複雑な分析
+- **Magic** → UIコンポーネント生成
+- **Playwright** → ブラウザテスト
+- **Morphllm** → 一括変換
+- **Serena** → セッション永続化
 
 </td>
 <td width="50%">
 
-### 📚 **Documentation Overhaul**
-**Complete rewrite** for developers:
-- Real examples & use cases
-- Common pitfalls documented
-- Practical workflows included
-- Better navigation structure
+### 🎯 **動作モード**
+異なるコンテキストに対応する**5つの適応モード**：
+- **Brainstorming** → 適切な質問を投げかける
+- **Orchestration** → 効率的なツール調整
+- **Token-Efficiency** → 30-50%のコンテキスト節約
+- **Task Management** → 体系的な整理
+- **Introspection** → メタ認知分析
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### ⚡ **最適化されたパフォーマンス**
+**小さなフレームワーク、大きなプロジェクト**：
+- フレームワークのフットプリント削減
+- コードにより多くのコンテキスト
+- より長い会話が可能
+- 複雑な操作を実現
+
+</td>
+<td width="50%">
+
+### 📚 **ドキュメントの全面改訂**
+開発者向けの**完全な書き直し**：
+- 実際の例と使用例
+- よくある落とし穴を文書化
+- 実用的なワークフローを含む
+- より良いナビゲーション構造
 
 </td>
 </tr>
@@ -248,70 +248,70 @@ pip install --break-system-packages SuperClaude
 
 <div align="center">
 
-## 📚 **Documentation**
+## 📚 **ドキュメント**
 
-### **Complete Guide to SuperClaude**
+### **SuperClaudeの完全ガイド**
 
 <table>
 <tr>
-<th align="center">🚀 Getting Started</th>
-<th align="center">📖 User Guides</th>
-<th align="center">🛠️ Developer Resources</th>
-<th align="center">📋 Reference</th>
+<th align="center">🚀 はじめに</th>
+<th align="center">📖 ユーザーガイド</th>
+<th align="center">🛠️ 開発者リソース</th>
+<th align="center">📋 リファレンス</th>
 </tr>
 <tr>
 <td valign="top">
 
-- 📝 [**Quick Start Guide**](Docs/Getting-Started/quick-start.md)  
-  *Get up and running fast*
+- 📝 [**クイックスタートガイド**](Docs/Getting-Started/quick-start.md)  
+  *素早く始める*
 
-- 💾 [**Installation Guide**](Docs/Getting-Started/installation.md)  
-  *Detailed setup instructions*
-
-</td>
-<td valign="top">
-
-- 🎯 [**Commands Reference**](Docs/User-Guide/commands.md)  
-  *All 21 slash commands*
-
-- 🤖 [**Agents Guide**](Docs/User-Guide/agents.md)  
-  *14 specialized agents*
-
-- 🎨 [**Behavioral Modes**](Docs/User-Guide/modes.md)  
-  *5 adaptive modes*
-
-- 🚩 [**Flags Guide**](Docs/User-Guide/flags.md)  
-  *Control behaviors*
-
-- 🔧 [**MCP Servers**](Docs/User-Guide/mcp-servers.md)  
-  *6 server integrations*
-
-- 💼 [**Session Management**](Docs/User-Guide/session-management.md)  
-  *Save & restore state*
+- 💾 [**インストールガイド**](Docs/Getting-Started/installation.md)  
+  *詳細なセットアップ手順*
 
 </td>
 <td valign="top">
 
-- 🏗️ [**Technical Architecture**](Docs/Developer-Guide/technical-architecture.md)  
-  *System design details*
+- 🎯 [**コマンドリファレンス**](Docs/User-Guide/commands.md)  
+  *全21のスラッシュコマンド*
 
-- 💻 [**Contributing Code**](Docs/Developer-Guide/contributing-code.md)  
-  *Development workflow*
+- 🤖 [**エージェントガイド**](Docs/User-Guide/agents.md)  
+  *14の専門エージェント*
 
-- 🧪 [**Testing & Debugging**](Docs/Developer-Guide/testing-debugging.md)  
-  *Quality assurance*
+- 🎨 [**動作モード**](Docs/User-Guide/modes.md)  
+  *5つの適応モード*
+
+- 🚩 [**フラグガイド**](Docs/User-Guide/flags.md)  
+  *動作制御*
+
+- 🔧 [**MCPサーバー**](Docs/User-Guide/mcp-servers.md)  
+  *6つのサーバー統合*
+
+- 💼 [**セッション管理**](Docs/User-Guide/session-management.md)  
+  *状態の保存と復元*
 
 </td>
 <td valign="top">
 
-- ✨ [**Best Practices**](Docs/Reference/quick-start-practices.md)  
-  *Pro tips & patterns*
+- 🏗️ [**技術アーキテクチャ**](Docs/Developer-Guide/technical-architecture.md)  
+  *システム設計の詳細*
 
-- 📓 [**Examples Cookbook**](Docs/Reference/examples-cookbook.md)  
-  *Real-world recipes*
+- 💻 [**コード貢献**](Docs/Developer-Guide/contributing-code.md)  
+  *開発ワークフロー*
 
-- 🔍 [**Troubleshooting**](Docs/Reference/troubleshooting.md)  
-  *Common issues & fixes*
+- 🧪 [**テストとデバッグ**](Docs/Developer-Guide/testing-debugging.md)  
+  *品質保証*
+
+</td>
+<td valign="top">
+
+- ✨ [**ベストプラクティス**](Docs/Reference/quick-start-practices.md)  
+  *プロのヒントとパターン*
+
+- 📓 [**実例集**](Docs/Reference/examples-cookbook.md)  
+  *実世界のレシピ*
+
+- 🔍 [**トラブルシューティング**](Docs/Reference/troubleshooting.md)  
+  *よくある問題と修正*
 
 </td>
 </tr>
@@ -352,9 +352,9 @@ We welcome contributions of all kinds! Here's how you can help:
 
 <div align="center">
 
-## ⚖️ **License**
+## ⚖️ **ライセンス**
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+このプロジェクトは**MITライセンス**の下でライセンスされています。詳細は[LICENSE](LICENSE)ファイルをご覧ください。
 
 <p align="center">
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg?" alt="MIT License">
@@ -383,14 +383,14 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 <div align="center">
 
-### **🚀 Built with passion by the SuperClaude community**
+### **🚀 SuperClaudeコミュニティによって情熱を込めて構築**
 
 <p align="center">
-  <sub>Made with ❤️ for developers who push boundaries</sub>
+  <sub>境界を押し広げる開発者のために❤️で作られました</sub>
 </p>
 
 <p align="center">
-  <a href="#-superclaude-framework">Back to Top ↑</a>
+  <a href="#-superclaude-framework">トップに戻る ↑</a>
 </p>
 
 </div>

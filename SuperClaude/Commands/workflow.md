@@ -1,37 +1,37 @@
 ---
 name: workflow
-description: "Generate structured implementation workflows from PRDs and feature requirements"
+description: "PRDと機能要件から構造化された実装ワークフローを生成"
 category: orchestration
 complexity: advanced
 mcp-servers: [sequential, context7, magic, playwright, morphllm, serena]
 personas: [architect, analyzer, frontend, backend, security, devops, project-manager]
 ---
 
-# /sc:workflow - Implementation Workflow Generator
+# /sc:workflow - 実装ワークフロージェネレーター
 
-## Triggers
-- PRD and feature specification analysis for implementation planning
-- Structured workflow generation for development projects
-- Multi-persona coordination for complex implementation strategies
-- Cross-session workflow management and dependency mapping
+## トリガー
+- 実装計画のためのPRDと機能仕様分析
+- 開発プロジェクトの構造化ワークフロー生成
+- 複雑な実装戦略のマルチペルソナ調整
+- セッション間ワークフロー管理と依存関係マッピング
 
-## Usage
+## 使用法
 ```
 /sc:workflow [prd-file|feature-description] [--strategy systematic|agile|enterprise] [--depth shallow|normal|deep] [--parallel]
 ```
 
-## Behavioral Flow
-1. **Analyze**: Parse PRD and feature specifications to understand implementation requirements
-2. **Plan**: Generate comprehensive workflow structure with dependency mapping and task orchestration
-3. **Coordinate**: Activate multiple personas for domain expertise and implementation strategy
-4. **Execute**: Create structured step-by-step workflows with automated task coordination
-5. **Validate**: Apply quality gates and ensure workflow completeness across domains
+## 動作フロー
+1. **分析**: PRDと機能仕様を解析して実装要件を理解
+2. **計画**: 依存関係マッピングとタスクオーケストレーションを含む包括的ワークフロー構造を生成
+3. **調整**: ドメイン専門知識と実装戦略のために複数のペルソナを活性化
+4. **実行**: 自動化されたタスク調整を含む構造化されたステップバイステップワークフローを作成
+5. **検証**: 品質ゲートを適用し、ドメイン間でワークフローの完全性を確保
 
-Key behaviors:
-- Multi-persona orchestration across architecture, frontend, backend, security, and devops domains
-- Advanced MCP coordination with intelligent routing for specialized workflow analysis
-- Systematic execution with progressive workflow enhancement and parallel processing
-- Cross-session workflow management with comprehensive dependency tracking
+主要動作:
+- アーキテクチャ、フロントエンド、バックエンド、セキュリティ、devopsドメインにわたるマルチペルソナオーケストレーション
+- 専門ワークフロー分析のためのインテリジェントルーティングによる高度なMCP調整
+- 段階的ワークフロー強化と並列処理による体系的実行
+- 包括的依存関係追跡によるセッション間ワークフロー管理
 
 ## MCP Integration
 - **Sequential MCP**: Complex multi-step workflow analysis and systematic implementation planning
@@ -94,4 +94,4 @@ Key behaviors:
 **Will Not:**
 - Execute actual implementation tasks beyond workflow planning and strategy
 - Override established development processes without proper analysis and validation
-- Generate workflows without comprehensive requirement analysis and dependency mapping 
+- Generate workflows without comprehensive requirement analysis and dependency mapping  
