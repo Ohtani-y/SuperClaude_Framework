@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-SuperClaude Framework Management Hub
-Unified entry point for all SuperClaude operations
+SuperClaude フレームワーク管理ハブ
+すべてのSuperClaude操作の統合エントリーポイント
 
-Usage:
+使用法:
     SuperClaude install [options]
     SuperClaude update [options]
     SuperClaude uninstall [options]
@@ -17,7 +17,7 @@ from pathlib import Path
 try:
     __version__ = (Path(__file__).parent.parent / "VERSION").read_text().strip()
 except Exception:
-    __version__ = "4.0.8"  # Fallback
+    __version__ = "4.0.8"  # フォールバック
 __author__ = "NomenAK, Mithun Gowda B"
 __email__ = "anton.knoery@gmail.com"
 __license__ = "MIT"
