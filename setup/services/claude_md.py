@@ -9,7 +9,7 @@ from ..utils.logger import get_logger
 
 
 class CLAUDEMdService:
-    """Manages CLAUDE.md file updates while preserving user customizations"""
+    """ユーザーカスタマイゼーションを保持しながらCLAUDE.mdファイルの更新を管理"""
     
     def __init__(self, install_dir: Path):
         """
@@ -142,7 +142,7 @@ class CLAUDEMdService:
             new_files = [f for f in files if f not in existing_imports]
             
             if not new_files:
-                self.logger.info("All files already imported, no changes needed")
+                self.logger.info("すべてのファイルは既にインポート済み、変更は不要です")
                 return True
             
             self.logger.info(f"Adding {len(new_files)} new imports to category '{category}': {new_files}")
@@ -242,18 +242,18 @@ class CLAUDEMdService:
             self.claude_md_path.parent.mkdir(parents=True, exist_ok=True)
             
             # Default CLAUDE.md content
-            default_content = """# SuperClaude Entry Point
+            default_content = """# SuperClaude エントリーポイント
 
-This file serves as the entry point for the SuperClaude framework.
-You can add your own custom instructions and configurations here.
+このファイルはSuperClaudeフレームワークのエントリーポイントとして機能します。
+ここに独自のカスタム指示と設定を追加できます。
 
-The SuperClaude framework components will be automatically imported below.
+SuperClaudeフレームワークコンポーネントは以下に自動的にインポートされます。
 """
             
             with open(self.claude_md_path, 'w', encoding='utf-8') as f:
                 f.write(default_content)
             
-            self.logger.info("Created CLAUDE.md with default content")
+            self.logger.info("デフォルトコンテンツでCLAUDE.mdを作成しました")
             
         except Exception as e:
             self.logger.error(f"Failed to create CLAUDE.md: {e}")

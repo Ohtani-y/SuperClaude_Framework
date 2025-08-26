@@ -1,59 +1,59 @@
-# Contributing Context Files to SuperClaude Framework 🛠️
+# SuperClaude Frameworkへのコンテキストファイル貢献 🛠️
 
-Welcome to SuperClaude Framework development! This guide provides everything you need to contribute context files and behavioral instructions that enhance Claude Code through structured prompts and MCP server integration.
+SuperClaude Framework開発へようこそ！このガイドでは、構造化プロンプトとMCPサーバー統合を通じてClaude Codeを強化するコンテキストファイルと動作指示の貢献に必要なすべてを提供します。
 
-**Project Purpose**: SuperClaude provides Claude Code with structured context files and behavioral instructions. We're building the next generation of AI-assisted development through intelligent prompt engineering.
+**プロジェクト目的**: SuperClaudeは構造化コンテキストファイルと動作指示をClaude Codeに提供します。インテリジェントプロンプトエンジニアリングを通じて次世代のAI支援開発を構築しています。
 
-## Table of Contents
+## 目次
 
-1. [Development Setup](#development-setup) - Prerequisites and environment
-2. [Architecture Overview](#architecture-overview) - System components and design  
-3. [Context File Guidelines](#context-file-guidelines) - Standards and practices
-4. [Development Workflow](#development-workflow) - Git workflow and submissions
-5. [Contributing to Components](#contributing-to-components) - Agents, commands, modes
-6. [File Validation](#file-validation) - Quality assurance
-7. [Getting Help](#getting-help) - Support and resources
+1. [開発セットアップ](#開発セットアップ) - 前提条件と環境
+2. [アーキテクチャ概要](#アーキテクチャ概要) - システムコンポーネントと設計  
+3. [コンテキストファイルガイドライン](#コンテキストファイルガイドライン) - 標準と慣行
+4. [開発ワークフロー](#開発ワークフロー) - Gitワークフローと提出
+5. [コンポーネントへの貢献](#コンポーネントへの貢献) - エージェント、コマンド、モード
+6. [ファイル検証](#ファイル検証) - 品質保証
+7. [ヘルプの取得](#ヘルプの取得) - サポートとリソース
 
-## Development Setup
+## 開発セットアップ
 
-### Prerequisites
+### 前提条件
 
-**Required:**
+**必須:**
 - Python 3.8+ with pip
-- Git for version control
-- Claude Code installed and working
-- Node.js 16+ (for MCP server configuration)
+- バージョン管理用Git
+- Claude Codeがインストールされ動作中
+- Node.js 16+ (MCPサーバー設定用)
 
-**Environment Setup:**
+**環境セットアップ:**
 ```bash
-# Fork SuperClaude_Framework on GitHub first
+# 最初にGitHubでSuperClaude_Frameworkをフォーク
 git clone https://github.com/YOUR_USERNAME/SuperClaude_Framework.git
 cd SuperClaude_Framework
 
-# Test installation system
+# インストールシステムをテスト
 PYTHONPATH=/path/to/SuperClaude_Framework python3 -m setup --help
 
-# Install to development location
+# 開発場所にインストール
 PYTHONPATH=/path/to/SuperClaude_Framework python3 -m setup install --components core
 ```
 
-**Validation Check:**
+**検証チェック:**
 ```bash
-# Verify Python version
-python3 --version  # Should be 3.8+
+# Pythonバージョンを確認
+python3 --version  # 3.8+である必要があります
 
-# Check Node.js for MCP configuration
-node --version     # Should be 16+
+# MCP設定用Node.jsをチェック
+node --version     # 16+である必要があります
 
-# Test Claude Code integration
-ls ~/.claude/      # Should show Claude Code directory
+# Claude Code統合をテスト
+ls ~/.claude/      # Claude Codeディレクトリが表示される必要があります
 ```
 
-## Architecture Overview
+## アーキテクチャ概要
 
-### Framework Structure
+### フレームワーク構造
 
-SuperClaude is a **Context-Oriented Configuration Framework** - not executing software, but instruction files that Claude Code reads to modify its behavior.
+SuperClaudeは**コンテキスト指向設定フレームワーク**です - 実行ソフトウェアではなく、Claude Codeが読み取って動作を変更する指示ファイルです。
 
 ```
 SuperClaude_Framework/

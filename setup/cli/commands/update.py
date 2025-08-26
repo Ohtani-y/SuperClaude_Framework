@@ -24,20 +24,20 @@ from . import OperationBase
 
 
 class UpdateOperation(OperationBase):
-    """Update operation implementation"""
+    """更新操作実装"""
     
     def __init__(self):
         super().__init__("update")
 
 
 def register_parser(subparsers, global_parser=None) -> argparse.ArgumentParser:
-    """Register update CLI arguments"""
+    """更新CLI引数を登録"""
     parents = [global_parser] if global_parser else []
     
     parser = subparsers.add_parser(
         "update",
-        help="Update existing SuperClaude installation",
-        description="Update SuperClaude Framework components to latest versions",
+        help="既存のSuperClaudeインストールを更新",
+        description="SuperClaudeフレームワークコンポーネントを最新バージョンに更新",
         epilog="""
 Examples:
   SuperClaude update                       # Interactive update
@@ -53,46 +53,46 @@ Examples:
     parser.add_argument(
         "--check",
         action="store_true",
-        help="Check for available updates without installing"
+        help="インストールせずに利用可能な更新を確認"
     )
     
     parser.add_argument(
         "--components",
         type=str,
         nargs="+",
-        help="Specific components to update"
+        help="更新する特定のコンポーネント"
     )
     
     # Backup options
     parser.add_argument(
         "--backup",
         action="store_true",
-        help="Create backup before update"
+        help="更新前にバックアップを作成"
     )
     
     parser.add_argument(
         "--no-backup",
         action="store_true",
-        help="Skip backup creation"
+        help="バックアップ作成をスキップ"
     )
     
     # Update options
     parser.add_argument(
         "--reinstall",
         action="store_true",
-        help="Reinstall components even if versions match"
+        help="バージョンが一致してもコンポーネントを再インストール"
     )
     
     return parser
 
 def check_installation_exists(install_dir: Path) -> bool:
-    """Check if SuperClaude installation exists"""
+    """SuperClaudeインストールが存在するかチェック"""
     settings_manager = SettingsService(install_dir)
 
     return settings_manager.check_installation_exists()
 
 def get_installed_components(install_dir: Path) -> Dict[str, Dict[str, Any]]:
-    """Get currently installed components and their versions"""
+    """現在インストールされているコンポーネントとそのバージョンを取得"""
     try:
         settings_manager = SettingsService(install_dir)
         return settings_manager.get_installed_components()
@@ -101,7 +101,7 @@ def get_installed_components(install_dir: Path) -> Dict[str, Dict[str, Any]]:
 
 
 def get_available_updates(installed_components: Dict[str, str], registry: ComponentRegistry) -> Dict[str, Dict[str, str]]:
-    """Check for available updates"""
+    """利用可能な更新をチェック"""
     updates = {}
     
     for component_name, current_version in installed_components.items():
@@ -113,7 +113,7 @@ def get_available_updates(installed_components: Dict[str, str], registry: Compon
                     updates[component_name] = {
                         "current": current_version,
                         "available": available_version,
-                        "description": metadata.get("description", "No description")
+                        "description": metadata.get("description", "説明なし")
                     }
         except Exception:
             continue
@@ -122,15 +122,15 @@ def get_available_updates(installed_components: Dict[str, str], registry: Compon
 
 
 def display_update_check(installed_components: Dict[str, str], available_updates: Dict[str, Dict[str, str]]) -> None:
-    """Display update check results"""
-    print(f"\n{Colors.CYAN}{Colors.BRIGHT}Update Check Results{Colors.RESET}")
+    """更新チェック結果を表示"""
+    print(f"\n{Colors.CYAN}{Colors.BRIGHT}更新チェック結果{Colors.RESET}")
     print("=" * 50)
     
     if not installed_components:
-        print(f"{Colors.YELLOW}No SuperClaude installation found{Colors.RESET}")
+        print(f"{Colors.YELLOW}SuperClaudeインストールが見つかりません{Colors.RESET}")
         return
     
-    print(f"{Colors.BLUE}Currently installed components:{Colors.RESET}")
+    print(f"{Colors.BLUE}現在インストールされているコンポーネント:{Colors.RESET}")
     for component, version in installed_components.items():
         print(f"  {component}: v{version}")
     

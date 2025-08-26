@@ -13,7 +13,7 @@ import copy
 
 
 class SettingsService:
-    """Manages settings.json file operations"""
+    """settings.jsonファイル操作を管理"""
     
     def __init__(self, install_dir: Path):
         """
@@ -131,7 +131,6 @@ class SettingsService:
         """
         settings = self.load_settings()
         
-        # SuperClaude-specific fields to migrate
         superclaude_fields = ["components", "framework", "superclaude", "mcp"]
         data_to_migrate = {}
         fields_found = False
@@ -189,7 +188,7 @@ class SettingsService:
         Get setting value using dot-notation path
         
         Args:
-            key_path: Dot-separated path (e.g., "hooks.enabled")
+            key_path: ドット区切りパス（例："hooks.enabled"）
             default: Default value if key not found
             
         Returns:
@@ -210,7 +209,7 @@ class SettingsService:
         Set setting value using dot-notation path
         
         Args:
-            key_path: Dot-separated path (e.g., "hooks.enabled")
+            key_path: ドット区切りパス（例："hooks.enabled"）
             value: Value to set
             create_backup: Whether to create backup before updating
         """
@@ -370,7 +369,7 @@ class SettingsService:
         Get metadata value using dot-notation path
         
         Args:
-            key_path: Dot-separated path (e.g., "framework.version")
+            key_path: ドット区切りパス（例："framework.version"）
             default: Default value if key not found
             
         Returns:
@@ -415,7 +414,7 @@ class SettingsService:
             Path to backup file
         """
         if not self.settings_file.exists():
-            raise ValueError("Cannot backup non-existent settings file")
+            raise ValueError("存在しない設定ファイルをバックアップできません")
         
         # Create backup directory
         self.backup_dir.mkdir(parents=True, exist_ok=True)

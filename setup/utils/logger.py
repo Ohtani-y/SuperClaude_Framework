@@ -1,5 +1,5 @@
 """
-Logging system for SuperClaude installation suite
+SuperClaudeインストールスイート用ログシステム
 """
 
 import logging
@@ -13,7 +13,7 @@ from .ui import Colors
 
 
 class LogLevel(Enum):
-    """Log levels"""
+    """ログレベル"""
     DEBUG = logging.DEBUG
     INFO = logging.INFO
     WARNING = logging.WARNING
@@ -22,17 +22,17 @@ class LogLevel(Enum):
 
 
 class Logger:
-    """Enhanced logger with console and file output"""
+    """コンソールとファイル出力を備えた拡張ロガー"""
     
     def __init__(self, name: str = "superclaude", log_dir: Optional[Path] = None, console_level: LogLevel = LogLevel.INFO, file_level: LogLevel = LogLevel.DEBUG):
         """
-        Initialize logger
+        ロガーを初期化
         
         Args:
-            name: Logger name
-            log_dir: Directory for log files (defaults to ~/.claude/logs)
-            console_level: Minimum level for console output
-            file_level: Minimum level for file output
+            name: ロガー名
+            log_dir: ログファイル用ディレクトリ（デフォルト: ~/.claude/logs）
+            console_level: コンソール出力の最小レベル
+            file_level: ファイル出力の最小レベル
         """
         self.name = name
         self.log_dir = log_dir or (Path.home() / ".claude" / "logs")
@@ -60,7 +60,7 @@ class Logger:
         }
     
     def _setup_console_handler(self) -> None:
-        """Setup colorized console handler"""
+        """カラー化されたコンソールハンドラーを設定"""
         handler = logging.StreamHandler(sys.stdout)
         handler.setLevel(self.console_level.value)
         
@@ -94,7 +94,7 @@ class Logger:
         self.logger.addHandler(handler)
     
     def _setup_file_handler(self) -> None:
-        """Setup file handler with rotation"""
+        """ローテーション付きファイルハンドラーを設定"""
         try:
             # Ensure log directory exists
             self.log_dir.mkdir(parents=True, exist_ok=True)
@@ -121,11 +121,11 @@ class Logger:
             
         except Exception as e:
             # If file logging fails, continue with console only
-            print(f"{Colors.YELLOW}[!] Could not setup file logging: {e}{Colors.RESET}")
+            print(f"{Colors.YELLOW}[!] ファイルログを設定できませんでした: {e}{Colors.RESET}")
             self.log_file = None
     
     def _cleanup_old_logs(self, keep_count: int = 10) -> None:
-        """Clean up old log files"""
+        """古いログファイルを清掃"""
         try:
             # Get all log files for this logger
             log_files = list(self.log_dir.glob(f"{self.name}_*.log"))
@@ -144,22 +144,22 @@ class Logger:
             pass  # Ignore cleanup errors
     
     def debug(self, message: str, **kwargs) -> None:
-        """Log debug message"""
+        """デバッグメッセージをログ"""
         self.logger.debug(message, **kwargs)
         self.log_counts['debug'] += 1
     
     def info(self, message: str, **kwargs) -> None:
-        """Log info message"""
+        """情報メッセージをログ"""
         self.logger.info(message, **kwargs)
         self.log_counts['info'] += 1
     
     def warning(self, message: str, **kwargs) -> None:
-        """Log warning message"""
+        """警告メッセージをログ"""
         self.logger.warning(message, **kwargs)
         self.log_counts['warning'] += 1
     
     def error(self, message: str, **kwargs) -> None:
-        """Log error message"""
+        """エラーメッセージをログ"""
         self.logger.error(message, **kwargs)
         self.log_counts['error'] += 1
     

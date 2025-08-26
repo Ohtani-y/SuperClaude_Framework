@@ -1,10 +1,10 @@
-# SuperClaude Flags Guide 🏁
+# SuperClaude フラグガイド 🏁
 
-**Most flags activate automatically** - Claude Code reads behavioral instructions to engage appropriate contexts based on keywords and patterns in your requests.
+**ほとんどのフラグは自動的に活性化されます** - Claude Codeは動作指示を読み取り、リクエスト内のキーワードとパターンに基づいて適切なコンテキストを有効にします。
 
-## Essential Auto-Activation Flags (90% of Use Cases)
+## 必須自動活性化フラグ（使用例の90%）
 
-### Core Analysis Flags
+### コア分析フラグ
 | Flag | When Activated | What It Does |
 |------|---------------|--------------|
 | `--think` | 5+ files OR complex analysis | Standard structured analysis (~4K tokens) |

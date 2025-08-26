@@ -11,7 +11,7 @@ import hashlib
 
 
 class FileService:
-    """Cross-platform file operations manager"""
+    """クロスプラットフォームファイル操作マネージャー"""
     
     def __init__(self, dry_run: bool = False):
         """
@@ -43,7 +43,7 @@ class FileService:
             raise ValueError(f"Source is not a file: {source}")
         
         if self.dry_run:
-            print(f"[DRY RUN] Would copy {source} -> {target}")
+            print(f"[DRY RUN] {source} -> {target} をコピーします")
             return True
         
         try:
@@ -60,7 +60,7 @@ class FileService:
             return True
             
         except Exception as e:
-            print(f"Error copying {source} to {target}: {e}")
+            print(f"{source} から {target} へのコピーエラー: {e}")
             return False
     
     def copy_directory(self, source: Path, target: Path, ignore_patterns: Optional[List[str]] = None) -> bool:
@@ -86,7 +86,7 @@ class FileService:
         all_ignores = ignore_patterns + default_ignores
         
         if self.dry_run:
-            print(f"[DRY RUN] Would copy directory {source} -> {target}")
+            print(f"[DRY RUN] ディレクトリ {source} -> {target} をコピーします")
             return True
         
         try:
@@ -118,7 +118,7 @@ class FileService:
             return True
             
         except Exception as e:
-            print(f"Error copying directory {source} to {target}: {e}")
+            print(f"ディレクトリ {source} から {target} へのコピーエラー: {e}")
             return False
     
     def ensure_directory(self, directory: Path, mode: int = 0o755) -> bool:
@@ -133,7 +133,7 @@ class FileService:
             True if successful, False otherwise
         """
         if self.dry_run:
-            print(f"[DRY RUN] Would create directory {directory}")
+            print(f"[DRY RUN] ディレクトリ {directory} を作成します")
             return True
         
         try:
@@ -145,7 +145,7 @@ class FileService:
             return True
             
         except Exception as e:
-            print(f"Error creating directory {directory}: {e}")
+            print(f"ディレクトリ {directory} の作成エラー: {e}")
             return False
     
     def remove_file(self, file_path: Path) -> bool:
@@ -162,14 +162,14 @@ class FileService:
             return True  # Already gone
         
         if self.dry_run:
-            print(f"[DRY RUN] Would remove file {file_path}")
+            print(f"[DRY RUN] ファイル {file_path} を削除します")
             return True
         
         try:
             if file_path.is_file():
                 file_path.unlink()
             else:
-                print(f"Warning: {file_path} is not a file, skipping")
+                print(f"警告: {file_path} はファイルではありません、スキップします")
                 return False
             
             # Remove from tracking
@@ -179,7 +179,7 @@ class FileService:
             return True
             
         except Exception as e:
-            print(f"Error removing file {file_path}: {e}")
+            print(f"ファイル {file_path} の削除エラー: {e}")
             return False
     
     def remove_directory(self, directory: Path, recursive: bool = False) -> bool:
@@ -197,8 +197,8 @@ class FileService:
             return True  # Already gone
         
         if self.dry_run:
-            action = "recursively remove" if recursive else "remove"
-            print(f"[DRY RUN] Would {action} directory {directory}")
+            action = "再帰的に削除" if recursive else "削除"
+            print(f"[DRY RUN] ディレクトリ {directory} を{action}します")
             return True
         
         try:
@@ -214,7 +214,7 @@ class FileService:
             return True
             
         except Exception as e:
-            print(f"Error removing directory {directory}: {e}")
+            print(f"ディレクトリ {directory} の削除エラー: {e}")
             return False
     
     def resolve_home_path(self, path: str) -> Path:
@@ -388,9 +388,9 @@ class FileService:
             return 0
     
     def cleanup_tracked_files(self) -> None:
-        """Remove all files and directories created during this session"""
+        """このセッション中に作成されたすべてのファイルとディレクトリを削除"""
         if self.dry_run:
-            print("[DRY RUN] Would cleanup tracked files")
+            print("[DRY RUN] 追跡ファイルをクリーンアップします")
             return
         
         # Remove files first

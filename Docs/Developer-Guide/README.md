@@ -1,30 +1,30 @@
-# SuperClaude Framework Developer Guide
+# SuperClaude フレームワーク開発者ガイド
 
-A documentation suite for understanding and extending the SuperClaude Context-Oriented Configuration Framework.
+SuperClaude コンテキスト指向設定フレームワークの理解と拡張のためのドキュメントスイート。
 
-## Documentation Overview
+## ドキュメント概要
 
-This Developer Guide provides documentation for understanding SuperClaude's context architecture and how to extend it:
+この開発者ガイドは、SuperClaudeのコンテキストアーキテクチャの理解と拡張方法に関するドキュメントを提供します：
 
-### [Contributing Code Guide](contributing-code.md)
-**Purpose**: Guidelines for contributing context files and framework improvements  
-**Audience**: Contributors and framework maintainers  
-**Key Topics**: Adding context files, naming conventions, documentation standards
+### [コード貢献ガイド](contributing-code.md)
+**目的**: コンテキストファイルとフレームワーク改善への貢献ガイドライン  
+**対象者**: 貢献者とフレームワーク保守者  
+**主要トピック**: コンテキストファイル追加、命名規則、ドキュメント標準
 
-### [Context Architecture Guide](technical-architecture.md)
-**Purpose**: Understanding how context files work and are structured  
-**Audience**: Anyone wanting to understand or extend SuperClaude  
-**Key Topics**: Context file structure, import system, agent/command patterns
+### [コンテキストアーキテクチャガイド](technical-architecture.md)
+**目的**: コンテキストファイルの動作と構造の理解  
+**対象者**: SuperClaudeを理解または拡張したい全ての人  
+**主要トピック**: コンテキストファイル構造、インポートシステム、エージェント/コマンドパターン
 
-### [Verification & Troubleshooting Guide](testing-debugging.md)
-**Purpose**: Verifying installation and troubleshooting context file issues  
-**Audience**: Users and maintainers  
-**Key Topics**: File verification, common issues, diagnostic commands
+### [検証とトラブルシューティングガイド](testing-debugging.md)
+**目的**: インストール検証とコンテキストファイル問題のトラブルシューティング  
+**対象者**: ユーザーと保守者  
+**主要トピック**: ファイル検証、一般的問題、診断コマンド
 
-### [Documentation Index](documentation-index.md)
-**Purpose**: Comprehensive navigation guide and topic-based organization  
-**Audience**: All users seeking efficient information discovery  
-**Key Features**: Skill level pathways, cross-references, quality validation, usage guidelines
+### [ドキュメントインデックス](documentation-index.md)
+**目的**: 包括的ナビゲーションガイドとトピックベース組織  
+**対象者**: 効率的な情報発見を求める全ユーザー  
+**主要機能**: スキルレベル経路、相互参照、品質検証、使用ガイドライン
 
 ## Quick Navigation
 

@@ -35,7 +35,7 @@ import urllib.parse
 
 
 class SecurityValidator:
-    """Security validation utilities"""
+    """セキュリティ検証ユーティリティ"""
     
     # Directory traversal patterns (match anywhere in path - platform independent)
     # These patterns detect common directory traversal attack vectors
@@ -187,7 +187,7 @@ class SecurityValidator:
             
             # Check for null bytes
             if '\x00' in str(path):
-                return False, "Null byte detected in path"
+                return False, "パスでヌルバイトが検出されました"
             
             # Check for Windows reserved names
             if os.name == 'nt':
@@ -199,9 +199,9 @@ class SecurityValidator:
                 
                 name_without_ext = abs_path.stem.upper()
                 if name_without_ext in reserved_names:
-                    return False, f"Reserved Windows filename: {name_without_ext}"
+                    return False, f"Windowsの予約ファイル名: {name_without_ext}"
             
-            return True, "Path is safe"
+            return True, "パスは安全です"
             
         except Exception as e:
             return False, f"Path validation error: {e}"
@@ -321,17 +321,17 @@ class SecurityValidator:
             hostname = parsed.hostname
             if hostname:
                 if hostname.lower() in ['localhost', '127.0.0.1', '::1']:
-                    return False, "Localhost URLs not allowed"
+                    return False, "ローカルホストURLは許可されていません"
                 
                 # Basic private IP check
                 if hostname.startswith('192.168.') or hostname.startswith('10.') or hostname.startswith('172.'):
-                    return False, "Private IP addresses not allowed"
+                    return False, "プライベートIPアドレスは許可されていません"
             
             # Check URL length
             if len(url) > 2048:
-                return False, "URL too long"
+                return False, "URLが長すぎます"
             
-            return True, "URL is safe"
+            return True, "URLは安全です"
             
         except Exception as e:
             return False, f"URL validation error: {e}"
@@ -355,7 +355,7 @@ class SecurityValidator:
                 # For non-existent paths, check parent directory
                 parent = path.parent
                 if not parent.exists():
-                    missing.append("path does not exist")
+                    missing.append("パスが存在しません")
                     return False, missing
                 path = parent
             
@@ -424,10 +424,9 @@ class SecurityValidator:
                     if os.name == 'nt':
                         # Check for junction points and symbolic links on Windows
                         if cls._is_windows_junction_or_symlink(abs_target):
-                            errors.append("Installation to junction points or symbolic links is not allowed for security")
+                            errors.append("セキュリティ上の理由により、ジャンクションポイントやシンボリックリンクへのインストールは許可されていません")
                             return False, errors
                         
-                        # Additional validation: verify it's in the current user's profile directory
                         # Use actual home directory comparison instead of username-based path construction
                         if ':' in abs_target_str and '\\users\\' in abs_target_str:
                             try:
@@ -468,11 +467,11 @@ class SecurityValidator:
             if os.name == 'nt':
                 # Enhanced Windows error messages
                 if "dangerous path pattern" in msg.lower():
-                    errors.append(f"Invalid Windows path: {msg}. Ensure path doesn't contain dangerous patterns or reserved directories.")
+                    errors.append(f"無効なWindowsパス: {msg}。パスに危険なパターンや予約ディレクトリが含まれていないことを確認してください。")
                 elif "path too long" in msg.lower():
-                    errors.append(f"Windows path too long: {msg}. Windows has a 260 character limit for most paths.")
+                    errors.append(f"Windowsパスが長すぎます: {msg}。Windowsではほとんどのパスに260文字の制限があります。")
                 elif "reserved" in msg.lower():
-                    errors.append(f"Windows reserved name: {msg}. Avoid names like CON, PRN, AUX, NUL, COM1-9, LPT1-9.")
+                    errors.append(f"Windowsの予約名: {msg}。CON、PRN、AUX、NUL、COM1-9、LPT1-9などの名前は避けてください。")
                 else:
                     errors.append(f"Invalid target path: {msg}")
             else:
@@ -599,7 +598,7 @@ class SecurityValidator:
             return (
                 f"Security violation: Directory traversal pattern detected in path '{path}'. "
                 f"Paths containing '..' or '//' are not allowed for security reasons. "
-                f"Please use an absolute path without directory traversal characters."
+                f"ディレクトリトラバーサル文字を含まない絶対パスを使用してください。"
             )
         elif error_type == "windows_system":
             if pattern == r'^c:\\windows\\':

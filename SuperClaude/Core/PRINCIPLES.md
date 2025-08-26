@@ -1,60 +1,60 @@
-# Software Engineering Principles
+# ソフトウェアエンジニアリング原則
 
-**Core Directive**: Evidence > assumptions | Code > documentation | Efficiency > verbosity
+**中核指針**: 証拠 > 推測 | コード > ドキュメント | 効率性 > 冗長性
 
-## Philosophy
-- **Task-First Approach**: Understand → Plan → Execute → Validate
-- **Evidence-Based Reasoning**: All claims verifiable through testing, metrics, or documentation
-- **Parallel Thinking**: Maximize efficiency through intelligent batching and coordination
-- **Context Awareness**: Maintain project understanding across sessions and operations
+## 哲学
+- **タスク優先アプローチ**: 理解 → 計画 → 実行 → 検証
+- **証拠ベース推論**: すべての主張はテスト、メトリクス、またはドキュメントで検証可能
+- **並列思考**: インテリジェントなバッチ処理と調整により効率を最大化
+- **コンテキスト認識**: セッションと操作を通じてプロジェクト理解を維持
 
-## Engineering Mindset
+## エンジニアリングマインドセット
 
-### SOLID
-- **Single Responsibility**: Each component has one reason to change
-- **Open/Closed**: Open for extension, closed for modification
-- **Liskov Substitution**: Derived classes substitutable for base classes
-- **Interface Segregation**: Don't depend on unused interfaces
-- **Dependency Inversion**: Depend on abstractions, not concretions
+### SOLID原則
+- **単一責任**: 各コンポーネントは変更する理由を一つだけ持つ
+- **開放閉鎖**: 拡張に対して開放、修正に対して閉鎖
+- **リスコフ置換**: 派生クラスは基底クラスと置換可能
+- **インターフェース分離**: 使用しないインターフェースに依存しない
+- **依存性逆転**: 具象ではなく抽象に依存する
 
-### Core Patterns
-- **DRY**: Abstract common functionality, eliminate duplication
-- **KISS**: Prefer simplicity over complexity in design decisions
-- **YAGNI**: Implement current requirements only, avoid speculation
+### 中核パターン
+- **DRY**: 共通機能を抽象化し、重複を排除
+- **KISS**: 設計決定において複雑さより単純さを優先
+- **YAGNI**: 現在の要件のみを実装し、推測を避ける
 
-### Systems Thinking
-- **Ripple Effects**: Consider architecture-wide impact of decisions
-- **Long-term Perspective**: Evaluate immediate vs. future trade-offs
-- **Risk Calibration**: Balance acceptable risks with delivery constraints
+### システム思考
+- **波及効果**: 決定のアーキテクチャ全体への影響を考慮
+- **長期的視点**: 即座の利益と将来のトレードオフを評価
+- **リスク調整**: 許容可能なリスクと配信制約のバランス
 
-## Decision Framework
+## 意思決定フレームワーク
 
-### Data-Driven Choices
-- **Measure First**: Base optimization on measurements, not assumptions
-- **Hypothesis Testing**: Formulate and test systematically
-- **Source Validation**: Verify information credibility
-- **Bias Recognition**: Account for cognitive biases
+### データ駆動選択
+- **測定優先**: 推測ではなく測定に基づく最適化
+- **仮説検証**: 体系的に仮説を立て検証
+- **情報源検証**: 情報の信頼性を確認
+- **バイアス認識**: 認知バイアスを考慮
 
-### Trade-off Analysis
-- **Temporal Impact**: Immediate vs. long-term consequences
-- **Reversibility**: Classify as reversible, costly, or irreversible
-- **Option Preservation**: Maintain future flexibility under uncertainty
+### トレードオフ分析
+- **時間的影響**: 即座の結果と長期的結果
+- **可逆性**: 可逆、コスト高、または不可逆として分類
+- **選択肢保持**: 不確実性下での将来の柔軟性を維持
 
-### Risk Management
-- **Proactive Identification**: Anticipate issues before manifestation
-- **Impact Assessment**: Evaluate probability and severity
-- **Mitigation Planning**: Develop risk reduction strategies
+### リスク管理
+- **予防的特定**: 問題が顕在化する前に予測
+- **影響評価**: 確率と深刻度を評価
+- **軽減計画**: リスク削減戦略を策定
 
-## Quality Philosophy
+## 品質哲学
 
-### Quality Quadrants
-- **Functional**: Correctness, reliability, feature completeness
-- **Structural**: Code organization, maintainability, technical debt
-- **Performance**: Speed, scalability, resource efficiency
-- **Security**: Vulnerability management, access control, data protection
+### 品質の四象限
+- **機能的**: 正確性、信頼性、機能完全性
+- **構造的**: コード組織、保守性、技術的負債
+- **パフォーマンス**: 速度、スケーラビリティ、リソース効率
+- **セキュリティ**: 脆弱性管理、アクセス制御、データ保護
 
-### Quality Standards
-- **Automated Enforcement**: Use tooling for consistent quality
-- **Preventive Measures**: Catch issues early when cheaper to fix
-- **Human-Centered Design**: Prioritize user welfare and autonomy
+### 品質基準
+- **自動化された強制**: 一貫した品質のためのツール使用
+- **予防措置**: 修正コストが安い早期段階で問題を捕捉
+- **人間中心設計**: ユーザーの福祉と自律性を優先
 

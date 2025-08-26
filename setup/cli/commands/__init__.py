@@ -1,6 +1,6 @@
 """
-SuperClaude CLI Commands
-Individual command implementations for the CLI interface
+SuperClaude CLIコマンド
+CLIインターフェース用の個別コマンド実装
 """
 
 from ..base import OperationBase

@@ -1,44 +1,44 @@
-# SuperClaude MCP Servers Guide 🔌
+# SuperClaude MCPサーバーガイド 🔌
 
-## Overview
+## 概要
 
-MCP (Model Context Protocol) servers extend Claude Code's capabilities through specialized tools. SuperClaude integrates 6 MCP servers and provides Claude with instructions on when to activate them based on your tasks.
+MCP（Model Context Protocol）サーバーは、専門ツールを通じてClaude Codeの機能を拡張します。SuperClaudeは6つのMCPサーバーを統合し、タスクに基づいて適切なサーバーを活性化するための指示をClaudeに提供します。
 
-### 🔍 Reality Check
-- **What MCP servers are**: External Node.js processes that provide additional tools
-- **What they aren't**: Built-in SuperClaude functionality
-- **How activation works**: Claude reads instructions to use appropriate servers based on context
-- **What they provide**: Real tools that extend Claude Code's native capabilities
+### 🔍 現実確認
+- **MCPサーバーとは**: 追加ツールを提供する外部Node.jsプロセス
+- **MCPサーバーではないもの**: 組み込みSuperClaude機能
+- **活性化の仕組み**: Claudeがコンテキストに基づいて適切なサーバーを使用する指示を読み取り
+- **提供するもの**: Claude Codeのネイティブ機能を拡張する実際のツール
 
-**Core Servers:**
-- **context7**: Official library documentation and patterns
-- **sequential-thinking**: Multi-step reasoning and analysis  
-- **magic**: Modern UI component generation
-- **playwright**: Browser automation and E2E testing
-- **morphllm-fast-apply**: Pattern-based code transformations
-- **serena**: Semantic code understanding and project memory
+**コアサーバー:**
+- **context7**: 公式ライブラリドキュメントとパターン
+- **sequential-thinking**: マルチステップ推論と分析  
+- **magic**: モダンUIコンポーネント生成
+- **playwright**: ブラウザ自動化とE2Eテスト
+- **morphllm-fast-apply**: パターンベースコード変換
+- **serena**: セマンティックコード理解とプロジェクトメモリ
 
-## Quick Start
+## クイックスタート
 
-**Setup Verification**: MCP servers activate automatically. For installation and troubleshooting, see [Installation Guide](../Getting-Started/installation.md) and [Troubleshooting](../Reference/troubleshooting.md).
+**セットアップ確認**: MCPサーバーは自動的に活性化されます。インストールとトラブルシューティングについては、[インストールガイド](../Getting-Started/installation.md)と[トラブルシューティング](../Reference/troubleshooting.md)を参照してください。
 
-**Auto-Activation Logic:**
+**自動活性化ロジック:**
 
-| Request Contains | Servers Activated |
+| リクエスト内容 | 活性化サーバー |
 |-----------------|------------------|
-| Library imports, API names | **context7** |
-| `--think`, debugging | **sequential-thinking** |  
-| `component`, `UI`, frontend | **magic** |
-| `test`, `e2e`, `browser` | **playwright** |
-| Multi-file edits, refactoring | **morphllm-fast-apply** |
-| Large projects, sessions | **serena** |
+| ライブラリインポート、API名 | **context7** |
+| `--think`、デバッグ | **sequential-thinking** |  
+| `component`、`UI`、フロントエンド | **magic** |
+| `test`、`e2e`、`browser` | **playwright** |
+| マルチファイル編集、リファクタリング | **morphllm-fast-apply** |
+| 大規模プロジェクト、セッション | **serena** |
 
-## Server Details
+## サーバー詳細
 
 ### context7 📚
-**Purpose**: Official library documentation access
-**Triggers**: Import statements, framework keywords, documentation requests
-**Requirements**: Node.js 16+, no API key
+**目的**: 公式ライブラリドキュメントアクセス
+**トリガー**: インポート文、フレームワークキーワード、ドキュメント要求
+**要件**: Node.js 16+、APIキー不要
 
 ```bash
 # Automatic activation
@@ -50,9 +50,9 @@ MCP (Model Context Protocol) servers extend Claude Code's capabilities through s
 ```
 
 ### sequential-thinking 🧠
-**Purpose**: Structured multi-step reasoning and systematic analysis
-**Triggers**: Complex debugging, `--think` flags, architectural analysis
-**Requirements**: Node.js 16+, no API key
+**目的**: 構造化マルチステップ推論と体系的分析
+**トリガー**: 複雑デバッグ、`--think`フラグ、アーキテクチャ分析
+**要件**: Node.js 16+、APIキー不要
 
 ```bash
 # Automatic activation

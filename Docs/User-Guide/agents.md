@@ -1,11 +1,11 @@
-# SuperClaude Agents Guide 🤖
+# SuperClaude エージェントガイド 🤖
 
-SuperClaude provides 14 domain specialist agents that Claude Code can invoke for specialized expertise.
+SuperClaudeは、Claude Codeが専門知識のために呼び出すことができる14のドメイン専門エージェントを提供します。
 
 
-## 🧪 Testing Agent Activation
+## 🧪 エージェント活性化テスト
 
-Before using this guide, verify agent selection works:
+このガイドを使用する前に、エージェント選択が機能することを確認してください:
 
 ```bash
 # Test manual agent invocation
@@ -30,18 +30,18 @@ Before using this guide, verify agent selection works:
 # Example behavior: Analysis followed by refactoring suggestions
 ```
 
-**If tests fail**: Check agent files exist in `~/.claude/agents/` or restart Claude Code session
+**テストが失敗した場合**: `~/.claude/agents/`にエージェントファイルが存在するか確認するか、Claude Codeセッションを再起動してください
 
-## Core Concepts
+## 中核概念
 
-### What are SuperClaude Agents?
-**Agents** are specialized AI domain experts implemented as context instructions that modify Claude Code's behavior. Each agent is a carefully crafted `.md` file in the `SuperClaude/Agents/` directory containing domain-specific expertise, behavioral patterns, and problem-solving approaches.
+### SuperClaudeエージェントとは？
+**エージェント**は、Claude Codeの動作を変更するコンテキスト指示として実装された専門AIドメインエキスパートです。各エージェントは、ドメイン固有の専門知識、行動パターン、問題解決アプローチを含む、`SuperClaude/Agents/`ディレクトリ内の慎重に作成された`.md`ファイルです。
 
-**Important**: Agents are NOT separate AI models or software - they are context configurations that Claude Code reads to adopt specialized behaviors.
+**重要**: エージェントは別個のAIモデルやソフトウェアではありません - Claude Codeが専門的な動作を採用するために読み取るコンテキスト設定です。
 
-### Two Ways to Use Agents
+### エージェントを使用する2つの方法
 
-#### 1. Manual Invocation with @agent- Prefix
+#### 1. @agent-プレフィックスによる手動呼び出し
 ```bash
 # Directly invoke a specific agent
 @agent-security "review authentication implementation"
@@ -49,8 +49,8 @@ Before using this guide, verify agent selection works:
 @agent-architect "plan microservices migration"
 ```
 
-#### 2. Auto-Activation (Behavioral Routing)
-"Auto-activation" means Claude Code reads behavioral instructions to engage appropriate contexts based on keywords and patterns in your requests. SuperClaude provides behavioral guidelines that Claude follows to route to the most appropriate specialists.
+#### 2. 自動活性化（動作ルーティング）
+「自動活性化」とは、Claude Codeがあなたのリクエスト内のキーワードとパターンに基づいて適切なコンテキストを関与させるために動作指示を読み取ることを意味します。SuperClaudeは、Claudeが最も適切な専門家にルーティングするために従う動作ガイドラインを提供します。
 
 > **📝 How Agent "Auto-Activation" Works**: 
 > Agent activation isn't automatic system logic - it's behavioral instructions in context files. 
@@ -65,13 +65,13 @@ Before using this guide, verify agent selection works:
 /sc:troubleshoot "memory leak"      # → performance-engineer auto-activates
 ```
 
-**MCP Servers** provide enhanced capabilities through specialized tools like Context7 (documentation), Sequential (analysis), Magic (UI), Playwright (testing), and Morphllm (code transformation).
+**MCPサーバー**は、Context7（ドキュメント）、Sequential（分析）、Magic（UI）、Playwright（テスト）、Morphllm（コード変換）などの専門ツールを通じて強化された機能を提供します。
 
-**Domain Specialists** focus on narrow expertise areas to provide deeper, more accurate solutions than generalist approaches.
+**ドメイン専門家**は、汎用アプローチよりも深く正確なソリューションを提供するために、狭い専門分野に焦点を当てます。
 
-### Agent Selection Rules
+### エージェント選択ルール
 
-**Priority Hierarchy:**
+**優先階層:**
 1. **Manual Override** - @agent-[name] takes precedence over auto-activation
 2. **Keywords** - Direct domain terminology triggers primary agents
 3. **File Types** - Extensions activate language/framework specialists  

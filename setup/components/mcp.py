@@ -36,38 +36,38 @@ class MCPComponent(Component):
         self.mcp_servers = {
             "context7": {
                 "name": "context7",
-                "description": "Official library documentation and code examples",
+                "description": "公式ライブラリドキュメントとコード例",
                 "config_file": "context7.json",
                 "requires_api_key": False
             },
             "sequential": {
                 "name": "sequential-thinking", 
-                "description": "Multi-step problem solving and systematic analysis",
+                "description": "マルチステップ問題解決と体系的分析",
                 "config_file": "sequential.json",
                 "requires_api_key": False
             },
             "magic": {
                 "name": "magic",
-                "description": "Modern UI component generation and design systems",
+                "description": "モダンUIコンポーネント生成とデザインシステム",
                 "config_file": "magic.json",
                 "requires_api_key": True,
                 "api_key_env": "TWENTYFIRST_API_KEY"
             },
             "playwright": {
                 "name": "playwright",
-                "description": "Cross-browser E2E testing and automation",
+                "description": "クロスブラウザE2Eテストと自動化",
                 "config_file": "playwright.json", 
                 "requires_api_key": False
             },
             "serena": {
                 "name": "serena",
-                "description": "Semantic code analysis and intelligent editing",
+                "description": "セマンティックコード分析とインテリジェント編集",
                 "config_file": "serena.json",
                 "requires_api_key": False
             },
             "morphllm": {
                 "name": "morphllm-fast-apply",
-                "description": "Fast Apply capability for context-aware code modifications",
+                "description": "コンテキスト認識コード修正のためのFast Apply機能",
                 "config_file": "morphllm.json",
                 "requires_api_key": True,
                 "api_key_env": "MORPH_API_KEY"
@@ -104,7 +104,7 @@ class MCPComponent(Component):
         return {
             "name": "mcp",
             "version": __version__,
-            "description": "MCP server configuration management via .claude.json",
+            "description": ".claude.json経由のMCPサーバー設定管理",
             "category": "integration"
         }
     
@@ -129,7 +129,7 @@ class MCPComponent(Component):
         claude_config = Path.home() / ".claude.json"
         if not claude_config.exists():
             errors.append(f"Claude configuration file not found: {claude_config}")
-            errors.append("Please run Claude Code at least once to create the configuration file")
+            errors.append("設定ファイルを作成するため、Claude Codeを少なくとも一度実行してください")
         
         return len(errors) == 0, errors
     
@@ -321,7 +321,7 @@ class MCPComponent(Component):
                 api_key_env = server_info.get("api_key_env")
                 if api_key_env:
                     display_info(f"Server '{server_key}' requires API key: {api_key_env}")
-                    display_info("You can set this environment variable later")
+                    display_info("この環境変数は後で設定できます")
             
             # Precisely merge server config, preserving user customizations
             self._merge_mcp_server_config(claude_config["mcpServers"], server_config, server_key)
@@ -330,7 +330,7 @@ class MCPComponent(Component):
             self.logger.info(f"Configured MCP server: {server_info['name']}")
         
         if configured_count == 0:
-            self.logger.error("No MCP servers were successfully configured")
+            self.logger.error("MCPサーバーの設定に成功しませんでした")
             return False
         
         # Save updated configuration
@@ -357,7 +357,7 @@ class MCPComponent(Component):
                 }
             }
             self.settings_manager.update_metadata(metadata_mods)
-            self.logger.info("Updated metadata with MCP component registration")
+            self.logger.info("MCPコンポーネント登録でメタデータを更新しました")
             
             return True
         except Exception as e:
@@ -367,16 +367,16 @@ class MCPComponent(Component):
     def uninstall(self) -> bool:
         """Uninstall MCP component by removing servers from .claude.json"""
         try:
-            self.logger.info("Removing MCP server configurations...")
+            self.logger.info("MCPサーバー設定を削除中...")
             
             # Load Claude configuration
             claude_config, config_path = self._load_claude_config()
             if claude_config is None:
-                self.logger.warning("Could not load Claude config for cleanup")
+                self.logger.warning("クリーンアップ用のClaude設定を読み込めませんでした")
                 return True  # Not a failure if config doesn't exist
             
             if "mcpServers" not in claude_config:
-                self.logger.info("No MCP servers configured")
+                self.logger.info("MCPサーバーが設定されていません")
                 return True
             
             # Only remove servers that were installed by SuperClaude
@@ -403,7 +403,7 @@ class MCPComponent(Component):
             try:
                 if self.settings_manager.is_component_installed("mcp"):
                     self.settings_manager.remove_component_registration("mcp")
-                    self.logger.info("Removed MCP component from settings.json")
+                    self.logger.info("settings.jsonからMCPコンポーネントを削除しました")
             except Exception as e:
                 self.logger.warning(f"Could not update settings.json: {e}")
             

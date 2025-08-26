@@ -11,24 +11,24 @@ from ..services.claude_md import CLAUDEMdService
 
 
 class ModesComponent(Component):
-    """SuperClaude behavioral modes component"""
+    """SuperClaude動作モードコンポーネント"""
     
     def __init__(self, install_dir: Optional[Path] = None):
-        """Initialize modes component"""
+        """モードコンポーネントを初期化"""
         super().__init__(install_dir, Path(""))
     
     def get_metadata(self) -> Dict[str, str]:
-        """Get component metadata"""
+        """コンポーネントメタデータを取得"""
         return {
             "name": "modes",
             "version": __version__,
-            "description": "SuperClaude behavioral modes (Brainstorming, Introspection, Task Management, Token Efficiency)",
+            "description": "SuperClaude動作モード（ブレインストーミング、内省、タスク管理、トークン効率）",
             "category": "modes"
         }
     
     def _install(self, config: Dict[str, Any]) -> bool:
-        """Install modes component"""
-        self.logger.info("Installing SuperClaude behavioral modes...")
+        """モードコンポーネントをインストール"""
+        self.logger.info("SuperClaude動作モードをインストール中...")
 
         # Validate installation
         success, errors = self.validate_prerequisites()
@@ -41,7 +41,7 @@ class ModesComponent(Component):
         files_to_install = self.get_files_to_install()
 
         if not files_to_install:
-            self.logger.warning("No mode files found to install")
+            self.logger.warning("インストールするモードファイルが見つかりません")
             return False
 
         # Copy mode files
@@ -64,7 +64,7 @@ class ModesComponent(Component):
         return self._post_install()
 
     def _post_install(self) -> bool:
-        """Post-installation tasks"""
+        """インストール後タスク"""
         try:
             # Update metadata
             metadata_mods = {
@@ -77,15 +77,15 @@ class ModesComponent(Component):
                 }
             }
             self.settings_manager.update_metadata(metadata_mods)
-            self.logger.info("Updated metadata with modes component registration")
+            self.logger.info("モードコンポーネント登録でメタデータを更新しました")
             
             # Update CLAUDE.md with mode imports
             try:
                 manager = CLAUDEMdService(self.install_dir)
-                manager.add_imports(self.component_files, category="Behavioral Modes")
-                self.logger.info("Updated CLAUDE.md with mode imports")
+                manager.add_imports(self.component_files, category="動作モード")
+                self.logger.info("モードインポートでCLAUDE.mdを更新しました")
             except Exception as e:
-                self.logger.warning(f"Failed to update CLAUDE.md with mode imports: {e}")
+                self.logger.warning(f"モードインポートでCLAUDE.mdの更新に失敗: {e}")
                 # Don't fail the whole installation for this
             
             return True
@@ -94,9 +94,9 @@ class ModesComponent(Component):
             return False
     
     def uninstall(self) -> bool:
-        """Uninstall modes component"""
+        """モードコンポーネントをアンインストール"""
         try:
-            self.logger.info("Uninstalling SuperClaude modes component...")
+            self.logger.info("SuperClaudeモードコンポーネントをアンインストール中...")
             
             # Remove mode files
             removed_count = 0
@@ -111,9 +111,9 @@ class ModesComponent(Component):
                     remaining_files = list(self.install_component_subdir.iterdir())
                     if not remaining_files:
                         self.install_component_subdir.rmdir()
-                        self.logger.debug("Removed empty modes directory")
+                        self.logger.debug("空のモードディレクトリを削除しました")
             except Exception as e:
-                self.logger.warning(f"Could not remove modes directory: {e}")
+                self.logger.warning(f"モードディレクトリを削除できませんでした: {e}")
             
             # Update settings.json
             try:

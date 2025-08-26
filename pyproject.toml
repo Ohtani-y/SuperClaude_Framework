@@ -9,7 +9,7 @@ authors = [
     {name = "NomenAK", email = "anton.knoery@gmail.com"},
     {name = "Mithun Gowda B", email = "mithungowda.b7411@gmail.com"}
 ]
-description = "SuperClaude Framework Management Hub - AI-enhanced development framework for Claude Code"
+description = "SuperClaude フレームワーク管理ハブ - Claude Code用のAI強化開発フレームワーク"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.8"

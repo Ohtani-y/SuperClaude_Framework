@@ -1,22 +1,22 @@
-# SuperClaude Verification and Troubleshooting Guide
+# SuperClaude 検証とトラブルシューティングガイド
 
-## Overview
+## 概要
 
-This guide covers how to verify your SuperClaude installation and troubleshoot common issues with context files and configurations.
+このガイドでは、SuperClaudeインストールの検証方法と、コンテキストファイルと設定の一般的な問題のトラブルシューティング方法について説明します。
 
-**Important**: SuperClaude is a collection of context files, not executable software. This guide focuses on verifying context files are properly installed and accessible to Claude Code.
+**重要**: SuperClaudeは実行可能ソフトウェアではなく、コンテキストファイルの集合です。このガイドでは、コンテキストファイルが適切にインストールされ、Claude Codeからアクセス可能であることの検証に焦点を当てています。
 
-## Table of Contents
+## 目次
 
-1. [Installation Verification](#installation-verification)
-2. [Context File Verification](#context-file-verification)
-3. [MCP Server Verification](#mcp-server-verification)
-4. [Common Issues](#common-issues)
-5. [Troubleshooting Commands](#troubleshooting-commands)
+1. [インストール検証](#installation-verification)
+2. [コンテキストファイル検証](#context-file-verification)
+3. [MCPサーバー検証](#mcp-server-verification)
+4. [一般的な問題](#common-issues)
+5. [トラブルシューティングコマンド](#troubleshooting-commands)
 
-## Installation Verification
+## インストール検証
 
-### Check Installation Status
+### インストール状態確認
 
 ```bash
 # Verify SuperClaude installation system is available
@@ -36,7 +36,7 @@ head ~/.claude/CLAUDE.md
 # Expected: Should show import statements
 ```
 
-### Verify Directory Structure
+### ディレクトリ構造確認
 
 ```bash
 # Check all directories exist
@@ -50,7 +50,7 @@ for dir in agents commands modes; do
 done
 ```
 
-### Count Installed Components
+### インストール済みコンポーネント数確認
 
 ```bash
 # Should have 14 agents
@@ -63,9 +63,9 @@ ls ~/.claude/commands/*.md | wc -l
 ls ~/.claude/modes/*.md | wc -l
 ```
 
-## Context File Verification
+## コンテキストファイル検証
 
-### Verify Core Files
+### コアファイル確認
 
 ```bash
 # Check core context files exist
@@ -78,7 +78,7 @@ for file in CLAUDE.md FLAGS.md RULES.md PRINCIPLES.md; do
 done
 ```
 
-### Verify Import System
+### インポートシステム確認
 
 ```bash
 # Check CLAUDE.md has correct imports
@@ -92,7 +92,7 @@ grep "@import" ~/.claude/CLAUDE.md
 # @import PRINCIPLES.md
 ```
 
-### Check File Integrity
+### ファイル整合性確認
 
 ```bash
 # Verify files are readable text files
@@ -109,9 +109,9 @@ for file in ~/.claude/**/*.md; do
 done
 ```
 
-## MCP Server Verification
+## MCPサーバー検証
 
-### Check MCP Configuration
+### MCP設定確認
 
 ```bash
 # Verify .claude.json exists
@@ -124,7 +124,7 @@ else
 fi
 ```
 
-### Test MCP Server Availability
+### MCPサーバー可用性テスト
 
 ```bash
 # Check if Node.js is available (required for MCP)
@@ -139,13 +139,13 @@ npx --version
 npx -y @upstash/context7-mcp@latest --help 2>/dev/null && echo "✅ Context7 available" || echo "❌ Context7 not available"
 ```
 
-## Common Issues
+## 一般的な問題
 
-### Issue: Commands Not Working
+### 問題: コマンドが動作しない
 
-**Symptom**: `/sc:` context triggers don't produce expected Claude Code behavior
+**症状**: `/sc:` コンテキストトリガーが期待されるClaude Code動作を生成しない
 
-**Verification**:
+**検証**:
 ```bash
 # Check if command file exists
 ls ~/.claude/commands/implement.md
@@ -162,11 +162,11 @@ head -20 ~/.claude/commands/implement.md
 PYTHONPATH=/path/to/SuperClaude_Framework python3 -m setup install --components commands --force
 ```
 
-### Issue: Agents Not Activating
+### 問題: エージェントが活性化しない
 
-**Symptom**: `@agent-` invocations don't work in Claude Code
+**症状**: `@agent-` 呼び出しがClaude Codeで動作しない
 
-**Verification**:
+**検証**:
 ```bash
 # List all agents
 ls ~/.claude/agents/
@@ -181,11 +181,11 @@ cat ~/.claude/agents/python-expert.md | head -20
 PYTHONPATH=/path/to/SuperClaude_Framework python3 -m setup install --components agents --force
 ```
 
-### Issue: Context Not Loading
+### 問題: コンテキストが読み込まれない
 
-**Symptom**: Claude Code doesn't seem to read SuperClaude context
+**症状**: Claude CodeがSuperClaudeコンテキストを読み取らない
 
-**Verification**:
+**検証**:
 ```bash
 # Check CLAUDE.md is in correct location
 ls -la ~/.claude/CLAUDE.md
@@ -199,11 +199,11 @@ ls -la ~/.claude/CLAUDE.md
 2. Ensure you're in a project directory
 3. Check file permissions: `chmod 644 ~/.claude/*.md`
 
-### Issue: MCP Servers Not Working
+### 問題: MCPサーバーが動作しない
 
-**Symptom**: MCP features unavailable
+**症状**: MCP機能が利用できない
 
-**Verification**:
+**検証**:
 ```bash
 # Check Node.js installation
 which node
@@ -223,9 +223,9 @@ python3 -c "import json; json.load(open('$HOME/.claude.json'))" && echo "✅ Val
 PYTHONPATH=/path/to/SuperClaude_Framework python3 -m setup install --components mcp --force
 ```
 
-## Troubleshooting Commands
+## トラブルシューティングコマンド
 
-### Quick Diagnostic
+### クイック診断
 
 ```bash
 #!/bin/bash
@@ -277,7 +277,7 @@ echo ""
 echo "=== Diagnostic Complete ==="
 ```
 
-### File Permission Fix
+### ファイル権限修正
 
 ```bash
 # Fix permissions on all context files
@@ -286,7 +286,7 @@ chmod 644 ~/.claude/**/*.md
 chmod 755 ~/.claude ~/.claude/agents ~/.claude/commands ~/.claude/modes
 ```
 
-### Complete Reinstall
+### 完全再インストール
 
 ```bash
 # Backup existing configuration
@@ -301,24 +301,24 @@ PYTHONPATH=/path/to/SuperClaude_Framework python3 -m setup install
 # Restore any customizations from backup if needed
 ```
 
-## Important Notes
+## 重要な注意事項
 
-### What We're NOT Verifying
+### 検証しないもの
 
-- **No Code Execution**: Context files don't execute, so no runtime verification needed
-- **No Performance Metrics**: No code runs, so no performance to measure
-- **No Unit Tests**: Context files are instructions, not functions
-- **No Integration Tests**: Claude Code reads files; verification is behavioral
+- **コード実行なし**: コンテキストファイルは実行されないため、ランタイム検証は不要
+- **パフォーマンスメトリクスなし**: コードが実行されないため、測定するパフォーマンスなし
+- **ユニットテストなし**: コンテキストファイルは関数ではなく指示
+- **統合テストなし**: Claude Codeがファイルを読み取る；検証は動作的
 
-### What We ARE Verifying
+### 検証するもの
 
-- **File Presence**: Context files exist in correct locations
-- **File Integrity**: Files are valid text and readable
-- **Directory Structure**: Proper organization maintained
-- **Configuration Validity**: JSON files are syntactically correct
-- **Dependencies Available**: Node.js for MCP servers (optional)
-- **Behavioral Testing**: Context files produce expected Claude Code behavior
+- **ファイル存在**: コンテキストファイルが正しい場所に存在
+- **ファイル整合性**: ファイルが有効なテキストで読み取り可能
+- **ディレクトリ構造**: 適切な組織が維持されている
+- **設定有効性**: JSONファイルが構文的に正しい
+- **依存関係利用可能**: MCPサーバー用Node.js（オプション）
+- **動作テスト**: コンテキストファイルが期待されるClaude Code動作を生成
 
-## Summary
+## まとめ
 
-Verification for SuperClaude focuses on ensuring context files are properly installed and accessible to Claude Code. Since SuperClaude is not software but a configuration framework, verification centers on file presence, integrity, and behavioral testing in Claude Code conversations.
+SuperClaudeの検証は、コンテキストファイルが適切にインストールされ、Claude Codeからアクセス可能であることの確認に焦点を当てています。SuperClaudeはソフトウェアではなく設定フレームワークであるため、検証はファイル存在、整合性、およびClaude Code会話での動作テストを中心としています。

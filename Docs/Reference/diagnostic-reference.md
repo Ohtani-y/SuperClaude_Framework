@@ -1,21 +1,21 @@
-# SuperClaude Diagnostic Reference Guide
+# SuperClaude 診断リファレンスガイド
 
-## Overview
+## 概要
 
-This guide provides procedures for diagnosing issues with SuperClaude context files and configurations. Since SuperClaude is a collection of text files (not running software), diagnostics focus on file verification and configuration checking.
+このガイドは、SuperClaudeコンテキストファイルと設定の問題を診断する手順を提供します。SuperClaudeは（実行中のソフトウェアではなく）テキストファイルの集合であるため、診断はファイル検証と設定チェックに焦点を当てます。
 
-**Important**: There are no processes to monitor, no performance metrics to measure, and no system resources to analyze. SuperClaude is purely configuration files that Claude Code reads.
+**重要**: 監視するプロセス、測定するパフォーマンスメトリクス、分析するシステムリソースはありません。SuperClaudeは純粋にClaude Codeが読み取る設定ファイルです。
 
-## Quick Diagnostics
+## クイック診断
 
-### One-Line Health Check
+### ワンライン健全性チェック
 
 ```bash
 # Quick status check
 ls ~/.claude/CLAUDE.md && echo "✅ SuperClaude installed" || echo "❌ Not installed"
 ```
 
-### Basic Diagnostic Commands
+### 基本診断コマンド
 
 ```bash
 # Check if SuperClaude is installed
@@ -35,9 +35,9 @@ tree -L 2 ~/.claude/
 ls -la ~/.claude/
 ```
 
-## File System Diagnostics
+## ファイルシステム診断
 
-### Context File Verification
+### コンテキストファイル検証
 
 ```bash
 #!/bin/bash
@@ -71,7 +71,7 @@ for file in CLAUDE.md FLAGS.md RULES.md PRINCIPLES.md; do
 done
 ```
 
-### Import System Check
+### インポートシステムチェック
 
 ```bash
 # Verify import statements in CLAUDE.md
@@ -94,9 +94,9 @@ else
 fi
 ```
 
-## Configuration Diagnostics
+## 設定診断
 
-### MCP Server Configuration Check
+### MCPサーバー設定チェック
 
 ```bash
 # Check MCP configuration
@@ -132,7 +132,7 @@ else
 fi
 ```
 
-### Permission Diagnostics
+### 権限診断
 
 ```bash
 # Check file permissions
@@ -168,9 +168,9 @@ for dir in ~/.claude ~/.claude/agents ~/.claude/commands ~/.claude/modes; do
 done
 ```
 
-## Common Issue Diagnostics
+## 一般的な問題の診断
 
-### Issue: Commands Not Recognized
+### 問題: コマンドが認識されない
 
 ```bash
 # Diagnose command issues
@@ -211,7 +211,7 @@ else
 fi
 ```
 
-### Issue: Agent Not Activating
+### 問題: エージェントが活性化しない
 
 ```bash
 # Diagnose agent issues
@@ -241,9 +241,9 @@ else
 fi
 ```
 
-## Installation Repair
+## インストール修復
 
-### Quick Fix Script
+### クイック修正スクリプト
 
 ```bash
 #!/bin/bash
@@ -285,7 +285,7 @@ else
 fi
 ```
 
-### Complete Reinstallation
+### 完全再インストール
 
 ```bash
 # Complete clean reinstall

@@ -20,7 +20,7 @@ from .logger import get_logger
 
 
 class UpdateChecker:
-    """Handles automatic update checking for SuperClaude"""
+    """SuperClaudeの自動更新チェックを処理"""
     
     PYPI_URL = "https://pypi.org/pypi/SuperClaude/json"
     CACHE_FILE = Path.home() / ".claude" / ".update_check"
@@ -68,7 +68,7 @@ class UpdateChecker:
         return False
         
     def save_check_timestamp(self):
-        """Save the current timestamp as last check time"""
+        """現在のタイムスタンプを最終チェック時刻として保存"""
         self.CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
         
         data = {}
@@ -95,7 +95,7 @@ class UpdateChecker:
             # Create request with timeout
             req = urllib.request.Request(
                 self.PYPI_URL,
-                headers={'User-Agent': 'SuperClaude-Updater'}
+                headers={'User-Agent': 'SuperClaude-アップデーター'}
             )
             
             # Set timeout for the request
@@ -240,11 +240,11 @@ class UpdateChecker:
             )
             
             if result.returncode == 0:
-                display_success("Update completed successfully!")
-                print(f"{Colors.YELLOW}Please restart SuperClaude to use the new version.{Colors.RESET}")
+                display_success("更新が正常に完了しました！")
+                print(f"{Colors.YELLOW}新しいバージョンを使用するにはSuperClaudeを再起動してください。{Colors.RESET}")
                 return True
             else:
-                display_warning("Update failed. Please run manually:")
+                display_warning("更新に失敗しました。手動で実行してください：")
                 print(f"  {update_cmd}")
                 return False
                 

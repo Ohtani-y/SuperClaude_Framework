@@ -1,24 +1,24 @@
-# SuperClaude Advanced Workflows Collection
+# SuperClaude 高度ワークフローコレクション
 
-**Status**: ✅ **Status: Current** - Complex command sequences and context combinations for sophisticated projects.
+**ステータス**: ✅ **ステータス: 最新** - 洗練されたプロジェクトのための複雑なコマンドシーケンスとコンテキスト組み合わせ。
 
-**Advanced Usage Guide**: Patterns for complex projects using multiple commands, agents, and careful context management within Claude Code conversations.
+**高度使用ガイド**: 複数のコマンド、エージェント、Claude Code会話内での注意深いコンテキスト管理を使用する複雑なプロジェクトのパターン。
 
-## Overview and Usage Guide
+## 概要と使用ガイド
 
-**Purpose**: Advanced SuperClaude patterns for complex, multi-step projects that require careful sequencing of commands and context management.
+**目的**: コマンドの注意深いシーケンシングとコンテキスト管理を必要とする複雑なマルチステッププロジェクトのための高度なSuperClaudeパターン。
 
-**Important**: These are conversation patterns, not executing workflows. All work happens within Claude Code based on context provided.
+**重要**: これらは会話パターンであり、実行ワークフローではありません。すべての作業は提供されたコンテキストに基づいてClaude Code内で行われます。
 
-**Key Concepts**:
-- Command sequences within a conversation
-- Context layering through multiple agents
-- Progressive refinement approaches
-- Project phase management (manual, not automated)
+**主要概念**:
+- 会話内でのコマンドシーケンス
+- 複数エージェントによるコンテキスト階層化
+- 段階的改良アプローチ
+- プロジェクトフェーズ管理（手動、自動化されていない）
 
-## Multi-Context Project Patterns
+## マルチコンテキストプロジェクトパターン
 
-### Full-Stack Development Sequence
+### フルスタック開発シーケンス
 
 ```bash
 # E-commerce platform using multiple contexts
@@ -43,7 +43,7 @@
 # No actual coordination or parallel execution occurs
 ```
 
-### Problem-Solving Workflow
+### 問題解決ワークフロー
 
 ```bash
 # Complex troubleshooting approach
@@ -63,9 +63,9 @@
 # Context accumulates but doesn't execute
 ```
 
-## Complex Project Phases
+## 複雑プロジェクトフェーズ
 
-### Project Initialization Pattern
+### プロジェクト初期化パターン
 
 ```bash
 # Starting a new project
@@ -83,7 +83,7 @@
 # Creates summary for your records (not persistent storage)
 ```
 
-### Incremental Development Pattern
+### 増分開発パターン
 
 ```bash
 # Building features incrementally
@@ -103,7 +103,7 @@
 # Each feature builds on conversation context
 ```
 
-### Migration Project Pattern
+### 移行プロジェクトパターン
 
 ```bash
 # Legacy system migration
@@ -127,9 +127,9 @@
 # Manual phases, not automated workflow
 ```
 
-## Enterprise-Scale Patterns
+## エンタープライズスケールパターン
 
-### Large Codebase Analysis
+### 大規模コードベース分析
 
 ```bash
 # Systematic analysis of large projects
@@ -149,7 +149,7 @@
 # Note: Sequential analysis, not parallel
 ```
 
-### Multi-Technology Projects
+### マルチテクノロジープロジェクト
 
 ```bash
 # Projects with diverse tech stacks
@@ -171,9 +171,9 @@
 # Each technology addressed sequentially
 ```
 
-## Quality Assurance Workflows
+## 品質保証ワークフロー
 
-### Comprehensive Review Pattern
+### 包括的レビューパターン
 
 ```bash
 # Multi-aspect code review
@@ -197,7 +197,7 @@
 # Sequential reviews, not parallel analysis
 ```
 
-### Testing Strategy Pattern
+### テスト戦略パターン
 
 ```bash
 # Comprehensive testing approach
@@ -222,9 +222,9 @@
 # Test code generation, not execution
 ```
 
-## Session Management Patterns
+## セッション管理パターン
 
-### Long Project Sessions
+### 長期プロジェクトセッション
 
 ```bash
 # Managing context in long conversations

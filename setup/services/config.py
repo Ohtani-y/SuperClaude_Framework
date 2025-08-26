@@ -15,29 +15,29 @@ except ImportError:
     JSONSCHEMA_AVAILABLE = False
     
     class ValidationError(Exception):
-        """Simple validation error for when jsonschema is not available"""
+        """jsonschemaが利用できない場合のシンプル検証エラー"""
         def __init__(self, message):
             self.message = message
             super().__init__(message)
     
     def validate(instance, schema):
-        """Dummy validation function"""
+        """ダミー検証関数"""
         # Basic type checking only
         if "type" in schema:
             expected_type = schema["type"]
             if expected_type == "object" and not isinstance(instance, dict):
-                raise ValidationError(f"Expected object, got {type(instance).__name__}")
+                raise ValidationError(f"オブジェクトが期待されましたが、{type(instance).__name__}を取得しました")
             elif expected_type == "array" and not isinstance(instance, list):
-                raise ValidationError(f"Expected array, got {type(instance).__name__}")
+                raise ValidationError(f"配列が期待されましたが、{type(instance).__name__}を取得しました")
             elif expected_type == "string" and not isinstance(instance, str):
-                raise ValidationError(f"Expected string, got {type(instance).__name__}")
+                raise ValidationError(f"文字列が期待されましたが、{type(instance).__name__}を取得しました")
             elif expected_type == "integer" and not isinstance(instance, int):
-                raise ValidationError(f"Expected integer, got {type(instance).__name__}")
+                raise ValidationError(f"整数が期待されましたが、{type(instance).__name__}を取得しました")
         # Skip detailed validation if jsonschema not available
 
 
 class ConfigService:
-    """Manages configuration files and validation"""
+    """設定ファイルと検証を管理"""
     
     def __init__(self, config_dir: Path):
         """
@@ -166,7 +166,7 @@ class ConfigService:
             return self._features_cache
             
         if not self.features_file.exists():
-            raise FileNotFoundError(f"Features config not found: {self.features_file}")
+            raise FileNotFoundError(f"機能設定が見つかりません: {self.features_file}")
         
         try:
             with open(self.features_file, 'r') as f:
@@ -179,9 +179,9 @@ class ConfigService:
             return features
             
         except json.JSONDecodeError as e:
-            raise ValidationError(f"Invalid JSON in {self.features_file}: {e}")
+            raise ValidationError(f"{self.features_file}の無効なJSON: {e}")
         except ValidationError as e:
-            raise ValidationError(f"Invalid features schema: {str(e)}")
+            raise ValidationError(f"無効な機能スキーマ: {str(e)}")
     
     def load_requirements(self) -> Dict[str, Any]:
         """
@@ -198,7 +198,7 @@ class ConfigService:
             return self._requirements_cache
             
         if not self.requirements_file.exists():
-            raise FileNotFoundError(f"Requirements config not found: {self.requirements_file}")
+            raise FileNotFoundError(f"要件設定が見つかりません: {self.requirements_file}")
         
         try:
             with open(self.requirements_file, 'r') as f:
@@ -211,9 +211,9 @@ class ConfigService:
             return requirements
             
         except json.JSONDecodeError as e:
-            raise ValidationError(f"Invalid JSON in {self.requirements_file}: {e}")
+            raise ValidationError(f"{self.requirements_file}の無効なJSON: {e}")
         except ValidationError as e:
-            raise ValidationError(f"Invalid requirements schema: {str(e)}")
+            raise ValidationError(f"無効な要件スキーマ: {str(e)}")
     
     def get_component_info(self, component_name: str) -> Optional[Dict[str, Any]]:
         """
@@ -343,12 +343,12 @@ class ConfigService:
         try:
             self.load_features()
         except Exception as e:
-            errors.append(f"Features config error: {e}")
+            errors.append(f"機能設定エラー: {e}")
         
         try:
             self.load_requirements()
         except Exception as e:
-            errors.append(f"Requirements config error: {e}")
+            errors.append(f"要件設定エラー: {e}")
         
         return errors
     

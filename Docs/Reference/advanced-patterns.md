@@ -1,26 +1,26 @@
-# SuperClaude Advanced Patterns
+# SuperClaude 高度パターン
 
-**Advanced Context Usage Patterns**: Sophisticated combinations of commands, agents, and flags for experienced SuperClaude users working on complex projects.
+**高度コンテキスト使用パターン**: 複雑なプロジェクトに取り組む経験豊富なSuperClaudeユーザー向けのコマンド、エージェント、フラグの洗練された組み合わせ。
 
-**Remember**: SuperClaude provides context to Claude Code. All patterns here are about guiding Claude's behavior through context, not executing code or coordinating processes.
+**注意**: SuperClaudeはClaude Codeにコンテキストを提供します。ここでのすべてのパターンは、コードの実行やプロセスの調整ではなく、コンテキストを通じてClaudeの動作を導くことに関するものです。
 
-## Table of Contents
+## 目次
 
-### Context Combination Patterns
-- [Multi-Agent Context Patterns](#multi-agent-context-patterns) - Combining multiple specialist contexts
-- [Command Sequencing Patterns](#command-sequencing-patterns) - Effective command combinations
-- [Flag Combination Strategies](#flag-combination-strategies) - Advanced flag usage
+### コンテキスト組み合わせパターン
+- [マルチエージェントコンテキストパターン](#multi-agent-context-patterns) - 複数の専門コンテキストの組み合わせ
+- [コマンドシーケンスパターン](#command-sequencing-patterns) - 効果的なコマンド組み合わせ
+- [フラグ組み合わせ戦略](#flag-combination-strategies) - 高度なフラグ使用
 
-### Workflow Patterns
-- [Complex Project Patterns](#complex-project-patterns) - Large project approaches
-- [Migration Patterns](#migration-patterns) - Legacy system modernization
-- [Review and Audit Patterns](#review-and-audit-patterns) - Comprehensive analysis
+### ワークフローパターン
+- [複雑プロジェクトパターン](#complex-project-patterns) - 大規模プロジェクトアプローチ
+- [移行パターン](#migration-patterns) - レガシーシステム現代化
+- [レビューと監査パターン](#review-and-audit-patterns) - 包括的分析
 
-## Multi-Agent Context Patterns
+## マルチエージェントコンテキストパターン
 
-### Combining Specialist Contexts
+### 専門コンテキストの組み合わせ
 
-**Security + Backend Pattern:**
+**セキュリティ + バックエンドパターン:**
 ```bash
 # Security-focused backend development
 @agent-security "define authentication requirements"
@@ -34,43 +34,43 @@
 # Note: Contexts combine in Claude's understanding, not in execution
 ```
 
-**Frontend + UX + Accessibility Pattern:**
+**フロントエンド + UX + アクセシビリティパターン:**
 ```bash
-# Comprehensive frontend development
-@agent-frontend-architect "design component architecture"
-/sc:implement "accessible React components" --magic
-@agent-quality-engineer "review accessibility compliance"
+# 包括的フロントエンド開発
+@agent-frontend-architect "コンポーネントアーキテクチャを設計"
+/sc:implement "アクセシブルなReactコンポーネント" --magic
+@agent-quality-engineer "アクセシビリティ準拠をレビュー"
 
-# Context layering:
-# - Frontend patterns guide structure
-# - Magic MCP may provide UI components (if configured)
-# - Quality context ensures standards
+# コンテキストレイヤリング:
+# - フロントエンドパターンが構造をガイド
+# - Magic MCPがUIコンポーネントを提供する可能性（設定されている場合）
+# - 品質コンテキストが標準を保証
 ```
 
-### Manual vs Automatic Agent Selection
+### 手動 vs 自動エージェント選択
 
-**Explicit Control Pattern:**
+**明示的制御パターン:**
 ```bash
-# Manually control which contexts load
-@agent-python-expert "implement data pipeline"
-# Only Python context, no auto-activation
+# どのコンテキストを読み込むかを手動制御
+@agent-python-expert "データパイプラインを実装"
+# Pythonコンテキストのみ、自動活性化なし
 
-# vs Automatic selection
-/sc:implement "Python data pipeline"
-# May activate multiple agents based on keywords
+# vs 自動選択
+/sc:implement "Pythonデータパイプライン"
+# キーワードに基づいて複数のエージェントが活性化される可能性
 ```
 
-**Override Auto-Selection:**
+**自動選択の上書き:**
 ```bash
-# Prevent unwanted agent activation
-/sc:implement "simple utility" --no-mcp
-@agent-backend-architect "keep it simple"
-# Limits context to specified agent only
+# 不要なエージェント活性化を防止
+/sc:implement "シンプルユーティリティ" --no-mcp
+@agent-backend-architect "シンプルに保つ"
+# 指定されたエージェントのみにコンテキストを制限
 ```
 
-## Command Sequencing Patterns
+## コマンドシーケンスパターン
 
-### Progressive Refinement Pattern
+### 段階的改良パターン
 
 ```bash
 # Start broad, then focus

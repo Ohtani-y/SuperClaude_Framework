@@ -1,121 +1,121 @@
-# SuperClaude Framework Flags
+# SuperClaude フレームワークフラグ
 
-Behavioral flags for Claude Code to enable specific execution modes and tool selection patterns.
+Claude Codeが特定の実行モードとツール選択パターンを有効にするための動作フラグ。
 
-## Mode Activation Flags
+## モード活性化フラグ
 
 **--brainstorm**
-- Trigger: Vague project requests, exploration keywords ("maybe", "thinking about", "not sure")
-- Behavior: Activate collaborative discovery mindset, ask probing questions, guide requirement elicitation
+- トリガー: 曖昧なプロジェクト要求、探索キーワード（「たぶん」「考えている」「わからない」）
+- 動作: 協力的発見マインドセットを活性化、探索的質問、要件引き出しガイド
 
 **--introspect**
-- Trigger: Self-analysis requests, error recovery, complex problem solving requiring meta-cognition
-- Behavior: Expose thinking process with transparency markers (🤔, 🎯, ⚡, 📊, 💡)
+- トリガー: 自己分析要求、エラー回復、メタ認知を必要とする複雑問題解決
+- 動作: 透明性マーカー（🤔, 🎯, ⚡, 📊, 💡）で思考プロセスを公開
 
 **--task-manage**
-- Trigger: Multi-step operations (>3 steps), complex scope (>2 directories OR >3 files)
-- Behavior: Orchestrate through delegation, progressive enhancement, systematic organization
+- トリガー: マルチステップ操作（3ステップ以上）、複雑スコープ（2ディレクトリ以上または3ファイル以上）
+- 動作: 委任による調整、段階的強化、体系的組織化
 
 **--orchestrate**
-- Trigger: Multi-tool operations, performance constraints, parallel execution opportunities
-- Behavior: Optimize tool selection matrix, enable parallel thinking, adapt to resource constraints
+- トリガー: マルチツール操作、パフォーマンス制約、並列実行機会
+- 動作: ツール選択マトリックス最適化、並列思考有効化、リソース制約への適応
 
 **--token-efficient**
-- Trigger: Context usage >75%, large-scale operations, --uc flag
-- Behavior: Symbol-enhanced communication, 30-50% token reduction while preserving clarity
+- トリガー: コンテキスト使用量75%以上、大規模操作、--ucフラグ
+- 動作: シンボル強化コミュニケーション、明確性を保持しながら30-50%トークン削減
 
-## MCP Server Flags
+## MCPサーバーフラグ
 
 **--c7 / --context7**
-- Trigger: Library imports, framework questions, official documentation needs
-- Behavior: Enable Context7 for curated documentation lookup and pattern guidance
+- トリガー: ライブラリインポート、フレームワーク質問、公式ドキュメント需要
+- 動作: キュレートされたドキュメント検索とパターンガイダンスのためContext7を有効化
 
 **--seq / --sequential**
-- Trigger: Complex debugging, system design, multi-component analysis
-- Behavior: Enable Sequential for structured multi-step reasoning and hypothesis testing
+- トリガー: 複雑デバッグ、システム設計、マルチコンポーネント分析
+- 動作: 構造化マルチステップ推論と仮説検証のためSequentialを有効化
 
 **--magic**
-- Trigger: UI component requests (/ui, /21), design system queries, frontend development
-- Behavior: Enable Magic for modern UI generation from 21st.dev patterns
+- トリガー: UIコンポーネント要求（/ui、/21）、デザインシステムクエリ、フロントエンド開発
+- 動作: 21st.devパターンからのモダンUI生成のためMagicを有効化
 
 **--morph / --morphllm**
-- Trigger: Bulk code transformations, pattern-based edits, style enforcement
-- Behavior: Enable Morphllm for efficient multi-file pattern application
+- トリガー: 一括コード変換、パターンベース編集、スタイル強制
+- 動作: 効率的マルチファイルパターン適用のためMorphllmを有効化
 
 **--serena**
-- Trigger: Symbol operations, project memory needs, large codebase navigation
-- Behavior: Enable Serena for semantic understanding and session persistence
+- トリガー: シンボル操作、プロジェクトメモリ需要、大規模コードベースナビゲーション
+- 動作: セマンティック理解とセッション永続化のためSerenaを有効化
 
 **--play / --playwright**
-- Trigger: Browser testing, E2E scenarios, visual validation, accessibility testing
-- Behavior: Enable Playwright for real browser automation and testing
+- トリガー: ブラウザテスト、E2Eシナリオ、ビジュアル検証、アクセシビリティテスト
+- 動作: 実ブラウザ自動化とテストのためPlaywrightを有効化
 
 **--all-mcp**
-- Trigger: Maximum complexity scenarios, multi-domain problems
-- Behavior: Enable all MCP servers for comprehensive capability
+- トリガー: 最大複雑性シナリオ、マルチドメイン問題
+- 動作: 包括的機能のためすべてのMCPサーバーを有効化
 
 **--no-mcp**
-- Trigger: Native-only execution needs, performance priority
-- Behavior: Disable all MCP servers, use native tools with WebSearch fallback
+- トリガー: ネイティブのみ実行需要、パフォーマンス優先
+- 動作: すべてのMCPサーバーを無効化、WebSearchフォールバック付きネイティブツールを使用
 
-## Analysis Depth Flags
+## 分析深度フラグ
 
 **--think**
-- Trigger: Multi-component analysis needs, moderate complexity
-- Behavior: Standard structured analysis (~4K tokens), enables Sequential
+- トリガー: マルチコンポーネント分析需要、中程度複雑性
+- 動作: 標準構造化分析（約4Kトークン）、Sequentialを有効化
 
 **--think-hard**
-- Trigger: Architectural analysis, system-wide dependencies
-- Behavior: Deep analysis (~10K tokens), enables Sequential + Context7
+- トリガー: アーキテクチャ分析、システム全体依存関係
+- 動作: 深度分析（約10Kトークン）、Sequential + Context7を有効化
 
 **--ultrathink**
-- Trigger: Critical system redesign, legacy modernization, complex debugging
-- Behavior: Maximum depth analysis (~32K tokens), enables all MCP servers
+- トリガー: 重要システム再設計、レガシー現代化、複雑デバッグ
+- 動作: 最大深度分析（約32Kトークン）、すべてのMCPサーバーを有効化
 
-## Execution Control Flags
+## 実行制御フラグ
 
 **--delegate [auto|files|folders]**
-- Trigger: >7 directories OR >50 files OR complexity >0.8
-- Behavior: Enable sub-agent parallel processing with intelligent routing
+- トリガー: 7ディレクトリ以上または50ファイル以上または複雑性0.8以上
+- 動作: インテリジェントルーティング付きサブエージェント並列処理を有効化
 
 **--concurrency [n]**
-- Trigger: Resource optimization needs, parallel operation control
-- Behavior: Control max concurrent operations (range: 1-15)
+- トリガー: リソース最適化需要、並列操作制御
+- 動作: 最大同時操作数を制御（範囲：1-15）
 
 **--loop**
-- Trigger: Improvement keywords (polish, refine, enhance, improve)
-- Behavior: Enable iterative improvement cycles with validation gates
+- トリガー: 改善キーワード（洗練、改良、強化、改善）
+- 動作: 検証ゲート付き反復改善サイクルを有効化
 
 **--iterations [n]**
-- Trigger: Specific improvement cycle requirements
-- Behavior: Set improvement cycle count (range: 1-10)
+- トリガー: 特定改善サイクル要件
+- 動作: 改善サイクル数を設定（範囲：1-10）
 
 **--validate**
-- Trigger: Risk score >0.7, resource usage >75%, production environment
-- Behavior: Pre-execution risk assessment and validation gates
+- トリガー: リスクスコア0.7以上、リソース使用量75%以上、本番環境
+- 動作: 実行前リスク評価と検証ゲート
 
 **--safe-mode**
-- Trigger: Resource usage >85%, production environment, critical operations
-- Behavior: Maximum validation, conservative execution, auto-enable --uc
+- トリガー: リソース使用量85%以上、本番環境、重要操作
+- 動作: 最大検証、保守的実行、--ucを自動有効化
 
-## Output Optimization Flags
+## 出力最適化フラグ
 
 **--uc / --ultracompressed**
-- Trigger: Context pressure, efficiency requirements, large operations
-- Behavior: Symbol communication system, 30-50% token reduction
+- トリガー: コンテキスト圧迫、効率要件、大規模操作
+- 動作: シンボルコミュニケーションシステム、30-50%トークン削減
 
 **--scope [file|module|project|system]**
-- Trigger: Analysis boundary needs
-- Behavior: Define operational scope and analysis depth
+- トリガー: 分析境界需要
+- 動作: 操作スコープと分析深度を定義
 
 **--focus [performance|security|quality|architecture|accessibility|testing]**
-- Trigger: Domain-specific optimization needs
-- Behavior: Target specific analysis domain and expertise application
+- トリガー: ドメイン固有最適化需要
+- 動作: 特定分析ドメインと専門知識適用をターゲット
 
-## Flag Priority Rules
+## フラグ優先度ルール
 
-**Safety First**: --safe-mode > --validate > optimization flags
-**Explicit Override**: User flags > auto-detection
-**Depth Hierarchy**: --ultrathink > --think-hard > --think  
-**MCP Control**: --no-mcp overrides all individual MCP flags
-**Scope Precedence**: system > project > module > file
+**安全優先**: --safe-mode > --validate > 最適化フラグ
+**明示的上書き**: ユーザーフラグ > 自動検出
+**深度階層**: --ultrathink > --think-hard > --think  
+**MCP制御**: --no-mcpがすべての個別MCPフラグを上書き
+**スコープ優先順位**: system > project > module > file

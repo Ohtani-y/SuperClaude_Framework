@@ -1,32 +1,32 @@
-# SuperClaude Framework Developer-Guide Index
+# SuperClaude フレームワーク開発者ガイドインデックス
 
-## Document Navigation Guide
+## ドキュメントナビゲーションガイド
 
-This index provides comprehensive access to all SuperClaude Framework development documentation, organized by topic and skill level for efficient information discovery.
+このインデックスは、効率的な情報発見のためにトピックとスキルレベル別に整理された、すべてのSuperClaudeフレームワーク開発ドキュメントへの包括的アクセスを提供します。
 
-### Quick Navigation
+### クイックナビゲーション
 
-**For New Contributors**: Start with [Contributing Guide → Setup](contributing-code.md#development-setup)
+**新規コントリビューター向け**: [コントリビューションガイド → セットアップ](contributing-code.md#development-setup)から開始
 
-**For System Understanding**: Begin with [Technical Architecture Guide → Context Architecture](technical-architecture.md#context-file-architecture)
+**システム理解向け**: [技術アーキテクチャガイド → コンテキストアーキテクチャ](technical-architecture.md#context-file-architecture)から開始
 
-**For Verification**: Start with [Verification Guide → Installation Check](testing-debugging.md#installation-verification)
+**検証向け**: [検証ガイド → インストールチェック](testing-debugging.md#installation-verification)から開始
 
 ---
 
-## Primary Documentation
+## 主要ドキュメント
 
-### 📋 [Contributing Context Files Guide](contributing-code.md)
-**Purpose**: Complete context file development and contribution guidelines  
-**Target Audience**: Framework contributors and context file developers  
-**Length**: ~1,000 lines focused on context file reality
+### 📋 [コンテキストファイルコントリビューションガイド](contributing-code.md)
+**目的**: 完全なコンテキストファイル開発とコントリビューションガイドライン  
+**対象読者**: フレームワークコントリビューターとコンテキストファイル開発者  
+**長さ**: コンテキストファイルの実態に焦点を当てた約1,000行
 
-**Key Sections**:
-- [Development Setup](contributing-code.md#development-setup) - Environment configuration and prerequisites
-- [Context File Guidelines](contributing-code.md#context-file-guidelines) - Standards and structure
-- [Development Workflow](contributing-code.md#development-workflow) - Git workflow and submission process
-- [Contributing to Components](contributing-code.md#contributing-to-components) - Agent, command, and mode development
-- [File Validation](contributing-code.md#file-validation) - Context file verification methods
+**主要セクション**:
+- [開発セットアップ](contributing-code.md#development-setup) - 環境設定と前提条件
+- [コンテキストファイルガイドライン](contributing-code.md#context-file-guidelines) - 標準と構造
+- [開発ワークフロー](contributing-code.md#development-workflow) - Gitワークフローと提出プロセス
+- [コンポーネントへのコントリビューション](contributing-code.md#contributing-to-components) - エージェント、コマンド、モード開発
+- [ファイル検証](contributing-code.md#file-validation) - コンテキストファイル検証方法
 
 ### 🏗️ [Context Architecture Guide](technical-architecture.md)
 **Purpose**: Understanding how context files work and are structured  
