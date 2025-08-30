@@ -223,51 +223,51 @@ echo 'export MORPH_API_KEY="your_key"' >> ~/.bashrc
 - ❌ Other env vars in docs - Examples only, not used by framework
 - 📝 Both are paid service API keys, framework works without them
 
-## Server Combinations
+## サーバーの組み合わせ
 
-**No API Keys (Free)**:
+**APIキーなし(無料)**:
 - context7 + sequential-thinking + playwright + serena
 
-**1 API Key**:
-- Add magic for professional UI development
+**APIキー1個**:
+- プロフェッショナルUI開発のためにmagicを追加
 
-**2 API Keys**:
-- Add morphllm-fast-apply for large-scale refactoring
+**APIキー2個**:
+- 大規模リファクタリングのためにmorphllm-fast-applyを追加
 
-**Common Workflows:**
-- **Learning**: context7 + sequential-thinking
-- **Web Development**: magic + context7 + playwright  
-- **Enterprise Refactoring**: serena + morphllm + sequential-thinking
-- **Complex Analysis**: sequential-thinking + context7 + serena
+**一般的なワークフロー:**
+- **学習**: context7 + sequential-thinking
+- **Web開発**: magic + context7 + playwright  
+- **エンタープライズリファクタリング**: serena + morphllm + sequential-thinking
+- **複雑な分析**: sequential-thinking + context7 + serena
 
-## Integration
+## 統合
 
-**With SuperClaude Commands:**
-- Analysis commands automatically use Sequential + Serena
-- Implementation commands use Magic + Context7
-- Testing commands use Playwright + Sequential
+**SuperClaudeコマンドとの連携:**
+- 分析コマンドは自動的にSequential + Serenaを使用
+- 実装コマンドはMagic + Context7を使用
+- テストコマンドはPlaywright + Sequentialを使用
 
-**With Behavioral Modes:**
-- Brainstorming Mode: Sequential for discovery
-- Task Management: Serena for persistence
-- Orchestration Mode: Optimal server selection
+**行動モードとの連携:**
+- ブレインストーミングモード: 発見のためのSequential
+- タスク管理: 永続化のためのSerena
+- オーケストレーションモード: 最適なサーバー選択
 
-**Performance Control:**
-- Automatic resource management based on system load
-- Concurrency control: `--concurrency N` (1-15)
-- Priority-based server selection under constraints
+**パフォーマンス制御:**
+- システム負荷に基づく自動リソース管理
+- 同時実行制御: `--concurrency N` (1-15)
+- 制約下での優先度ベースサーバー選択
 
-## Related Resources
+## 関連リソース
 
-**Essential Reading:**
-- [Commands Guide](commands.md) - Commands that activate MCP servers
-- [Quick Start Guide](../Getting-Started/quick-start.md) - MCP setup guide
+**必須文書:**
+- [コマンドガイド](commands.md) - MCPサーバーを活性化するコマンド
+- [クイックスタートガイド](../Getting-Started/quick-start.md) - MCPセットアップガイド
 
-**Advanced Usage:**
-- [Behavioral Modes](modes.md) - Mode-MCP coordination
-- [Agents Guide](agents.md) - Agent-MCP integration
-- [Session Management](session-management.md) - Serena workflows
+**上級使用法:**
+- [行動モード](modes.md) - モード-MCP連携
+- [エージェントガイド](agents.md) - エージェント-MCP統合
+- [セッション管理](session-management.md) - Serenaワークフロー
 
-**Technical References:**
-- [Examples Cookbook](../Reference/examples-cookbook.md) - MCP workflow patterns
-- [Technical Architecture](../Developer-Guide/technical-architecture.md) - Integration details
+**技術リファレンス:**
+- [例のクックブック](../Reference/examples-cookbook.md) - MCPワークフローパターン
+- [技術アーキテクチャ](../Developer-Guide/technical-architecture.md) - 統合の詳細

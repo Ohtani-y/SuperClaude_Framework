@@ -12,13 +12,13 @@ SuperClaudeはClaude Code用に21のコマンドを提供：ワークフロー�
 
 ## クイックテスト
 ```bash
-# Terminal: Verify installation
+# ターミナル: インストールの確認
 python3 -m SuperClaude --version
-# Claude Code CLI verification: claude --version
+# Claude Code CLIの確認: claude --version
 
-# Claude Code: Test commands
-/sc:brainstorm "test project"    # Should ask discovery questions
-/sc:analyze README.md           # Should provide analysis
+# Claude Code: コマンドのテスト
+/sc:brainstorm "テストプロジェクト"    # 発見のための質問を行うはず
+/sc:analyze README.md           # 分析を提供するはず
 ```
 
 **ワークフロー**: `/sc:brainstorm "idea"` → `/sc:implement "feature"` → `/sc:test`
@@ -44,51 +44,51 @@ SuperClaudeは、Claude Codeが専門的な動作を採用するために読み�
 
 **重要ポイント**: これは従来のソフトウェア実行ではなく、コンテキスト管理を通じて洗練された開発ワークフローを作成します。
 
-### Installation vs Usage Commands
+### インストールコマンド vs 使用コマンド
 
-**🖥️ Terminal Commands** (Actual CLI software):
-- `SuperClaude install` - Installs the framework components
-- `SuperClaude update` - Updates existing installation  
-- `SuperClaude uninstall` - Removes framework installation
-- `python3 -m SuperClaude --version` - Check installation status
+**🖥️ ターミナルコマンド** (実際のCLIソフトウェア):
+- `SuperClaude install` - フレームワークコンポーネントをインストール
+- `SuperClaude update` - 既存のインストールを更新  
+- `SuperClaude uninstall` - フレームワークのインストールを削除
+- `python3 -m SuperClaude --version` - インストール状態を確認
 
-**💬 Claude Code Commands** (Context triggers):
-- `/sc:brainstorm` - Activates requirements discovery context
-- `/sc:implement` - Activates feature development context
-- `@agent-security` - Activates security specialist context
-- All commands work inside Claude Code chat interface only
+**💬 Claude Codeコマンド** (コンテキストトリガー):
+- `/sc:brainstorm` - 要件発見コンテキストを活性化
+- `/sc:implement` - 機能開発コンテキストを活性化
+- `@agent-security` - セキュリティ専門家コンテキストを活性化
+- すべてのコマンドはClaude Codeチャットインターフェース内でのみ動作
 
 
-> **Quick Start**: Try `/sc:brainstorm "your project idea"` → `/sc:implement "feature name"` → `/sc:test` to experience the core workflow.
+> **クイックスタート**: `/sc:brainstorm "プロジェクトアイデア"` → `/sc:implement "機能名"` → `/sc:test` でコアワークフローを体験してみてください。
 
 ## 🧪 Testing Your Setup
 
 ### 🖥️ Terminal Verification (Run in Terminal/CMD)
 ```bash
-# Verify SuperClaude is working (primary method)
+# SuperClaudeが動作しているか確認（主要な方法）
 python3 -m SuperClaude --version
-# Example output: SuperClaude 4.0.8
+# 出力例: SuperClaude 4.0.8
 
-# Claude Code CLI version check
+# Claude Code CLIバージョンチェック
 claude --version
 
-# Check installed components
+# インストール済みコンポーネントの確認
 python3 -m SuperClaude install --list-components | grep mcp
-# Example output: Shows installed MCP components
+# 出力例: インストール済みMCPコンポーネントを表示
 ```
 
 ### 💬 Claude Code Testing (Type in Claude Code Chat)
 ```
-# Test basic /sc: command
-/sc:brainstorm "test project"
-# Example behavior: Interactive requirements discovery starts
+# 基本的な /sc: コマンドのテスト
+/sc:brainstorm "テストプロジェクト"
+# 期待される動作: インタラクティブな要件発見が開始
 
-# Test command help
+# コマンドヘルプのテスト
 /sc:help
-# Example behavior: List of available commands
+# 期待される動作: 利用可能なコマンドのリスト表示
 ```
 
-**If tests fail**: Check [Installation Guide](../Getting-Started/installation.md) or [Troubleshooting](#troubleshooting)
+**テストが失敗した場合**: [インストールガイド](../Getting-Started/installation.md) または [トラブルシューティング](#troubleshooting) を確認してください
 
 ### 📝 Command Quick Reference
 
@@ -100,127 +100,127 @@ python3 -m SuperClaude install --list-components | grep mcp
 | **🤖 Agent Invocation** | Claude Code | `@agent-[name]` | Manual specialist activation | `@agent-security "review"` |
 | **⚡ Enhanced Flags** | Claude Code | `/sc:[command] --flags` | Behavior modification | `/sc:analyze --think-hard` |
 
-> **Remember**: All `/sc:` commands and `@agent-` invocations work inside Claude Code chat, not your terminal. They trigger Claude Code to read specific context files from the SuperClaude framework.
+> **重要**: すべての `/sc:` コマンドと `@agent-` 呼び出しは、ターミナルではなくClaude Codeチャット内で動作します。これらはClaude CodeがSuperClaudeフレームワークから特定のコンテキストファイルを読み取るようトリガーします。
 
 ## Table of Contents
 
-- [Essential Commands](#essential-commands) - Start here (8 core commands)
-- [Common Workflows](#common-workflows) - Command combinations that work
-- [Full Command Reference](#full-command-reference) - All 21 commands organized by category
-- [Troubleshooting](#troubleshooting) - Common issues and solutions
-- [Command Index](#command-index) - Find commands by category
+- [必須コマンド](#essential-commands) - ここから始める（8つのコアコマンド）
+- [一般的なワークフロー](#common-workflows) - 有効なコマンドの組み合わせ
+- [完全なコマンドリファレンス](#full-command-reference) - カテゴリ別に整理された21のコマンドすべて
+- [トラブルシューティング](#troubleshooting) - 一般的な問題と解決策
+- [コマンドインデックス](#command-index) - カテゴリ別にコマンドを検索
 
 ---
 
 ## Essential Commands
 
-**Core workflow commands for immediate productivity:**
+**即座に生産性を向上させるコアワークフローコマンド:**
 
 ### `/sc:brainstorm` - Project Discovery
 **Purpose**: Interactive requirements discovery and project planning  
 **Syntax**: `/sc:brainstorm "your idea"` `[--strategy systematic|creative]`  
 
-**Use Cases**: 
-- New project planning: `/sc:brainstorm "e-commerce platform"`
-- Feature exploration: `/sc:brainstorm "user authentication system"`  
-- Problem solving: `/sc:brainstorm "slow database queries"`
+**使用例**: 
+- 新規プロジェクト計画: `/sc:brainstorm "Eコマースプラットフォーム"`
+- 機能探索: `/sc:brainstorm "ユーザー認証システム"`  
+- 問題解決: `/sc:brainstorm "遅いデータベースクエリ"`
 
 ### `/sc:implement` - Feature Development  
 **Purpose**: Full-stack feature implementation with intelligent specialist routing  
 **Syntax**: `/sc:implement "feature description"` `[--type frontend|backend|fullstack] [--focus security|performance]`  
 
-**Use Cases**:
-- Authentication: `/sc:implement "JWT login system"`
-- UI components: `/sc:implement "responsive dashboard"`
-- APIs: `/sc:implement "REST user endpoints"`
-- Database: `/sc:implement "user schema with relationships"`
+**使用例**:
+- 認証: `/sc:implement "JWTログインシステム"`
+- UIコンポーネント: `/sc:implement "レスポンシブダッシュボード"`
+- API: `/sc:implement "RESTユーザーエンドポイント"`
+- データベース: `/sc:implement "リレーション付きユーザースキーマ"`
 
 ### `/sc:analyze` - Code Assessment
 **Purpose**: Comprehensive code analysis across quality, security, and performance  
 **Syntax**: `/sc:analyze [path]` `[--focus quality|security|performance|architecture]`
 
-**Use Cases**:
-- Project health: `/sc:analyze .`
-- Security audit: `/sc:analyze --focus security`
-- Performance review: `/sc:analyze --focus performance`
+**使用例**:
+- プロジェクトの健全性: `/sc:analyze .`
+- セキュリティ監査: `/sc:analyze --focus security`
+- パフォーマンスレビュー: `/sc:analyze --focus performance`
 
 ### `/sc:troubleshoot` - Problem Diagnosis
 **Purpose**: Systematic issue diagnosis with root cause analysis  
 **Syntax**: `/sc:troubleshoot "issue description"` `[--type build|runtime|performance]`
 
-**Use Cases**:
-- Runtime errors: `/sc:troubleshoot "500 error on login"`
-- Build failures: `/sc:troubleshoot --type build`
-- Performance problems: `/sc:troubleshoot "slow page load"`
+**使用例**:
+- ランタイムエラー: `/sc:troubleshoot "ログイン時の500エラー"`
+- ビルド失敗: `/sc:troubleshoot --type build`
+- パフォーマンス問題: `/sc:troubleshoot "ページ読み込みが遅い"`
 
 ### `/sc:test` - Quality Assurance
 **Purpose**: Comprehensive testing with coverage analysis  
 **Syntax**: `/sc:test` `[--type unit|integration|e2e] [--coverage] [--fix]`
 
-**Use Cases**:
-- Full test suite: `/sc:test --coverage`
-- Unit testing: `/sc:test --type unit --watch`
-- E2E validation: `/sc:test --type e2e`
+**使用例**:
+- 完全なテストスイート: `/sc:test --coverage`
+- ユニットテスト: `/sc:test --type unit --watch`
+- E2E検証: `/sc:test --type e2e`
 
 ### `/sc:improve` - Code Enhancement  
 **Purpose**: Apply systematic code improvements and optimizations  
 **Syntax**: `/sc:improve [path]` `[--type performance|quality|security] [--preview]`
 
-**Use Cases**:
-- General improvements: `/sc:improve src/`
-- Performance optimization: `/sc:improve --type performance`
-- Security hardening: `/sc:improve --type security`
+**使用例**:
+- 一般的な改善: `/sc:improve src/`
+- パフォーマンス最適化: `/sc:improve --type performance`
+- セキュリティ強化: `/sc:improve --type security`
 
 ### `/sc:document` - Documentation Generation
 **Purpose**: Generate comprehensive documentation for code and APIs  
 **Syntax**: `/sc:document [path]` `[--type api|user-guide|technical] [--format markdown|html]`
 
-**Use Cases**:
-- API docs: `/sc:document --type api`
-- User guides: `/sc:document --type user-guide`
-- Technical docs: `/sc:document --type technical`
+**使用例**:
+- APIドキュメント: `/sc:document --type api`
+- ユーザーガイド: `/sc:document --type user-guide`
+- 技術ドキュメント: `/sc:document --type technical`
 
 ### `/sc:workflow` - Implementation Planning
 **Purpose**: Generate structured implementation plans from requirements  
 **Syntax**: `/sc:workflow "feature description"` `[--strategy agile|waterfall] [--format markdown]`
 
-**Use Cases**:
-- Feature planning: `/sc:workflow "user authentication"`
-- Sprint planning: `/sc:workflow --strategy agile`
-- Architecture planning: `/sc:workflow "microservices migration"`
+**使用例**:
+- 機能計画: `/sc:workflow "ユーザー認証"`
+- スプリント計画: `/sc:workflow --strategy agile`
+- アーキテクチャ計画: `/sc:workflow "マイクロサービス移行"`
 
 ---
 
 ## Common Workflows
 
-**Proven command combinations:**
+**実証済みのコマンドの組み合わせ:**
 
 ### New Project Setup
 ```bash
-/sc:brainstorm "project concept"      # Define requirements
-/sc:design "system architecture"      # Create technical design  
-/sc:workflow "implementation plan"    # Generate development roadmap
+/sc:brainstorm "プロジェクトコンセプト"     # 要件を定義
+/sc:design "システムアーキテクチャ"        # 技術設計を作成  
+/sc:workflow "実装計画"                 # 開発ロードマップを生成
 ```
 
 ### Feature Development
 ```bash
-/sc:implement "feature name"          # Build the feature
-/sc:test --coverage                   # Validate with tests
-/sc:document --type api               # Generate documentation  
+/sc:implement "機能名"                 # 機能を構築
+/sc:test --coverage                   # テストで検証
+/sc:document --type api               # ドキュメントを生成  
 ```
 
 ### Code Quality Improvement
 ```bash
-/sc:analyze --focus quality           # Assess current state
-/sc:improve --preview                 # Preview improvements
-/sc:test --coverage                   # Validate changes
+/sc:analyze --focus quality           # 現在の状態を評価
+/sc:improve --preview                 # 改善をプレビュー
+/sc:test --coverage                   # 変更を検証
 ```
 
 ### Bug Investigation
 ```bash
-/sc:troubleshoot "issue description"  # Diagnose the problem
-/sc:analyze --focus problem-area      # Deep analysis
-/sc:improve --fix --safe-mode         # Apply targeted fixes
+/sc:troubleshoot "問題の説明"          # 問題を診断
+/sc:analyze --focus problem-area      # 深い分析
+/sc:improve --fix --safe-mode         # ターゲット修正を適用
 ```
 
 ## Full Command Reference
@@ -273,33 +273,33 @@ python3 -m SuperClaude install --list-components | grep mcp
 
 ## Command Index
 
-**By Function:**
-- **Planning**: brainstorm, design, workflow, estimate
-- **Development**: implement, build, git
-- **Analysis**: analyze, troubleshoot, explain  
-- **Quality**: improve, cleanup, test, document
-- **Management**: task, spawn, load, save, reflect
-- **Utility**: index, select-tool
+**機能別:**
+- **計画**: brainstorm, design, workflow, estimate
+- **開発**: implement, build, git
+- **分析**: analyze, troubleshoot, explain  
+- **品質**: improve, cleanup, test, document
+- **管理**: task, spawn, load, save, reflect
+- **ユーティリティ**: index, select-tool
 
-**By Complexity:**
-- **Beginner**: brainstorm, implement, analyze, test
-- **Intermediate**: workflow, design, improve, document  
-- **Advanced**: spawn, task, select-tool, reflect
+**複雑さ別:**
+- **初級**: brainstorm, implement, analyze, test
+- **中級**: workflow, design, improve, document  
+- **上級**: spawn, task, select-tool, reflect
 
 ## Troubleshooting
 
-**Command Issues:**
-- **Command not found**: Verify installation: `python3 -m SuperClaude --version`
-- **No response**: Restart Claude Code session
-- **Processing delays**: Use `--no-mcp` to test without MCP servers
+**コマンドの問題:**
+- **コマンドが見つからない**: インストールを確認: `python3 -m SuperClaude --version`
+- **応答なし**: Claude Codeセッションを再起動
+- **処理の遅延**: MCPサーバーなしでテストするには `--no-mcp` を使用
 
-**Quick Fixes:**
-- Reset session: `/sc:load` to reinitialize
-- Check status: `SuperClaude install --list-components`
-- Get help: [Troubleshooting Guide](../Reference/troubleshooting.md)
+**クイックフィックス:**
+- セッションをリセット: `/sc:load` で再初期化
+- ステータス確認: `SuperClaude install --list-components`
+- ヘルプを取得: [トラブルシューティングガイド](../Reference/troubleshooting.md)
 
 ## Next Steps
 
-- [Flags Guide](flags.md) - Control command behavior
-- [Agents Guide](agents.md) - Specialist activation
-- [Examples Cookbook](../Reference/examples-cookbook.md) - Real usage patterns
+- [フラグガイド](flags.md) - コマンドの動作を制御
+- [エージェントガイド](agents.md) - 専門家の活性化
+- [例のクックブック](../Reference/examples-cookbook.md) - 実際の使用パターン

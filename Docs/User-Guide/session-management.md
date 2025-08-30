@@ -17,13 +17,13 @@ SuperClaudeはSerena MCPサーバーを通じて永続的なセッション管�
 
 **使用例**:
 ```bash
-# Load existing project context from persistent memory
+# 永続メモリから既存プロジェクトコンテキストを読み込み
 /sc:load src/
 
-# Resume specific project work with full history
-/sc:load "authentication-system"
+# 完全な履歴で特定のプロジェクト作業を再開
+/sc:load "認証システム"
 
-# Initialize with codebase analysis and previous insights
+# コードベース分析と以前の洞察で初期化
 /sc:load . --analyze
 ```
 
@@ -40,14 +40,14 @@ SuperClaudeはSerena MCPサーバーを通じて永続的なセッション管�
 
 **使用例**:
 ```bash
-# Save completed feature work for future reference
-/sc:save "user authentication implemented with JWT"
+# 将来の参照のために完成した機能作業を保存
+/sc:save "JWTでユーザー認証を実装"
 
-# Checkpoint during complex work
-/sc:save "API design phase complete, ready for implementation"
+# 複雑な作業中のチェックポイント
+/sc:save "API設計フェーズ完了、実装準備完了"
 
-# Store architectural decisions permanently
-/sc:save "microservices architecture decided, service boundaries defined"
+# アーキテクチャの決定を永続的に保存
+/sc:save "マイクロサービスアーキテクチャ決定、サービス境界定義"
 ```
 
 ### `/sc:reflect` - メモリコンテキスト付き進捗評価
@@ -63,145 +63,145 @@ SuperClaudeはSerena MCPサーバーを通じて永続的なセッション管�
 
 **使用例**:
 ```bash
-# Assess project progress against stored milestones
+# 保存されたマイルストーンに対してプロジェクトの進捗を評価
 /sc:reflect --scope project
 
-# Validate current session completeness
+# 現在のセッションの完全性を検証
 /sc:reflect
 
-# Check if ready to move to next phase based on memory
+# メモリに基づいて次のフェーズに進む準備ができているかチェック
 /sc:reflect --scope session
 ```
 
 ## Persistent Memory Architecture
 
-### How Serena MCP Enables True Persistence
+### Serena MCPが真の永続性を実現する方法
 
-**Memory Storage**:
-- Session contexts stored as structured memory files
-- Project decisions and architectural patterns preserved permanently
-- Code analysis results and insights retained across conversations
-- Progress tracking and milestone data maintained long-term
+**メモリストレージ**:
+- セッションコンテキストが構造化されたメモリファイルとして保存される
+- プロジェクトの決定とアーキテクチャパターンが永続的に保存される
+- コード分析結果と洞察が会話間で保持される
+- 進捗追跡とマイルストーンデータが長期維持される
 
-**Cross-Session Continuity**:
-- Previous session context automatically available in new conversations
-- Decisions and rationale preserved and accessible across conversations
-- Learning from past patterns and solutions maintained
-- Consistent project understanding maintained indefinitely
+**クロスセッション継続性**:
+- 以前のセッションコンテキストが新しい会話で自動的に利用可能
+- 決定と理由が会話間で保存され、アクセス可能
+- 過去のパターンと解決策からの学習が維持される
+- 一貫したプロジェクト理解が無期限に維持される
 
-**Memory Types**:
-- **Project Memories**: Long-term project context and architecture
-- **Session Memories**: Specific conversation outcomes and decisions  
-- **Pattern Memories**: Reusable solutions and architectural patterns
-- **Progress Memories**: Milestone tracking and completion status
+**メモリタイプ**:
+- **プロジェクトメモリ**: 長期プロジェクトコンテキストとアーキテクチャ
+- **セッションメモリ**: 特定の会話の結果と決定  
+- **パターンメモリ**: 再利用可能な解決策とアーキテクチャパターン
+- **進捗メモリ**: マイルストーン追跡と完成状態
 
 ## Session Lifecycle Patterns with Persistence
 
 ### New Project Initialization
 ```bash
-# 1. Start fresh project
-/sc:brainstorm "e-commerce platform requirements"
+# 1. 新しいプロジェクトを開始
+/sc:brainstorm "Eコマースプラットフォームの要件"
 
-# 2. Save initial decisions to persistent memory
-/sc:save "project scope and requirements defined"
+# 2. 初期決定を永続メモリに保存
+/sc:save "プロジェクトスコープと要件定義完了"
 
-# 3. Begin implementation planning
-/sc:workflow "user authentication system"
+# 3. 実装計画を開始
+/sc:workflow "ユーザー認証システム"
 
-# 4. Save architectural decisions permanently
-/sc:save "auth architecture: JWT + refresh tokens + rate limiting"
+# 4. アーキテクチャの決定を永続的に保存
+/sc:save "認証アーキテクチャ: JWT + リフレッシュトークン + レート制限"
 ```
 
 ### Resuming Existing Work (Cross-Conversation)
 ```bash
-# 1. Load previous context from persistent memory
-/sc:load "e-commerce-project"
+# 1. 永続メモリから以前のコンテキストを読み込み
+/sc:load "Eコマースプロジェクト"
 
-# 2. Assess current state against stored progress
+# 2. 保存された進捗に対して現在の状態を評価  
 /sc:reflect --scope project  
 
-# 3. Continue with next phase using stored context
-/sc:implement "payment processing integration"
+# 3. 保存されたコンテキストを使用して次のフェーズを継続
+/sc:implement "決済処理統合"
 
-# 4. Save progress checkpoint to memory
-/sc:save "payment system integrated with Stripe API"
+# 4. 進捗チェックポイントをメモリに保存
+/sc:save "Stripe APIと決済システムを統合"
 ```
 
 ### Long-Term Project Management
 ```bash
-# Weekly checkpoint pattern with persistence
-/sc:load project-name
+# 永続性付き週次チェックポイントパターン
+/sc:load プロジェクト名
 /sc:reflect --scope project
-# ... work on features ...
-/sc:save "week N progress: features X, Y, Z completed"
+# ... 機能作業 ...
+/sc:save "第N週進捗: 機能X, Y, Z完成"
 
-# Phase completion pattern with memory
+# メモリ付きフェーズ完成パターン
 /sc:reflect --scope project
-/sc:save "Phase 1 complete: core authentication and user management"
-/sc:workflow "Phase 2: payment and order processing"
+/sc:save "フェーズ1完了: コア認証とユーザー管理"
+/sc:workflow "フェーズ2: 決済と注文処理"
 ```
 
-## Cross-Conversation Continuity
+## クロス会話継続性
 
-### Starting New Conversations with Persistence
+### 永続性を伴う新しい会話の開始
 
-When starting a new Claude Code conversation, the persistent memory system allows:
+新しいClaude Code会話を開始するとき、永続メモリシステムは以下を可能にします:
 
-1. **Automatic Context Restoration**
+1. **自動コンテキスト復元**
    ```bash
-   /sc:load project-name
-   # Automatically restores all previous context, decisions, and progress
+   /sc:load プロジェクト名
+   # 以前のすべてのコンテキスト、決定、進捗を自動的に復元
    ```
 
-2. **Progress Continuation**
-   - Previous session decisions are immediately available
-   - Architectural patterns and code insights are preserved
-   - Project history and rationale are maintained
+2. **進捗継続**
+   - 以前のセッションの決定が即座に利用可能
+   - アーキテクチャパターンとコードの洞察が保存される
+   - プロジェクトの履歴と理由が維持される
 
-3. **Intelligent Context Building**
-   - Serena MCP provides relevant memories based on current work
-   - Past solutions and patterns inform new implementations
-   - Project evolution is tracked and understood
+3. **インテリジェントコンテキスト構築**
+   - Serena MCPが現在の作業に基づいて関連メモリを提供
+   - 過去の解決策とパターンが新しい実装に情報を提供
+   - プロジェクトの進化が追跡され理解される
 
-### Memory Optimization
+### メモリ最適化
 
-**Effective Memory Usage**:
-- Use descriptive, searchable memory names
-- Include project phase and timestamp context
-- Reference specific features or architectural decisions
-- Make future retrieval intuitive
+**効果的なメモリ使用**:
+- 説明的で検索可能なメモリ名を使用
+- プロジェクトフェーズとタイムスタンプコンテキストを含める
+- 特定の機能やアーキテクチャの決定を参照
+- 将来の取得を直感的にする
 
-**Memory Content Strategy**:
-- Store decisions and rationale, not just outcomes
-- Include alternative approaches considered
-- Document integration patterns and dependencies
-- Preserve learning and insights for future reference
+**メモリコンテンツ戦略**:
+- 単なる結果ではなく決定と理由を保存
+- 検討された代替アプローチを含める
+- 統合パターンと依存関係を文書化
+- 将来の参照のために学習と洞察を保存
 
-**Memory Lifecycle Management**:
-- Regular cleanup of outdated memories
-- Consolidation of related session memories
-- Archiving of completed project phases
-- Pruning of obsolete architectural decisions
+**メモリライフサイクル管理**:
+- 時代遅れのメモリの定期クリーンアップ
+- 関連セッションメモリの統合
+- 完了したプロジェクトフェーズのアーカイブ
+- 時代遅れのアーキテクチャ決定の剥摘
 
-## Best Practices for Persistent Sessions
+## 永続セッションのベストプラクティス
 
-### Session Start Protocol
-1. Always begin with `/sc:load` for existing projects
-2. Use `/sc:reflect` to understand current state from memory
-3. Plan work based on persistent context and stored patterns
-4. Build on previous decisions and architectural choices
+### セッション開始プロトコル
+1. 既存プロジェクトでは必ず `/sc:load` で開始
+2. `/sc:reflect` を使用してメモリから現在の状態を理解
+3. 永続コンテキストと保存されたパターンに基づいて作業を計画
+4. 以前の決定とアーキテクチャの選択をベースに構築
 
-### Session End Protocol
-1. Use `/sc:reflect` to assess completeness against stored goals
-2. Save key decisions with `/sc:save` for future sessions
-3. Document next steps and open questions in memory
-4. Preserve context for seamless future continuation
+### セッション終了プロトコル
+1. `/sc:reflect` を使用して保存された目標に対して完全性を評価
+2. 将来のセッションのために `/sc:save` で重要な決定を保存
+3. 次のステップと未解決の質問をメモリに文書化
+4. シームレスな将来の継続のためにコンテキストを保存
 
-### Memory Quality Maintenance
-- Use clear, descriptive memory names for easy retrieval
-- Include context about decisions and alternative approaches
-- Reference specific code locations and patterns
-- Maintain consistency in memory structure across sessions
+### メモリ品質維持
+- 簡単な取得のために明確で説明的なメモリ名を使用
+- 決定と代替アプローチに関するコンテキストを含める
+- 特定のコード位置とパターンを参照
+- セッション間でメモリ構造の一貫性を維持
 
 ## Integration with Other SuperClaude Features
 

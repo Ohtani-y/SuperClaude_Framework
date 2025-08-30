@@ -5,76 +5,76 @@
 ## 必須自動活性化フラグ（使用例の90%）
 
 ### コア分析フラグ
-| Flag | When Activated | What It Does |
+| フラグ | 活性化タイミング | 機能 |
 |------|---------------|--------------|
 | `--think` | 5+ files OR complex analysis | Standard structured analysis (~4K tokens) |
 | `--think-hard` | Architectural analysis, system dependencies | Deep analysis (~10K tokens) with enhanced tools |
 | `--ultrathink` | Critical system redesign, legacy modernization | Maximum depth analysis (~32K tokens) with all tools |
 
-### MCP Server Flags
-| Flag | Server | Purpose | Auto-Triggers |
+### MCPサーバーフラグ
+| フラグ | サーバー | 目的 | 自動トリガー |
 |------|---------|---------|---------------|
-| `--c7` / `--context7` | Context7 | Official docs, framework patterns | Library imports, framework questions |
-| `--seq` / `--sequential` | Sequential | Multi-step reasoning, debugging | Complex debugging, system design |
-| `--magic` | Magic | UI component generation | `/ui` commands, frontend keywords |
-| `--play` / `--playwright` | Playwright | Browser testing, E2E validation | Testing requests, visual validation |
-| `--morph` / `--morphllm` | Morphllm | Bulk transformations, pattern edits | Bulk operations, style enforcement |
-| `--serena` | Serena | Project memory, symbol operations | Symbol operations, large codebases |
+| `--c7` / `--context7` | Context7 | 公式ドキュメント、フレームワークパターン | ライブラリのインポート、フレームワークに関する質問 |
+| `--seq` / `--sequential` | Sequential | 多段階推論、デバッグ | 複雑なデバッグ、システム設計 |
+| `--magic` | Magic | UIコンポーネント生成 | `/ui`コマンド、フロントエンドキーワード |
+| `--play` / `--playwright` | Playwright | ブラウザテスト、E2E検証 | テストリクエスト、視覚的検証 |
+| `--morph` / `--morphllm` | Morphllm | 一括変換、パターン編集 | 一括操作、スタイル適用 |
+| `--serena` | Serena | プロジェクトメモリ、シンボル操作 | シンボル操作、大規模コードベース |
 
-### Behavioral Mode Flags
-| Flag | When Activated | What It Does |
+### 行動モードフラグ
+| フラグ | 活性化タイミング | 機能 |
 |------|---------------|--------------|
-| `--brainstorm` | Vague requests, exploration keywords | Collaborative discovery mindset |
-| `--introspect` | Self-analysis, error recovery | Expose reasoning process with transparency |
-| `--task-manage` | >3 steps, complex scope | Orchestrate through delegation |
-| `--orchestrate` | Multi-tool operations, performance needs | Optimize tool selection and parallel execution |
-| `--token-efficient` / `--uc` | Context >75%, efficiency needs | Symbol-enhanced communication, 30-50% reduction |
+| `--brainstorm` | 曖昧なリクエスト、探索キーワード | 協力的な発見のマインドセット |
+| `--introspect` | 自己分析、エラー回復 | 透明性を持って推論プロセスを公開 |
+| `--task-manage` | 3ステップ超、複雑なスコープ | 委任によるオーケストレーション |
+| `--orchestrate` | マルチツール操作、パフォーマンス要求 | ツール選択と並列実行の最適化 |
+| `--token-efficient` / `--uc` | コンテキスト75%超、効率要求 | シンボル強化通信、30-50%削減 |
 
-### Execution Control Flags
-| Flag | When Activated | What It Does |
+### 実行制御フラグ
+| フラグ | 活性化タイミング | 機能 |
 |------|---------------|--------------|
-| `--loop` | "improve", "polish", "refine" keywords | Iterative enhancement cycles |
-| `--safe-mode` | Production, >85% resource usage | Maximum validation, conservative execution |
-| `--validate` | Risk >0.7, production environment | Pre-execution risk assessment |
-| `--delegate` | >7 directories OR >50 files | Sub-agent parallel processing |
+| `--loop` | "improve", "polish", "refine" キーワード | 反復改善サイクル |
+| `--safe-mode` | 本番環境、リソース使用率85%超 | 最大限の検証、保守的実行 |
+| `--validate` | リスク0.7超、本番環境 | 実行前リスク評価 |
+| `--delegate` | ディレクトリ7個超 または ファイル50個超 | サブエージェント並列処理 |
 
 ## Command-Specific Flags
 
-### Analysis Command Flags (`/sc:analyze`)
-| Flag | Purpose | Values |
+### 分析コマンドフラグ (`/sc:analyze`)
+| フラグ | 目的 | 値 |
 |------|---------|--------|
-| `--focus` | Target specific domain | `security`, `performance`, `quality`, `architecture` |
-| `--depth` | Analysis thoroughness | `quick`, `deep` |
-| `--format` | Output format | `text`, `json`, `report` |
+| `--focus` | 特定ドメインをターゲット | `security`, `performance`, `quality`, `architecture` |
+| `--depth` | 分析の徹底度 | `quick`, `deep` |
+| `--format` | 出力形式 | `text`, `json`, `report` |
 
-### Build Command Flags (`/sc:build`)
-| Flag | Purpose | Values |
+### ビルドコマンドフラグ (`/sc:build`)
+| フラグ | 目的 | 値 |
 |------|---------|--------|
-| `--type` | Build configuration | `dev`, `prod`, `test` |
-| `--clean` | Clean before build | Boolean |
-| `--optimize` | Enable optimizations | Boolean |
-| `--verbose` | Detailed output | Boolean |
+| `--type` | ビルド設定 | `dev`, `prod`, `test` |
+| `--clean` | ビルド前のクリーン | ブール値 |
+| `--optimize` | 最適化を有効化 | ブール値 |
+| `--verbose` | 詳細出力 | ブール値 |
 
-### Design Command Flags (`/sc:design`)
-| Flag | Purpose | Values |
+### 設計コマンドフラグ (`/sc:design`)
+| フラグ | 目的 | 値 |
 |------|---------|--------|
-| `--type` | Design target | `architecture`, `api`, `component`, `database` |
-| `--format` | Output format | `diagram`, `spec`, `code` |
+| `--type` | 設計対象 | `architecture`, `api`, `component`, `database` |
+| `--format` | 出力形式 | `diagram`, `spec`, `code` |
 
-### Explain Command Flags (`/sc:explain`)
-| Flag | Purpose | Values |
+### 説明コマンドフラグ (`/sc:explain`)
+| フラグ | 目的 | 値 |
 |------|---------|--------|
-| `--level` | Complexity level | `basic`, `intermediate`, `advanced` |
-| `--format` | Explanation style | `text`, `examples`, `interactive` |
-| `--context` | Domain context | Any domain (e.g., `react`, `security`) |
+| `--level` | 複雑さレベル | `basic`, `intermediate`, `advanced` |
+| `--format` | 説明スタイル | `text`, `examples`, `interactive` |
+| `--context` | ドメインコンテキスト | 任意のドメイン (例: `react`, `security`) |
 
-### Improve Command Flags (`/sc:improve`)
-| Flag | Purpose | Values |
+### 改善コマンドフラグ (`/sc:improve`)
+| フラグ | 目的 | 値 |
 |------|---------|--------|
-| `--type` | Improvement focus | `quality`, `performance`, `maintainability`, `style`, `security` |
-| `--safe` | Conservative approach | Boolean |
-| `--interactive` | User guidance | Boolean |
-| `--preview` | Show without executing | Boolean |
+| `--type` | 改善の焦点 | `quality`, `performance`, `maintainability`, `style`, `security` |
+| `--safe` | 保守的なアプローチ | ブール値 |
+| `--interactive` | ユーザーガイダンス | ブール値 |
+| `--preview` | 実行せずに表示 | ブール値 |
 
 ### Task Command Flags (`/sc:task`)
 | Flag | Purpose | Values |
@@ -181,90 +181,90 @@
 
 ## Common Usage Patterns
 
-### Frontend Development
+### フロントエンド開発
 ```bash
-/sc:implement "responsive dashboard" --magic --c7
-/sc:design component-library --type component --format code
+/sc:implement "レスポンシブダッシュボード" --magic --c7
+/sc:design コンポーネントライブラリ --type component --format code
 /sc:test ui-components/ --magic --play
 /sc:improve legacy-ui/ --magic --morph --validate
 ```
 
-### Backend Development
+### バックエンド開発
 ```bash
 /sc:analyze api/ --focus performance --seq --think
-/sc:design payment-api --type api --format spec
-/sc:troubleshoot "API timeout" --type performance --trace
-/sc:improve auth-service --type security --validate
+/sc:design 決済API --type api --format spec
+/sc:troubleshoot "APIタイムアウト" --type performance --trace
+/sc:improve 認証サービス --type security --validate
 ```
 
-### Large Projects
+### 大規模プロジェクト
 ```bash
 /sc:analyze . --ultrathink --all-mcp --safe-mode
-/sc:workflow enterprise-system --strategy enterprise --depth deep
+/sc:workflow エンタープライズシステム --strategy enterprise --depth deep
 /sc:cleanup . --type all --safe --interactive
-/sc:estimate "migrate to microservices" --type complexity --breakdown
+/sc:estimate "マイクロサービスに移行" --type complexity --breakdown
 ```
 
-### Quality & Maintenance
+### 品質とメンテナンス
 ```bash
 /sc:improve src/ --type quality --safe --interactive
-/sc:cleanup imports --type imports --preview
+/sc:cleanup インポート --type imports --preview
 /sc:reflect --type completion --validate
 /sc:git commit --smart-commit
 ```
 
 ## Flag Interactions
 
-### Compatible Combinations
-- `--think` + `--c7`: Analysis with documentation
-- `--magic` + `--play`: UI generation with testing
-- `--serena` + `--morph`: Project memory with transformations
-- `--safe-mode` + `--validate`: Maximum safety
-- `--loop` + `--validate`: Iterative improvement with validation
+### 互換性のある組み合わせ
+- `--think` + `--c7`: ドキュメント付き分析
+- `--magic` + `--play`: テスト付きUI生成
+- `--serena` + `--morph`: 変換付きプロジェクトメモリ
+- `--safe-mode` + `--validate`: 最大限の安全性
+- `--loop` + `--validate`: 検証付き反復改善
 
-### Conflicting Flags
-- `--all-mcp` vs individual MCP flags (use one or the other)
-- `--no-mcp` vs any MCP flags (--no-mcp wins)
-- `--safe` vs `--aggressive` (cleanup intensity)
-- `--quiet` vs `--verbose` (output level)
+### 競合するフラグ
+- `--all-mcp` vs 個別MCPフラグ (どちらか一方を使用)
+- `--no-mcp` vs 任意のMCPフラグ (--no-mcpが勝つ)
+- `--safe` vs `--aggressive` (クリーンアップの強度)
+- `--quiet` vs `--verbose` (出力レベル)
 
-### Auto-Enabling Relationships
-- `--safe-mode` auto-enables `--uc` and `--validate`
-- `--ultrathink` auto-enables all MCP servers
-- `--think-hard` auto-enables `--seq` + `--c7`
-- `--magic` triggers UI-focused agents
+### 自動有効化関係
+- `--safe-mode` が `--uc` と `--validate` を自動有効化
+- `--ultrathink` がすべてのMCPサーバーを自動有効化
+- `--think-hard` が `--seq` + `--c7` を自動有効化
+- `--magic` がUI特化エージェントをトリガー
 
 ## Troubleshooting Flags
 
-### Common Issues
-- **Too many tools**: Use `--no-mcp` to test with native tools only
-- **Operation too slow**: Add `--uc` to compress output
-- **Validation blocking**: Use `--validate` instead of `--safe-mode` in development
-- **Context pressure**: Auto-activates `--token-efficient` at >75% usage
+### 一般的な問題
+- **ツールが多すぎる**: ネイティブツールのみでテストするには `--no-mcp` を使用
+- **操作が遅すぎる**: 出力を圧縮するには `--uc` を追加
+- **検証がブロックしている**: 開発時は `--safe-mode` の代わりに `--validate` を使用
+- **コンテキスト圧迫**: 使用率75%超で `--token-efficient` が自動活性化
 
-### Debug Flags
+### デバッグフラグ
 ```bash
-/sc:analyze . --verbose                      # Shows decision logic and flag activation
-/sc:select-tool "operation" --explain        # Explains tool selection process
-/sc:reflect --type session --analyze         # Reviews current session decisions
+/sc:analyze . --verbose                      # 決定ロジックとフラグ活性化を表示
+/sc:select-tool "操作" --explain        # ツール選択プロセスを説明
+/sc:reflect --type session --analyze         # 現在のセッションの決定をレビュー
 ```
 
-### Quick Fixes
+### クイックフィックス
 ```bash
-/sc:analyze . --help                         # Shows available flags for command
-/sc:analyze . --no-mcp                       # Native execution only
-/sc:cleanup . --preview                      # Shows what would be cleaned
+/sc:analyze . --help                         # コマンドで利用可能なフラグを表示
+/sc:analyze . --no-mcp                       # ネイティブ実行のみ
+/sc:cleanup . --preview                      # クリーンアップされる内容を表示
 ```
 
 ## Flag Priority Rules
 
-1. **Safety First**: `--safe-mode` > `--validate` > optimization flags
-2. **Explicit Override**: User flags > auto-detection
-3. **Depth Hierarchy**: `--ultrathink` > `--think-hard` > `--think`  
-4. **MCP Control**: `--no-mcp` overrides all individual MCP flags
-5. **Scope Precedence**: system > project > module > file
+1. **安全第一**: `--safe-mode` > `--validate` > 最適化フラグ
+2. **明示的オーバーライド**: ユーザーフラグ > 自動検出
+3. **深度階層**: `--ultrathink` > `--think-hard` > `--think`  
+4. **MCP制御**: `--no-mcp` がすべての個別MCPフラグをオーバーライド
+5. **スコープ優先度**: system > project > module > file
 
 ## Related Resources
-- [Commands Guide](commands.md) - Commands that use these flags
-- [MCP Servers Guide](mcp-servers.md) - Understanding MCP flag activation
-- [Session Management](session-management.md) - Using flags with persistent sessions
+- [コマンドガイド](commands.md) - これらのフラグを使用するコマンド
+- [MCPサーバーガイド](mcp-servers.md) - MCPフラグ活性化の理解
+- [セッション管理](session-management.md) - 永続セッションでのフラグ使用

@@ -8,26 +8,26 @@ SuperClaudeは、Claude Codeが専門知識のために呼び出すことがで�
 このガイドを使用する前に、エージェント選択が機能することを確認してください:
 
 ```bash
-# Test manual agent invocation
-@agent-python-expert "explain decorators"
-# Example behavior: Python expert responds with detailed explanation
+# 手動エージェント呼び出しのテスト
+@agent-python-expert "デコレータについて説明してください"
+# 期待される動作: Pythonエキスパートが詳細な説明で応答
 
-# Test security agent auto-activation
-/sc:implement "JWT authentication"
-# Example behavior: Security engineer should activate automatically
+# セキュリティエージェントの自動活性化テスト
+/sc:implement "JWT認証"
+# 期待される動作: セキュリティエンジニアが自動的に活性化
 
-# Test frontend agent auto-activation
-/sc:implement "responsive navigation component"  
-# Example behavior: Frontend architect + Magic MCP should activate
+# フロントエンドエージェントの自動活性化テスト
+/sc:implement "レスポンシブナビゲーションコンポーネント"  
+# 期待される動作: フロントエンドアーキテクト + Magic MCPが活性化
 
-# Test systematic analysis
-/sc:troubleshoot "slow API performance"
-# Example behavior: Root-cause analyst + performance engineer activation
+# 体系的分析のテスト
+/sc:troubleshoot "API パフォーマンスが遅い"
+# 期待される動作: 根本原因分析エージェント + パフォーマンスエンジニアが活性化
 
-# Test combining manual and auto
+# 手動と自動の組み合わせテスト
 /sc:analyze src/
-@agent-refactoring-expert "suggest improvements"
-# Example behavior: Analysis followed by refactoring suggestions
+@agent-refactoring-expert "改善案を提案してください"
+# 期待される動作: 分析に続いてリファクタリング提案
 ```
 
 **テストが失敗した場合**: `~/.claude/agents/`にエージェントファイルが存在するか確認するか、Claude Codeセッションを再起動してください
@@ -43,26 +43,26 @@ SuperClaudeは、Claude Codeが専門知識のために呼び出すことがで�
 
 #### 1. @agent-プレフィックスによる手動呼び出し
 ```bash
-# Directly invoke a specific agent
-@agent-security "review authentication implementation"
-@agent-frontend "design responsive navigation"
-@agent-architect "plan microservices migration"
+# 特定のエージェントを直接呼び出す
+@agent-security "認証実装をレビューしてください"
+@agent-frontend "レスポンシブナビゲーションを設計してください"
+@agent-architect "マイクロサービス移行を計画してください"
 ```
 
 #### 2. 自動活性化（動作ルーティング）
 「自動活性化」とは、Claude Codeがあなたのリクエスト内のキーワードとパターンに基づいて適切なコンテキストを関与させるために動作指示を読み取ることを意味します。SuperClaudeは、Claudeが最も適切な専門家にルーティングするために従う動作ガイドラインを提供します。
 
-> **📝 How Agent "Auto-Activation" Works**: 
-> Agent activation isn't automatic system logic - it's behavioral instructions in context files. 
-> When documentation says agents "auto-activate", it means Claude Code reads instructions to engage 
-> specific domain expertise based on keywords and patterns in your request. This creates the 
-> experience of intelligent routing while being transparent about the underlying mechanism.
+> **📝 エージェントの「自動活性化」の仕組み**: 
+> エージェントの活性化は自動システムロジックではなく、コンテキストファイル内の行動指示です。
+> ドキュメントでエージェントが「自動活性化」すると記載されている場合、Claude Codeがリクエスト内の
+> キーワードとパターンに基づいて特定のドメイン専門知識を適用するための指示を読み取ることを意味します。
+> これにより、基盤となるメカニズムについて透明性を保ちながら、インテリジェントなルーティングの体験を提供します。
 
 ```bash
-# These commands auto-activate relevant agents
-/sc:implement "JWT authentication"  # → security-engineer auto-activates
-/sc:design "React dashboard"        # → frontend-architect auto-activates
-/sc:troubleshoot "memory leak"      # → performance-engineer auto-activates
+# これらのコマンドは関連エージェントを自動活性化します
+/sc:implement "JWT認証"             # → セキュリティエンジニアが自動活性化
+/sc:design "Reactダッシュボード"     # → フロントエンドアーキテクトが自動活性化
+/sc:troubleshoot "メモリリーク"      # → パフォーマンスエンジニアが自動活性化
 ```
 
 **MCPサーバー**は、Context7（ドキュメント）、Sequential（分析）、Magic（UI）、Playwright（テスト）、Morphllm（コード変換）などの専門ツールを通じて強化された機能を提供します。
@@ -72,65 +72,65 @@ SuperClaudeは、Claude Codeが専門知識のために呼び出すことがで�
 ### エージェント選択ルール
 
 **優先階層:**
-1. **Manual Override** - @agent-[name] takes precedence over auto-activation
-2. **Keywords** - Direct domain terminology triggers primary agents
-3. **File Types** - Extensions activate language/framework specialists  
-4. **Complexity** - Multi-step tasks engage coordination agents
-5. **Context** - Related concepts trigger complementary agents
+1. **手動オーバーライド** - @agent-[名前] が自動活性化より優先されます
+2. **キーワード** - ドメイン固有の用語が主要エージェントをトリガーします
+3. **ファイルタイプ** - 拡張子が言語/フレームワークの専門家を活性化します  
+4. **複雑性** - 複数ステップのタスクが調整エージェントを起動します
+5. **コンテキスト** - 関連概念が補完的なエージェントをトリガーします
 
-**Conflict Resolution:**
-- Manual invocation → Specified agent takes priority
-- Multiple matches → Multi-agent coordination
-- Unclear context → Requirements analyst activation
-- High complexity → System architect oversight
-- Quality concerns → Automatic QA agent inclusion
+**競合解決:**
+- 手動呼び出し → 指定されたエージェントが優先
+- 複数の一致 → マルチエージェント調整
+- 不明確なコンテキスト → 要件アナリストが活性化
+- 高い複雑性 → システムアーキテクトの監督
+- 品質の懸念 → 自動的にQAエージェントを含める
 
-**Selection Decision Tree:**
+**選択決定ツリー:**
 ```
-Task Analysis →
-├─ Manual @agent-? → Use specified agent
-├─ Single Domain? → Activate primary agent
-├─ Multi-Domain? → Coordinate specialist agents  
-├─ Complex System? → Add system-architect oversight
-├─ Quality Critical? → Include security + performance + quality agents
-└─ Learning Focus? → Add learning-guide + technical-writer
+タスク分析 →
+├─ 手動 @agent-? → 指定エージェントを使用
+├─ 単一ドメイン? → 主要エージェントを活性化
+├─ マルチドメイン? → 専門エージェントを調整  
+├─ 複雑なシステム? → システムアーキテクトの監督を追加
+├─ 品質重視? → セキュリティ + パフォーマンス + 品質エージェントを含める
+└─ 学習重視? → 学習ガイド + テクニカルライターを追加
 ```
 
 ## Quick Start Examples
 
 ### Manual Agent Invocation
 ```bash
-# Explicitly call specific agents with @agent- prefix
-@agent-python-expert "optimize this data processing pipeline"
-@agent-quality-engineer "create comprehensive test suite"
-@agent-technical-writer "document this API with examples"
-@agent-socratic-mentor "explain this design pattern"
+# @agent- プレフィックスで特定のエージェントを明示的に呼び出す
+@agent-python-expert "このデータ処理パイプラインを最適化してください"
+@agent-quality-engineer "包括的なテストスイートを作成してください"
+@agent-technical-writer "このAPIを例付きでドキュメント化してください"
+@agent-socratic-mentor "このデザインパターンを説明してください"
 ```
 
 ### Automatic Agent Coordination
 ```bash
-# Commands that trigger auto-activation
-/sc:implement "JWT authentication with rate limiting"
-# → Triggers: security-engineer + backend-architect + quality-engineer
+# 自動活性化をトリガーするコマンド
+/sc:implement "レート制限付きJWT認証"
+# → トリガー: セキュリティエンジニア + バックエンドアーキテクト + 品質エンジニア
 
-/sc:design "accessible React dashboard with documentation"
-# → Triggers: frontend-architect + learning-guide + technical-writer  
+/sc:design "ドキュメント付きアクセシブルなReactダッシュボード"
+# → トリガー: フロントエンドアーキテクト + 学習ガイド + テクニカルライター  
 
-/sc:troubleshoot "slow deployment pipeline with intermittent failures"
-# → Triggers: devops-architect + performance-engineer + root-cause-analyst
+/sc:troubleshoot "断続的な障害を伴う遅いデプロイメントパイプライン"
+# → トリガー: DevOpsアーキテクト + パフォーマンスエンジニア + 根本原因アナリスト
 
-/sc:audit "payment processing security vulnerabilities"
-# → Triggers: security-engineer + quality-engineer + refactoring-expert
+/sc:audit "決済処理のセキュリティ脆弱性"
+# → トリガー: セキュリティエンジニア + 品質エンジニア + リファクタリングエキスパート
 ```
 
 ### Combining Manual and Auto Approaches
 ```bash
-# Start with command (auto-activation)
-/sc:implement "user profile system"
+# コマンドから開始（自動活性化）
+/sc:implement "ユーザープロファイルシステム"
 
-# Then explicitly add specialist review
-@agent-security "review the profile system for OWASP compliance"
-@agent-performance-engineer "optimize database queries"
+# その後、専門家レビューを明示的に追加
+@agent-security "プロファイルシステムのOWASP準拠をレビューしてください"
+@agent-performance-engineer "データベースクエリを最適化してください"
 ```
 
 ---
@@ -159,15 +159,15 @@ Task Analysis →
 2. **Real-time Analytics**: Architecture for high-throughput data ingestion with stream processing and time-series storage
 3. **Multi-tenant SaaS**: System design with tenant isolation, shared infrastructure, and horizontal scaling strategies
 
-### Success Criteria
-- [ ] System-level thinking evident in responses
-- [ ] Mentions service boundaries and integration patterns
-- [ ] Includes scalability and reliability considerations
-- [ ] Provides technology stack recommendations
+### 成功基準
+- [ ] レスポンスにシステムレベルの思考が明確に見られる
+- [ ] サービス境界と統合パターンに言及している
+- [ ] スケーラビリティと信頼性の考慮事項を含む
+- [ ] テクノロジースタックの推奨を提供している
 
-**Verify:** `/sc:design "microservices platform"` should activate system-architect  
-**Test:** Output should include service decomposition and integration patterns  
-**Check:** Should coordinate with devops-architect for infrastructure concerns
+**検証:** `/sc:design "マイクロサービスプラットフォーム"` でsystem-architectが活性化すること  
+**テスト:** 出力にサービス分解と統合パターンが含まれること  
+**確認:** インフラの懸念事項についてdevops-architectと調整すること
 
 **Works Best With**: devops-architect (infrastructure), performance-engineer (optimization), security-engineer (compliance)
 

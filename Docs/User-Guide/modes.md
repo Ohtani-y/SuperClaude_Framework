@@ -22,64 +22,64 @@
 
 **クイック例:**
 ```bash
-# Automatic activation examples
-/sc:brainstorm "mobile app"        # → Socratic discovery questions
-/sc:implement "auth system"        # → Multi-phase coordination  
-"--uc analyze large-codebase/"     # → Compressed symbol output
+# 自動活性化の例
+/sc:brainstorm "モバイルアプリ"        # → ソクラテス式発見質問
+/sc:implement "認証システム"        # → マルチフェーズ連携  
+"--uc analyze 大規模コードベース/"     # → 圧縮されたシンボル出力
 ```
 
 **手動フラグを使用する場合:**
 - 特定動作が必要: `--brainstorm`, `--introspect`, `--uc`
-- 学習/デバッグのための自動検出上書き
+- 学習/デバッグのための自動検出を上書き
 - 特定制約の最適化（メモリ、時間、明確性）
 
 ---
 
 ## Mode Details
 
-### 🧠 Brainstorming Mode - Interactive Discovery
+### 🧠 ブレインストーミングモード - インタラクティブ発見
 
-**Purpose**: Transform vague ideas into structured requirements through collaborative discovery.
+**目的**: 協力的な発見を通じて曖昧なアイデアを構造化された要件に変換します。
 
-**Auto-Activation Triggers:**
-- Vague project requests: "I want to build...", "Thinking about creating..."
-- Exploration keywords: brainstorm, explore, discuss, figure out, not sure
-- Uncertainty indicators: "maybe", "possibly", "could we"
-- Manual flags: `--brainstorm`, `--bs`
+**自動活性化トリガー:**
+- 曖昧なプロジェクトリクエスト: "作りたい...", "作成を考えている..."
+- 探索キーワード: brainstorm, explore, discuss, figure out, よくわからない
+- 不確実性指標: "たぶん", "おそらく", "できるでしょうか"
+- 手動フラグ: `--brainstorm`, `--bs`
 
-**Behavioral Changes:**
-- **Socratic Questioning**: Asks probing questions to uncover hidden requirements
-- **Non-Presumptive Approach**: Avoids assumptions, lets you guide discovery direction
-- **Collaborative Partnership**: Works with you in exploration rather than directive consultation
-- **Requirement Synthesis**: Converts insights into structured technical briefs
-- **Cross-Session Memory**: Maintains discovery context for follow-up discussions
+**行動変化:**
+- **ソクラテス式質問**: 隠された要件を明らかにするための調査質問を行う
+- **非推定アプローチ**: 推測を避け、発見の方向をユーザーに導かせる
+- **協力的パートナーシップ**: 指示的コンサルティングではなく、探索で協力する
+- **要件統合**: 洞察を構造化された技術ブリーフに変換する
+- **クロスセッションメモリ**: フォローアップ討論のための発見コンテキストを維持する
 
-**Example Experience:**
+**体験例:**
 ```
-Standard Approach: "I'll build a user authentication system with JWT tokens..."
-Brainstorming Approach: 
-"🤔 Let's explore this together:
- - What specific user problems does auth solve for your app?
- - Who are your users and what's their technical comfort level?  
- - Any existing systems or social logins to integrate with?
- - What security/compliance requirements do you have?
- 📝 Outcome: Detailed auth requirements brief ready for implementation"
+標準アプローチ: "JWTトークンでユーザー認証システムを構築します..."
+ブレインストーミングアプローチ: 
+"🤔 一緒に探索してみましょう:
+ - 認証がアプリのために解決する具体的なユーザー問題は何ですか？
+ - ユーザーは誰で、技術的な使いやすさのレベルはどうですか？  
+ - 統合する既存システムやソーシャルログインはありますか？
+ - どのようなセキュリティ/コンプライアンス要件がありますか？
+ 📝 結果: 実装準備ができた詳細な認証要件ブリーフ"
 ```
 
-#### Success Criteria  
-- [ ] Responds with questions instead of immediate solutions
-- [ ] Questions explore user needs, technical constraints, and business goals
-- [ ] Maintains collaborative tone throughout discovery process
-- [ ] Produces structured requirements or technical brief as outcome
+#### 成功基準  
+- [ ] 即座の解決策ではなく質問で応答する
+- [ ] 質問がユーザーのニーズ、技術制約、ビジネス目標を探索する
+- [ ] 発見プロセス全体を通して協力的なトーンを維持する
+- [ ] 結果として構造化された要件や技術ブリーフを作成する
 
-**Verify:** `/sc:brainstorm "web app"` should ask about users, features, technology  
-**Test:** Vague requests should trigger discovery questions, not assumptions  
-**Check:** Mode should persist across follow-up questions in same conversation
+**検証:** `/sc:brainstorm "Webアプリ"` でユーザー、機能、技術について質問すること  
+**テスト:** 曖昧なリクエストは推測ではなく発見質問をトリガーすること  
+**チェック:** 同じ会話内でのフォローアップ質問全体でモードが持続すること
 
-**Works Best With:**
-- **→ Task Management**: Requirements discovery → systematic implementation planning
-- **→ Orchestration**: Requirements clarity → optimal tool selection for implementation
-- **Manual Override**: Use `--brainstorm` to force discovery even for "clear" requirements
+**最適な組み合わせ:**
+- **→ タスク管理**: 要件発見 → 体系的な実装計画
+- **→ オーケストレーション**: 要件の明確化 → 実装のための最適ツール選択
+- **手動オーバーライド**: "明確な"要件に対しても発見を強制するには `--brainstorm` を使用
 
 ---
 
@@ -574,31 +574,31 @@ SuperClaude's 5 behavioral modes create an **intelligent adaptation system** tha
 
 ---
 
-## Related Guides
+## 関連ガイド
 
-**Learning Progression:**
+**学習の進行:**
 
-**🌱 Essential (Week 1)**
-- [Quick Start Guide](../Getting-Started/quick-start.md) - Mode activation examples
-- [Commands Reference](commands.md) - Commands automatically activate modes
-- [Installation Guide](../Getting-Started/installation.md) - Set up behavioral modes
+**🌱 基本 (第1週)**
+- [クイックスタートガイド](../Getting-Started/quick-start.md) - モード活性化の例
+- [コマンドリファレンス](commands.md) - コマンドが自動的にモードを活性化
+- [インストールガイド](../Getting-Started/installation.md) - 行動モードのセットアップ
 
-**🌿 Intermediate (Week 2-3)**  
-- [Agents Guide](agents.md) - How modes coordinate with specialists
-- [Flags Guide](flags.md) - Manual mode control and optimization
-- [Examples Cookbook](../Reference/examples-cookbook.md) - Mode patterns in practice
+**🌿 中級 (第2-3週)**  
+- [エージェントガイド](agents.md) - モードが専門家とどう連携するか
+- [フラグガイド](flags.md) - 手動モード制御と最適化
+- [例のクックブック](../Reference/examples-cookbook.md) - 実践でのモードパターン
 
-**🌲 Advanced (Month 2+)**
-- [MCP Servers](mcp-servers.md) - Mode integration with enhanced capabilities
-- [Session Management](session-management.md) - Task Management mode workflows  
-- [Getting Started](../Getting-Started/quick-start.md) - Mode usage patterns
+**🌲 上級 (2ヶ月目以降)**
+- [MCPサーバー](mcp-servers.md) - 強化機能とのモード統合
+- [セッション管理](session-management.md) - タスク管理モードのワークフロー  
+- [はじめに](../Getting-Started/quick-start.md) - モード使用パターン
 
-**🔧 Expert**
-- [Technical Architecture](../Developer-Guide/technical-architecture.md) - Mode implementation details
-- [Contributing Code](../Developer-Guide/contributing-code.md) - Extend mode capabilities
+**🔧 エキスパート**
+- [技術アーキテクチャ](../Developer-Guide/technical-architecture.md) - モード実装の詳細
+- [コード貢献](../Developer-Guide/contributing-code.md) - モード機能の拡張
 
-**Mode-Specific Guides:**
-- **Brainstorming**: [Requirements Discovery Patterns](../Reference/examples-cookbook.md#requirements)
-- **Task Management**: [Session Management Guide](session-management.md)
-- **Orchestration**: [MCP Servers Guide](mcp-servers.md)
-- **Token Efficiency**: [Command Fundamentals](commands.md#token-efficiency)
+**モード固有のガイド:**
+- **ブレインストーミング**: [要件発見パターン](../Reference/examples-cookbook.md#requirements)
+- **タスク管理**: [セッション管理ガイド](session-management.md)
+- **オーケストレーション**: [MCPサーバーガイド](mcp-servers.md)
+- **トークン効率**: [コマンド基礎](commands.md#token-efficiency)
