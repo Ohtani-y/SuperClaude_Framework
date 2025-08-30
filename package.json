@@ -48,5 +48,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "preferGlobal": true,
-  "type": "commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "@bifrost_inc/superclaude": "file:temp_repo"
+  }
 }
